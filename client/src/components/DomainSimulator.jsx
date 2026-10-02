@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 export default function DomainSimulator({ onSelectProduct }) {
-  const [selectedDomain, setSelectedDomain] = useState('devorme.com');
+  const [selectedDomain, setSelectedDomain] = useState('devorme.site');
 
   const domainData = {
-    'devorme.com': {
-      title: 'Devorme Technologies Inc. (Website Induk)',
-      desc: 'Menampilkan identitas perusahaan induk, portofolio produk, dan mengarahkan klien ke domain khusus.',
-      db: 'devorme_master'
+    'devorme.site': {
+      title: 'Devorme Technologies Inc. (Website Utama)',
+      desc: 'Portal utama perusahaan yang menampilkan portofolio produk dan mengarahkan pengguna ke masing-masing subdomain produk.',
+      db: 'devorme'
     },
-    'flowdesk.id': {
-      title: 'FlowDesk ERP Portal (Domain Khusus)',
-      desc: 'Website mandiri untuk manajemen supply chain, invoice korporasi, dan inventory gudang.',
-      db: 'schema_flowdesk_prod'
+    'e-sekolah.devorme.site': {
+      title: 'E-Sekolah Cloud (Subdomain Produk 1)',
+      desc: 'Website khusus operasional sekolah: presensi guru & siswa, kenaikan kelas, penilaian, dan jadwal pelajaran.',
+      db: 'e_sekolah_db'
     },
-    'paynexus.com': {
-      title: 'PayNexus Gateway (Domain Khusus)',
-      desc: 'Platform pembayaran digital, faktur otomatis, dan QRIS dinamis berenkripsi tinggi.',
-      db: 'schema_paynexus_secure'
+    'dis.devorme.site': {
+      title: 'DIS Smart System (Subdomain Produk 2)',
+      desc: 'Platform Digital Information System & Layanan Publik terpadu dengan pelaporan realtime.',
+      db: 'dis_db'
     }
   };
 
@@ -32,9 +32,9 @@ export default function DomainSimulator({ onSelectProduct }) {
           onChange={(e) => setSelectedDomain(e.target.value)}
           style={{ background: 'var(--bg-tertiary)', color: '#fff', border: '1px solid var(--border-subtle)', padding: '8px 14px', borderRadius: '8px', outline: 'none' }}
         >
-          <option value="devorme.com">Website Utama (devorme.com)</option>
-          <option value="flowdesk.id">Produk 1: FlowDesk (flowdesk.id)</option>
-          <option value="paynexus.com">Produk 2: PayNexus (paynexus.com)</option>
+          <option value="devorme.site">Website Utama (devorme.site)</option>
+          <option value="e-sekolah.devorme.site">Produk 1: E-Sekolah (e-sekolah.devorme.site)</option>
+          <option value="dis.devorme.site">Produk 2: DIS System (dis.devorme.site)</option>
         </select>
       </div>
 

@@ -11,49 +11,36 @@ VALUES
   ('a1b2c3d4-e5f6-7890-abcd-ef1234567890', 'Arya Superadmin', 'admin@devorme.com', '$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36WQmG6W6df/6qVz4E5s6vy', 'superadmin', 'active')
 ON DUPLICATE KEY UPDATE `email` = VALUES(`email`);
 
--- 2. Insert Data Produk Ekosistem
+-- 2. Insert Data Produk Ekosistem (Subdomain devorme.site)
 INSERT INTO `products` (`id`, `slug`, `name`, `domain`, `category`, `tagline`, `description`, `db_schema`, `api_endpoint`, `status`, `icon_bg`)
 VALUES 
   (
     1,
-    'flowdesk', 
-    'FlowDesk ERP', 
-    'flowdesk.id', 
-    'Enterprise & Supply Chain', 
-    'Sistem ERP & Manajemen Operasional Gudang Otomatis', 
-    'FlowDesk beroperasi di domain mandiri https://flowdesk.id untuk kemudahan branding B2B enterprise.', 
-    'schema_flowdesk_prod', 
-    'https://api.devorme.com/v1/flowdesk',
+    'e-sekolah', 
+    'E-Sekolah Cloud', 
+    'e-sekolah.devorme.site', 
+    'Pendidikan & Akademik', 
+    'Sistem Informasi Manajemen Sekolah, Presensi Guru & Siswa, serta Penilaian Terpadu', 
+    'E-Sekolah berjalan di domain https://e-sekolah.devorme.site untuk digitalisasi sekolah, rekap presensi guru/siswa, jadwal pelajaran, dan kenaikan kelas.', 
+    'e_sekolah_db', 
+    'https://api.devorme.site/v1/e-sekolah',
     'active', 
     'linear-gradient(135deg, #3b82f6, #06b6d4)'
   ),
   (
     2,
-    'paynexus', 
-    'PayNexus Gateway', 
-    'paynexus.com', 
-    'Fintech & Billing', 
-    'Payment Gateway Omnichannel, QRIS Dinamis & Virtual Account', 
-    'Berjalan di domain https://paynexus.com dengan enkripsi SSL tingkat tinggi khusus transaksi keuangan.', 
-    'schema_paynexus_secure', 
-    'https://api.devorme.com/v1/payments',
+    'dis', 
+    'DIS Smart System', 
+    'dis.devorme.site', 
+    'Enterprise & Public Service', 
+    'Digital Information System & Layanan Publik Terpadu', 
+    'Platform DIS beroperasi di domain https://dis.devorme.site dengan enkripsi data dan pelaporan terintegrasi.', 
+    'dis_db', 
+    'https://api.devorme.site/v1/dis',
     'active', 
     'linear-gradient(135deg, #a855f7, #ec4899)'
-  ),
-  (
-    3,
-    'pulseai', 
-    'PulseAI Analytics', 
-    'pulseai.io', 
-    'AI & Smart Analytics', 
-    'Engine Prediksi Bisnis & Deteksi Anomali Penjualan Realtime', 
-    'Mengakses domain https://pulseai.io membawa tim eksekutif ke ruang kendali visual analitik.', 
-    'schema_central_analytics', 
-    'https://api.devorme.com/v1/ai-engine',
-    'active', 
-    'linear-gradient(135deg, #10b981, #059669)'
   )
-ON DUPLICATE KEY UPDATE `slug` = VALUES(`slug`);
+ON DUPLICATE KEY UPDATE `slug` = VALUES(`slug`), `domain` = VALUES(`domain`);
 
 -- 3. Insert Fitur-Fitur Produk
 INSERT INTO `product_features` (`product_id`, `title`, `description`, `is_highlighted`, `sort_order`)

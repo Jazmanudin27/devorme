@@ -140,15 +140,15 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture }) 
                   />
                 </div>
                 <div>
-                  <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Nama Domain *</label>
-                  <input 
-                    type="text" 
-                    placeholder="cth: clouddesk.id" 
-                    value={form.domain}
-                    onChange={e => setForm({ ...form, domain: e.target.value.toLowerCase() })}
-                    style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
-                    required
-                  />
+                    <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Nama Subdomain *</label>
+                    <input 
+                      type="text" 
+                      placeholder="cth: kasir.devorme.site" 
+                      value={form.domain}
+                      onChange={e => setForm({ ...form, domain: e.target.value.toLowerCase() })}
+                      style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
+                      required
+                    />
                 </div>
               </div>
 

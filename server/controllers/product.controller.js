@@ -8,65 +8,44 @@ const db = require('../config/db');
 let mockProducts = [
   {
     id: 1,
-    slug: "flowdesk",
-    name: "FlowDesk ERP",
-    domain: "flowdesk.id",
-    category: "Enterprise & Supply Chain",
-    tagline: "Sistem ERP & Manajemen Operasional Gudang Otomatis",
-    description: "FlowDesk beroperasi di domain mandiri https://flowdesk.id untuk kemudahan branding B2B enterprise.",
-    db_schema: "schema_flowdesk_prod",
-    api_endpoint: "https://api.devorme.com/v1/flowdesk",
+    slug: "e-sekolah",
+    name: "E-Sekolah Cloud",
+    domain: "e-sekolah.devorme.site",
+    category: "Pendidikan & Akademik",
+    tagline: "Sistem Informasi Manajemen Sekolah, Presensi Guru & Siswa, serta Penilaian",
+    description: "E-Sekolah beroperasi di domain https://e-sekolah.devorme.site untuk digitalisasi sekolah, rekap presensi guru/siswa, jadwal pelajaran, dan kenaikan kelas.",
+    db_schema: "e_sekolah_db",
+    api_endpoint: "https://api.devorme.site/v1/e-sekolah",
     status: "active",
     icon_bg: "linear-gradient(135deg, #3b82f6, #06b6d4)",
     features: [
-      "Multi-warehouse Tracking",
-      "Multi-Departemen Approval",
-      "Central Database Sync"
+      "Presensi Guru & Siswa Realtime",
+      "Manajemen Kenaikan Kelas & Alumni",
+      "Input Nilai & Rapor Otomatis"
     ],
     pricingPlans: [
-      { name: "Starter ERP", price: "Rp 1.500.000/bln", userLimit: "15 Pengguna" },
-      { name: "Enterprise ERP", price: "Rp 4.900.000/bln", userLimit: "Unlimited" }
+      { name: "Sekolah Reguler", price: "Rp 750.000/bln", userLimit: "1000 Siswa" }
     ]
   },
   {
     id: 2,
-    slug: "paynexus",
-    name: "PayNexus Gateway",
-    domain: "paynexus.com",
-    category: "Fintech & Billing",
-    tagline: "Payment Gateway Omnichannel, QRIS Dinamis & Virtual Account",
-    description: "Berjalan di domain https://paynexus.com dengan enkripsi SSL tingkat tinggi khusus transaksi keuangan.",
-    db_schema: "schema_paynexus_secure",
-    api_endpoint: "https://api.devorme.com/v1/payments",
+    slug: "dis",
+    name: "DIS Smart System",
+    domain: "dis.devorme.site",
+    category: "Enterprise & Public Service",
+    tagline: "Digital Information System & Layanan Publik Terpadu",
+    description: "Platform DIS beroperasi di domain https://dis.devorme.site dengan enkripsi data dan pelaporan terintegrasi.",
+    db_schema: "dis_db",
+    api_endpoint: "https://api.devorme.site/v1/dis",
     status: "active",
     icon_bg: "linear-gradient(135deg, #a855f7, #ec4899)",
     features: [
-      "QRIS Dinamis Otomatis",
-      "Settlement H+0",
-      "Enkripsi Data Bank-Grade"
+      "Manajemen Dokumen Digital",
+      "Laporan Realtime Terpadu",
+      "Integrasi Database Server Devorme"
     ],
     pricingPlans: [
-      { name: "Merchant Basic", price: "0.7% per trx", userLimit: "Unlimited" }
-    ]
-  },
-  {
-    id: 3,
-    slug: "pulseai",
-    name: "PulseAI Analytics",
-    domain: "pulseai.io",
-    category: "AI & Smart Analytics",
-    tagline: "Engine Prediksi Bisnis & Deteksi Anomali Penjualan Realtime",
-    description: "Mengakses domain https://pulseai.io membawa tim eksekutif ke ruang kendali visual analitik.",
-    db_schema: "schema_central_analytics",
-    api_endpoint: "https://api.devorme.com/v1/ai-engine",
-    status: "active",
-    icon_bg: "linear-gradient(135deg, #10b981, #059669)",
-    features: [
-      "AI Sales Prediction",
-      "Fraud Anomaly Detection"
-    ],
-    pricingPlans: [
-      { name: "Pro Analytics", price: "Rp 2.900.000/bln", userLimit: "5 Akun" }
+      { name: "Enterprise DIS", price: "Custom", userLimit: "Unlimited" }
     ]
   }
 ];
