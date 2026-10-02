@@ -67,7 +67,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
 
         {/* Features Grid */}
         <h3 style={{ fontSize: '1.5rem', marginBottom: '20px' }}>Fitur Unggulan {product.name}</h3>
-        <div style={{ display: 'grid', gridTemplate-columns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '60px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '60px' }}>
           {(product.features || [
             "Manajemen data operasional realtime",
             "Autentikasi terpusat Single Sign-On (SSO)",
