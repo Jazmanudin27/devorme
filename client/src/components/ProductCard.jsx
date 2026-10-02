@@ -1,10 +1,12 @@
 import React from 'react';
 
 export default function ProductCard({ product, onSelectProduct }) {
+  const isEsekolah = product.slug === 'e-sekolah';
+
   return (
     <article className="product-card">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
-        <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', color: 'var(--text-dim)', fontWeight: 600 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+        <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', color: 'var(--text-dim)', fontWeight: 700, letterSpacing: '0.5px' }}>
           {product.category}
         </span>
         <span className="domain-pill">
@@ -12,26 +14,57 @@ export default function ProductCard({ product, onSelectProduct }) {
         </span>
       </div>
 
-      <h3 style={{ fontSize: '1.4rem', marginBottom: '8px', color: '#ffffff' }}>
+      <div className="product-icon-wrapper" style={{ background: product.icon_bg || 'linear-gradient(135deg, #4f46e5, #0284c7)' }}>
+        {isEsekolah ? (
+          <span style={{ fontSize: '1.6rem' }}>🎓</span>
+        ) : (
+          <span style={{ fontSize: '1.6rem' }}>🏛️</span>
+        )}
+      </div>
+
+      <h3 style={{ fontSize: '1.45rem', marginBottom: '8px', color: '#0f172a' }}>
         {product.name}
       </h3>
-      <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: '20px', flex: 1 }}>
+      
+      <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6, flex: 1 }}>
         {product.tagline}
       </p>
 
-      <div style={{ background: 'rgba(255,255,255,0.03)', padding: '10px 14px', borderRadius: '8px', marginBottom: '20px', fontSize: '0.8rem', color: '#cbd5e1' }}>
-        <span style={{ color: 'var(--text-dim)' }}>Database Server: </span>
-        <code style={{ color: '#38bdf8' }}>{product.dbSchema}</code>
-      </div>
+      {/* Feature Bullets */}
+      <ul className="product-features-list">
+        <li>
+          <span className="check-icon">✓</span>
+          <span>Database MySQL: <strong>{product.db_schema || 'devorme'}</strong></span>
+        </li>
+        <li>
+          <span className="check-icon">✓</span>
+          <span>Dukungan Aplikasi Mobile Android Ready</span>
+        </li>
+        <li>
+          <span className="check-icon">✓</span>
+          <span>Subdomain Khusus <strong>{product.domain}</strong></span>
+        </li>
+      </ul>
 
-      <button 
-        className="btn btn-primary"
-        style={{ width: '100%', padding: '11px', fontSize: '0.9rem' }}
-        onClick={() => onSelectProduct(product.id)}
-      >
-        <span>Buka Website https://{product.domain}</span>
-        <span>→</span>
-      </button>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <a 
+          href={`https://${product.domain}`} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+          style={{ flex: 1, padding: '11px', fontSize: '0.88rem' }}
+        >
+          <span>Kunjungi Website Produk</span>
+          <span>↗</span>
+        </a>
+        <button 
+          className="btn btn-secondary"
+          style={{ padding: '11px 16px', fontSize: '0.88rem' }}
+          onClick={() => onSelectProduct(product.id || product.slug)}
+        >
+          Detail
+        </button>
+      </div>
     </article>
   );
 }

@@ -3,190 +3,166 @@ import ProductCard from '../components/ProductCard';
 import DomainSimulator from '../components/DomainSimulator';
 import { productService } from '../api/productService';
 
-export default function HomeView({ onSelectProduct, onNavigateToArchitecture }) {
+export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showAddModal, setShowAddModal] = useState(false);
-
-  // Form State
-  const [form, setForm] = useState({
-    name: '',
-    slug: '',
-    domain: '',
-    category: 'Enterprise SaaS',
-    tagline: '',
-    db_schema: ''
-  });
-
-  const loadData = async () => {
-    setLoading(true);
-    const data = await productService.getAllProducts();
-    setProducts(data);
-    setLoading(false);
-  };
 
   useEffect(() => {
+    async function loadData() {
+      const data = await productService.getAllProducts();
+      setProducts(data);
+      setLoading(false);
+    }
     loadData();
   }, []);
 
-  const handleCreateProduct = async (e) => {
-    e.preventDefault();
-    if (!form.name || !form.slug || !form.domain || !form.db_schema) {
-      alert('Mohon lengkapi semua field yang wajib diisi.');
-      return;
-    }
-
-    const res = await productService.createProduct(form);
-    if (res && res.success) {
-      alert(`Sukses: Produk ${form.name} berhasil didaftarkan ke server!`);
-      setShowAddModal(false);
-      setForm({ name: '', slug: '', domain: '', category: 'Enterprise SaaS', tagline: '', db_schema: '' });
-      loadData();
-    } else {
-      alert(`Gagal: ${res?.message || 'Terjadi kesalahan'}`);
-    }
-  };
-
   return (
-    <main className="container" style={{ padding: '60px 24px' }}>
-      {/* Hero Section */}
-      <section style={{ textAlign: 'center', marginBottom: '80px' }}>
-        <div className="badge-pill">
-          <span className="badge-dot"></span>
-          <span>Ekosistem Software Multi-Domain & Central Database (MySQL 8.0)</span>
-        </div>
-
-        <h1 style={{ fontSize: '3.4rem', maxWidth: '850px', margin: '0 auto 20px', letterSpacing: '-1px' }}>
-          Membangun Ekosistem <span className="gradient-text">Software Cerdas</span> Berbasis Server Terpusat
-        </h1>
-
-        <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '680px', margin: '0 auto 36px', lineHeight: 1.7 }}>
-          Devorme merancang produk software mandiri dengan nama domain khusus masing-masing, namun seluruh data dan autentikasi terhubung ke database MySQL server terpusat.
-        </p>
-
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-          <a href="#products-section" className="btn btn-primary">
-            Jelajahi Produk Kami ↓
-          </a>
-          <button className="btn btn-glass" onClick={() => setShowAddModal(true)}>
-            + Tambah Produk Baru (CRUD Test)
-          </button>
-          <button className="btn btn-glass" onClick={onNavigateToArchitecture}>
-            Lihat Arsitektur Server
-          </button>
-        </div>
-      </section>
-
-      {/* Products Section */}
-      <section id="products-section" style={{ marginBottom: '80px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
-          <div>
-            <h2 style={{ fontSize: '2.2rem', marginBottom: '8px' }}>Portofolio Produk Software</h2>
-            <p style={{ color: 'var(--text-muted)' }}>Klik salah satu produk untuk mengunjungi website resmi dan domain khususnya.</p>
+    <main>
+      {/* 1. HERO SECTION (Bright, Modern, Professional) */}
+      <section style={{ padding: '80px 0 60px', position: 'relative' }}>
+        <div className="container" style={{ textAlign: 'center' }}>
+          
+          <div className="badge-pill">
+            <span className="badge-dot"></span>
+            <span>Software House & Enterprise Cloud Ecosystem</span>
           </div>
-          <button className="btn btn-primary" onClick={() => setShowAddModal(true)} style={{ padding: '10px 20px', fontSize: '0.9rem' }}>
-            + Daftarkan Produk Baru
-          </button>
-        </div>
 
-        {loading ? (
-          <div style={{ textAlign: 'center', padding: '40px', color: 'var(--text-muted)' }}>Memuat data produk dari server...</div>
-        ) : (
-          <div className="products-grid">
-            {products.map(p => (
-              <ProductCard key={p.id} product={p} onSelectProduct={onSelectProduct} />
-            ))}
+          <h1 style={{ fontSize: '3.6rem', maxWidth: '920px', margin: '0 auto 24px', letterSpacing: '-0.03em', lineHeight: 1.15 }}>
+            Membangun Ekosistem <span className="gradient-text">Software Cerdas</span> untuk Akselerasi Bisnis Anda
+          </h1>
+
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '720px', margin: '0 auto 36px', lineHeight: 1.7 }}>
+            Devorme merancang dan mengembangkan portofolio produk software spesifik yang masing-masing berdiri di bawah subdomain mandiri, terintegrasi pada infrastruktur server dan basis data MySQL terpusat.
+          </p>
+
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '50px' }}>
+            <a href="#products-section" className="btn btn-primary" style={{ padding: '14px 32px', fontSize: '1rem' }}>
+              Jelajahi Produk Kami ↓
+            </a>
+            <a href="#services-section" className="btn btn-secondary" style={{ padding: '14px 28px', fontSize: '1rem' }}>
+              Layanan Software House
+            </a>
           </div>
-        )}
+
+          {/* Quick Metrics Bar */}
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '32px', background: '#ffffff', border: '1px solid var(--border-subtle)', padding: '16px 36px', borderRadius: 'var(--radius-full)', boxShadow: 'var(--shadow-card)', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <div>
+              <strong style={{ fontSize: '1.25rem', color: 'var(--accent-indigo)' }}>99.98%</strong>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', textTransform: 'uppercase' }}>Server Uptime</div>
+            </div>
+            <div style={{ width: '1px', height: '24px', background: 'var(--border-subtle)' }}></div>
+            <div>
+              <strong style={{ fontSize: '1.25rem', color: '#0f172a' }}>devorme.site</strong>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', textTransform: 'uppercase' }}>Domain Utama</div>
+            </div>
+            <div style={{ width: '1px', height: '24px', background: 'var(--border-subtle)' }}></div>
+            <div>
+              <strong style={{ fontSize: '1.25rem', color: '#16a34a' }}>MySQL Server</strong>
+              <div style={{ fontSize: '0.78rem', color: 'var(--text-dim)', textTransform: 'uppercase' }}>Database Terpusat</div>
+            </div>
+          </div>
+
+        </div>
       </section>
 
-      {/* Simulator Component */}
-      <section>
-        <DomainSimulator onSelectProduct={onSelectProduct} />
+      {/* 2. PRODUCT SHOWCASE (Subdomain Products) */}
+      <section id="products-section" style={{ padding: '80px 0', background: '#ffffff', borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 40px' }}>
+            <div className="badge-pill">
+              <span>Portofolio Produk Kami</span>
+            </div>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Solusi Software Berbasis Subdomain Mandiri</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
+              Setiap aplikasi memiliki identitas dan domain tersendiri untuk kemudahan pengguna, namun tetap tersinkronisasi dalam satu server.
+            </p>
+          </div>
+
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)' }}>
+              Memuat data produk dari database server...
+            </div>
+          ) : (
+            <div className="products-grid">
+              {products.map(p => (
+                <ProductCard key={p.id} product={p} onSelectProduct={onSelectProduct} />
+              ))}
+            </div>
+          )}
+        </div>
       </section>
 
-      {/* Modal Form Tambah Produk (CRUD Create) */}
-      {showAddModal && (
-        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '20px' }}>
-          <div style={{ background: 'var(--bg-secondary)', border: '1px solid var(--border-subtle)', borderRadius: '16px', width: '100%', maxWidth: '520px', padding: '30px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-              <h3 style={{ fontSize: '1.4rem' }}>Tambah Produk & Domain Baru</h3>
-              <button onClick={() => setShowAddModal(false)} style={{ background: 'none', border: 'none', color: '#fff', fontSize: '1.5rem', cursor: 'pointer' }}>&times;</button>
+      {/* 3. SOFTWARE HOUSE SERVICES SECTION */}
+      <section id="services-section" style={{ padding: '90px 0' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 50px' }}>
+            <div className="badge-pill">
+              <span>Layanan Unggulan</span>
+            </div>
+            <h2 style={{ fontSize: '2.4rem', marginBottom: '12px' }}>Keahlian Rekayasa Software Kami</h2>
+            <p style={{ color: 'var(--text-muted)' }}>
+              Dari sistem manajemen institusi hingga aplikasi berskala enterprise, kami menghadirkan solusi teknologi yang handal.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-subtle)', borderRadius: '16px', padding: '32px 26px', boxShadow: 'var(--shadow-sm)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#eef2ff', color: 'var(--accent-indigo)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '18px' }}>
+                💻
+              </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '10px' }}>Custom Web Application</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Pengembangan aplikasi web berbasis React, Node.js, dan database relasional dengan performa tinggi dan desain responsif.
+              </p>
             </div>
 
-            <form onSubmit={handleCreateProduct} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-              <div>
-                <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Nama Produk *</label>
-                <input 
-                  type="text" 
-                  placeholder="cth: CloudDesk CRM" 
-                  value={form.name}
-                  onChange={e => setForm({ ...form, name: e.target.value })}
-                  style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
-                  required
-                />
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-subtle)', borderRadius: '16px', padding: '32px 26px', boxShadow: 'var(--shadow-sm)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#f0fdf4', color: '#16a34a', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '18px' }}>
+                📱
               </div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '10px' }}>Mobile App Ready (Android)</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Integrasi Capacitor dan PWA untuk memungkinkan sistem Anda langsung dikemas menjadi aplikasi Android (.apk) siap pakai.
+              </p>
+            </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-                <div>
-                  <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Slug ID *</label>
-                  <input 
-                    type="text" 
-                    placeholder="cth: clouddesk" 
-                    value={form.slug}
-                    onChange={e => setForm({ ...form, slug: e.target.value.toLowerCase().replace(/\s+/g, '') })}
-                    style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
-                    required
-                  />
-                </div>
-                <div>
-                    <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Nama Subdomain *</label>
-                    <input 
-                      type="text" 
-                      placeholder="cth: kasir.devorme.site" 
-                      value={form.domain}
-                      onChange={e => setForm({ ...form, domain: e.target.value.toLowerCase() })}
-                      style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
-                      required
-                    />
-                </div>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-subtle)', borderRadius: '16px', padding: '32px 26px', boxShadow: 'var(--shadow-sm)' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#e0f2fe', color: '#0284c7', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '18px' }}>
+                🖧
               </div>
-
-              <div>
-                <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Skema Database MySQL di Server *</label>
-                <input 
-                  type="text" 
-                  placeholder="cth: schema_clouddesk_db" 
-                  value={form.db_schema}
-                  onChange={e => setForm({ ...form, db_schema: e.target.value })}
-                  style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
-                  required
-                />
-              </div>
-
-              <div>
-                <label style={{ fontSize: '0.85rem', color: 'var(--text-dim)', display: 'block', marginBottom: '4px' }}>Tagline Singkat</label>
-                <input 
-                  type="text" 
-                  placeholder="cth: Software CRM dan Follow-up Prospek Otomatis" 
-                  value={form.tagline}
-                  onChange={e => setForm({ ...form, tagline: e.target.value })}
-                  style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--border-subtle)', color: '#fff' }}
-                />
-              </div>
-
-              <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
-                <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>
-                  Simpan Produk ke Database Server
-                </button>
-                <button type="button" className="btn btn-glass" onClick={() => setShowAddModal(false)}>
-                  Batal
-                </button>
-              </div>
-            </form>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '10px' }}>Multi-Domain Architecture</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Routing subdomain Nginx cerdas untuk mendistribusikan lalu lintas produk mandiri di atas satu server database terpadu.
+              </p>
+            </div>
           </div>
         </div>
-      )}
+      </section>
+
+      {/* 4. INTERACTIVE SIMULATOR */}
+      <section style={{ padding: '0 0 90px' }}>
+        <div className="container">
+          <DomainSimulator onSelectProduct={onSelectProduct} />
+        </div>
+      </section>
+
+      {/* 5. CONSULTATION / CONTACT */}
+      <section id="contact-section" style={{ padding: '80px 0', background: '#ffffff', borderTop: '1px solid var(--border-subtle)' }}>
+        <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+          <h2 style={{ fontSize: '2.4rem', marginBottom: '14px' }}>Mulai Konsultasikan Kebutuhan Software Anda</h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', marginBottom: '32px' }}>
+            Diskusikan sistem custom, aplikasi sekolah, atau digitalisasi layanan publik bersama tim pengembang Devorme.
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
+            <a href="mailto:contact@devorme.site" className="btn btn-primary" style={{ padding: '14px 30px' }}>
+              ✉ Hubungi Kami via Email
+            </a>
+            <button className="btn btn-secondary" onClick={onNavigateToAdmin} style={{ padding: '14px 24px' }}>
+              Masuk ke Portal Admin Devorme
+            </button>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
