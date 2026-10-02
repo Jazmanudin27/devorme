@@ -2,74 +2,78 @@ import React from 'react';
 
 export default function Navbar({ currentView, setCurrentView }) {
   return (
-    <header className="site-header">
-      <div className="container nav-container">
-        {/* Brand Logo */}
-        <div className="brand-logo" onClick={() => setCurrentView('home')}>
-          <svg className="logo-symbol" viewBox="0 0 32 32" fill="none">
-            <rect width="32" height="32" rx="8" fill="url(#nav-grad-bright)"/>
-            <path d="M9 16L15 22L23 10" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-            <defs>
-              <linearGradient id="nav-grad-bright" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#4F46E5"/>
-                <stop offset="1" stopColor="#0284C7"/>
-              </linearGradient>
-            </defs>
-          </svg>
-          <span className="logo-text">Devorme<span className="logo-dot">.</span></span>
-        </div>
-
-        {/* Navigation Links */}
-        <nav className="nav-menu">
-          <button 
-            className={`nav-item ${currentView === 'home' ? 'active' : ''}`}
-            onClick={() => setCurrentView('home')}
-          >
-            Beranda
-          </button>
-          <a href="#products-section" className="nav-item">
-            Produk & Subdomain
-          </a>
-          <a href="#services-section" className="nav-item">
-            Layanan
-          </a>
-          <button 
-            className={`nav-item ${currentView === 'architecture' ? 'active' : ''}`}
-            onClick={() => setCurrentView('architecture')}
-          >
-            Arsitektur Server
-          </button>
-        </nav>
-
-        {/* Right Action: Admin Portal Button */}
-        <div className="nav-actions">
-          {currentView === 'admin' ? (
-            <button 
-              className="btn btn-secondary btn-sm"
-              onClick={() => setCurrentView('home')}
-            >
-              ← Kembali ke Beranda
-            </button>
-          ) : (
-            <button 
-              className="btn btn-outline btn-sm"
-              onClick={() => setCurrentView('admin')}
-            >
-              🔐 Portal Admin
-            </button>
-          )}
-
-          <a 
-            href="#products-section" 
-            className="btn btn-primary btn-sm"
-            onClick={() => {
-              if (currentView !== 'home') setCurrentView('home');
-            }}
-          >
-            Katalog Produk
-          </a>
+    <>
+      {/* Top Navy Announcement Strip (Leapfactor Style) */}
+      <div className="top-bar-navy">
+        <div className="container top-bar-inner">
+          <div>
+            <span>Butuh bantuan atau konsultasi software?</span>
+          </div>
+          <div className="top-contacts">
+            <span>(021)-2056-9264</span>
+            <span className="phone-gold">0812-2233-2376</span>
+            <a href="mailto:info@devorme.site">info@devorme.site</a>
+          </div>
         </div>
       </div>
-    </header>
+
+      {/* Main Navigation Header */}
+      <header className="main-nav-bar">
+        <div className="container nav-container">
+          {/* Logo */}
+          <div className="brand-wrapper" onClick={() => setCurrentView('home')}>
+            <div className="brand-text">
+              DEVOR<span className="brand-highlight">ME</span>
+            </div>
+            <span className="brand-subtitle">ENTERPRISE SOFTWARE ECOSYSTEM</span>
+          </div>
+
+          {/* Nav Links */}
+          <nav className="nav-links-list">
+            <button 
+              className={`nav-link-btn ${currentView === 'home' ? 'active' : ''}`}
+              onClick={() => setCurrentView('home')}
+            >
+              Beranda
+            </button>
+            <a href="#solusi-produk" className="nav-link-btn">
+              Solusi Produk ▾
+            </a>
+            <a href="#tentang-kami" className="nav-link-btn">
+              Tentang Kami
+            </a>
+            <button 
+              className={`nav-link-btn ${currentView === 'architecture' ? 'active' : ''}`}
+              onClick={() => setCurrentView('architecture')}
+            >
+              Arsitektur Server
+            </button>
+          </nav>
+
+          {/* Right Action Buttons */}
+          <div className="nav-actions-group">
+            {currentView === 'admin' ? (
+              <button 
+                className="btn-white-outline"
+                onClick={() => setCurrentView('home')}
+              >
+                ← Ke Beranda
+              </button>
+            ) : (
+              <button 
+                className="btn-white-outline"
+                onClick={() => setCurrentView('admin')}
+              >
+                🔐 Portal Admin
+              </button>
+            )}
+
+            <a href="#kontak" className="btn-navy">
+              Kontak Kami
+            </a>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

@@ -4,7 +4,6 @@ import { productService } from '../api/productService';
 
 export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin }) {
   const [products, setProducts] = useState([]);
-  const [activeHeroTab, setActiveHeroTab] = useState('e-sekolah');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -17,376 +16,334 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   }, []);
 
   return (
-    <div style={{ position: 'relative' }}>
-      {/* Ambient Mesh Glows */}
-      <div className="mesh-bg" aria-hidden="true"></div>
-
-      <main className="container" style={{ paddingTop: '60px', paddingBottom: '90px' }}>
-        
-        {/* ==================================================================
-            1. HERO SECTION (High-Impact World-Class SaaS Look)
-            ================================================================== */}
-        <section style={{ textAlign: 'center', marginBottom: '80px' }}>
-          
-          <div className="badge-pill" style={{ marginBottom: '24px' }}>
-            <span className="pulse-dot"></span>
-            <span>Ekosistem Software Multi-Subdomain • Devorme Technologies</span>
-          </div>
-
-          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4.2rem)', maxWidth: '980px', margin: '0 auto 24px', letterSpacing: '-0.035em', lineHeight: 1.12 }}>
-            Satu Server Terpusat, <br />
-            <span className="text-gradient">Multi-Produk Subdomain Mandiri.</span>
-          </h1>
-
-          <p style={{ color: 'var(--text-muted)', fontSize: 'clamp(1.05rem, 2vw, 1.25rem)', maxWidth: '740px', margin: '0 auto 40px', lineHeight: 1.7 }}>
-            Devorme membangun arsitektur software cerdas di mana setiap produk berdiri di bawah nama subdomain independen (<code>e-sekolah.devorme.site</code>), namun seluruh data dan autentikasi tersimpan aman di database MySQL server terpusat.
-          </p>
-
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}>
-            <a href="#products-showcase" className="btn btn-primary" style={{ padding: '15px 34px', fontSize: '1.02rem' }}>
-              Eksplorasi Produk Kami ↓
-            </a>
-            <button className="btn btn-secondary" onClick={onNavigateToArchitecture} style={{ padding: '15px 30px', fontSize: '1.02rem' }}>
-              Lihat Arsitektur Server
-            </button>
-            <button className="btn btn-ghost" onClick={onNavigateToAdmin} style={{ padding: '15px 24px', fontSize: '0.98rem' }}>
-              🔐 Portal Admin
-            </button>
-          </div>
-
-          {/* Quick Metrics Bar */}
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '32px', background: '#ffffff', border: '1px solid var(--border-light)', padding: '14px 36px', borderRadius: 'var(--radius-full)', boxShadow: 'var(--shadow-card)', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span className="pulse-dot"></span>
-              <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#0f172a' }}>VPS Online: 31.97.109.165</span>
-            </div>
-            <div style={{ width: '1px', height: '20px', background: 'var(--border-light)' }}></div>
+    <div>
+      {/* ==================================================================
+          1. HERO SECTION (Persis Gaya Visual Leapfactor)
+          ================================================================== */}
+      <section className="hero-wrapper-leap">
+        <div className="container">
+          <div className="hero-grid-two-col">
+            
+            {/* Left Column: Headline & Action Buttons */}
             <div>
-              <span style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary)' }}>MySQL 8.0 Active</span>
+              <div className="hero-pill-orange">
+                <span className="pill-check-icon">✓</span>
+                <span>Solusi Software & Digitalisasi Ekosistem Terpadu</span>
+              </div>
+
+              <h1 className="hero-title-lead">
+                <span className="title-orange-text">Software Terpadu</span>
+                untuk Ekosistem Bisnis yang Lebih Efisien
+              </h1>
+
+              <p className="hero-sub-description">
+                Atasi kendala operasional, tingkatkan produktivitas, dan dukung pertumbuhan institusi Anda dengan ekosistem software multi-subdomain Devorme yang terhubung langsung ke satu server dan database MySQL terpusat.
+              </p>
+
+              <div className="hero-cta-btns">
+                <a href="#kontak" className="btn-navy" style={{ padding: '14px 30px', fontSize: '1rem' }}>
+                  Konsultasi Gratis
+                </a>
+                <a href="#solusi-produk" className="btn-white-outline" style={{ padding: '14px 28px', fontSize: '1rem' }}>
+                  Lihat Solusi Kami →
+                </a>
+              </div>
             </div>
-            <div style={{ width: '1px', height: '20px', background: 'var(--border-light)' }}></div>
-            <div>
-              <span style={{ fontSize: '0.9rem', fontWeight: 700, color: '#16a34a' }}>Nginx Reverse Proxy</span>
+
+            {/* Right Column: Hero Specialist Image with Floating Badges */}
+            <div className="hero-person-stage">
+              <div className="hero-person-img-wrapper">
+                <img 
+                  src="/hero-person.jpg" 
+                  alt="Devorme Software Specialist" 
+                  className="hero-person-img"
+                />
+              </div>
+
+              {/* Floating Stat Badge 1 (Top Left) */}
+              <div className="floating-stat-card stat-card-top-left">
+                <div className="stat-icon-box">📊</div>
+                <div>
+                  <span className="stat-val-bold">Efisiensi Naik 35%</span>
+                  <span className="stat-label-small">Digitalisasi Operasional</span>
+                </div>
+              </div>
+
+              {/* Floating Stat Badge 2 (Bottom Right) */}
+              <div className="floating-stat-card stat-card-bottom-right">
+                <div className="stat-icon-box" style={{ background: '#ecfdf5', color: '#16a34a' }}>⚡</div>
+                <div>
+                  <span className="stat-val-bold">Uptime 99.98%</span>
+                  <span className="stat-label-small">Server VPS Aktif</span>
+                </div>
+              </div>
+
+              {/* Floating Stat Badge 3 (Bottom Left Dark Navy) */}
+              <div className="floating-stat-card stat-card-bottom-left">
+                <div style={{ fontSize: '1.2rem' }}>🚀</div>
+                <div>
+                  <span className="stat-val-bold" style={{ color: '#ffffff' }}>Produktivitas Naik 25%</span>
+                  <span className="stat-label-small" style={{ color: '#94a3b8' }}>Multi-Subdomain Terpadu</span>
+                </div>
+              </div>
             </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================================
+          2. TRUST STRIP / PARTNERS
+          ================================================================== */}
+      <section className="trust-strip">
+        <div className="container">
+          <div className="trust-label">
+            Ekosistem Teknologi Terintegrasi untuk Institusi & Korporasi
+          </div>
+          <div className="trust-badges">
+            <span className="trust-badge-item">🏛️ Dinas & Pemerintahan</span>
+            <span className="trust-badge-item">🎓 Sekolah & Yayasan Pendidikan</span>
+            <span className="trust-badge-item">🏢 Korporasi & Manufaktur</span>
+            <span className="trust-badge-item">📱 Mobile Android Ready</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================================
+          3. SOLUSI PRODUK EKOSISTEM (Cards dengan Aksen Oranye & Navy)
+          ================================================================== */}
+      <section id="solusi-produk" className="products-section-leap">
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto' }}>
+            <div className="hero-pill-orange">
+              <span>Portofolio Produk Kami</span>
+            </div>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
+              Solusi Software Spesifik Berbasis Subdomain
+            </h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
+              Setiap aplikasi beroperasi mandiri dengan domain resminya masing-masing, namun seluruh data tersinkronisasi aman dalam satu basis data server.
+            </p>
           </div>
 
-          {/* Live Interactive Hero Window Mockup */}
-          <div className="hero-mockup-window">
-            <div className="mockup-top-bar">
-              <div className="traffic-dots">
-                <span className="dot-red"></span>
-                <span className="dot-yellow"></span>
-                <span className="dot-green"></span>
-              </div>
-
-              <div className="mockup-tabs">
-                <div 
-                  className={`mockup-tab ${activeHeroTab === 'e-sekolah' ? 'active' : ''}`}
-                  onClick={() => setActiveHeroTab('e-sekolah')}
-                >
-                  <span>🎓</span>
-                  <span>e-sekolah.devorme.site</span>
-                </div>
-                <div 
-                  className={`mockup-tab ${activeHeroTab === 'dis' ? 'active' : ''}`}
-                  onClick={() => setActiveHeroTab('dis')}
-                >
-                  <span>🏛️</span>
-                  <span>dis.devorme.site</span>
-                </div>
-                <div 
-                  className={`mockup-tab ${activeHeroTab === 'central' ? 'active' : ''}`}
-                  onClick={() => setActiveHeroTab('central')}
-                >
-                  <span>⚙️</span>
-                  <span>api.devorme.site</span>
-                </div>
-              </div>
-
-              <div style={{ fontSize: '0.8rem', color: '#16a34a', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span>🔒 HTTPS Ready</span>
-              </div>
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)' }}>
+              Memuat data solusi produk dari server...
             </div>
+          ) : (
+            <div className="solution-grid">
+              {/* Product 1: E-Sekolah Cloud */}
+              <div className="solution-card">
+                <span className="card-top-tag">🎓 Solusi Akademik & Sekolah</span>
+                <span className="domain-pill" style={{ marginBottom: '14px' }}>
+                  🌐 e-sekolah.devorme.site
+                </span>
+                <h3 className="solution-title">E-Sekolah Cloud Platform</h3>
+                <p className="solution-desc">
+                  Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, penilaian rapor, serta kenaikan kelas dan alumni.
+                </p>
 
-            {/* Dynamic View Inside Hero Mockup */}
-            <div style={{ padding: '36px 32px', background: '#ffffff', textAlign: 'left' }}>
-              {activeHeroTab === 'e-sekolah' && (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', alignItems: 'center' }}>
-                  <div>
-                    <span className="domain-pill" style={{ marginBottom: '12px' }}>
-                      🌐 https://e-sekolah.devorme.site
-                    </span>
-                    <h3 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>E-Sekolah Cloud Platform</h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                      Sistem informasi sekolah terpadu yang mengelola presensi guru/siswa, jadwal pelajaran, manajemen kenaikan kelas, alumni, dan rekap nilai otomatis.
-                    </p>
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                      <a href="https://e-sekolah.devorme.site" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
-                        Buka Website e-sekolah ↗
-                      </a>
-                      <button className="btn btn-secondary btn-sm" onClick={() => onSelectProduct('e-sekolah')}>
-                        Detail Fitur
-                      </button>
-                    </div>
-                  </div>
+                <ul className="solution-features-list">
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Presensi Guru & Siswa Real-time</span>
+                  </li>
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Kenaikan Kelas & Manajemen Alumni</span>
+                  </li>
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Database MySQL: <strong>e_sekolah_db</strong></span>
+                  </li>
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Tersedia Aplikasi Mobile Android (.apk)</span>
+                  </li>
+                </ul>
 
-                  <div style={{ background: '#f8fafc', border: '1px solid var(--border-light)', borderRadius: '16px', padding: '24px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                      <strong style={{ fontSize: '0.9rem', color: '#0f172a' }}>Live Status Modul E-Sekolah</strong>
-                      <span style={{ fontSize: '0.75rem', background: '#dcfce7', color: '#16a34a', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>Online</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '8px 12px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                        <span>Presensi Guru & Siswa</span>
-                        <strong style={{ color: '#16a34a' }}>Terhubung</strong>
-                      </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '8px 12px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                        <span>Database MySQL Server</span>
-                        <strong style={{ color: 'var(--primary)' }}>e_sekolah_db</strong>
-                      </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '8px 12px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                        <span>Aplikasi Android (Capacitor)</span>
-                        <strong style={{ color: '#0284c7' }}>Ready (.apk)</strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {activeHeroTab === 'dis' && (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', alignItems: 'center' }}>
-                  <div>
-                    <span className="domain-pill" style={{ marginBottom: '12px' }}>
-                      🌐 https://dis.devorme.site
-                    </span>
-                    <h3 style={{ fontSize: '1.8rem', marginBottom: '10px' }}>DIS Smart System</h3>
-                    <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                      Platform Digital Information System & Layanan Publik dengan dashboard analitik terpadu dan pelaporan dokumen dinas secara real-time.
-                    </p>
-                    <div style={{ display: 'flex', gap: '10px' }}>
-                      <a href="https://dis.devorme.site" target="_blank" rel="noreferrer" className="btn btn-primary btn-sm">
-                        Buka Website dis ↗
-                      </a>
-                      <button className="btn btn-secondary btn-sm" onClick={() => onSelectProduct('dis')}>
-                        Detail Fitur
-                      </button>
-                    </div>
-                  </div>
-
-                  <div style={{ background: '#f8fafc', border: '1px solid var(--border-light)', borderRadius: '16px', padding: '24px' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
-                      <strong style={{ fontSize: '0.9rem', color: '#0f172a' }}>Live Status Modul DIS</strong>
-                      <span style={{ fontSize: '0.75rem', background: '#e0f2fe', color: '#0369a1', padding: '2px 8px', borderRadius: '4px', fontWeight: 700 }}>Ready</span>
-                    </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '8px 12px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                        <span>Layanan Publik Digital</span>
-                        <strong style={{ color: '#16a34a' }}>Aktif</strong>
-                      </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', padding: '8px 12px', background: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-                        <span>Database MySQL Server</span>
-                        <strong style={{ color: 'var(--primary)' }}>dis_db</strong>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {activeHeroTab === 'central' && (
-                <div style={{ textAlign: 'center', padding: '20px 0' }}>
-                  <span className="badge-pill" style={{ marginBottom: '12px' }}>
-                    ⚙️ https://api.devorme.site/v1
-                  </span>
-                  <h3 style={{ fontSize: '1.6rem', marginBottom: '8px' }}>Central API Gateway & Single Sign-On (SSO)</h3>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', maxWidth: '600px', margin: '0 auto 20px' }}>
-                    Pusat kendali autentikasi dan pertukaran data antar subdomain yang terhubung langsung ke port 5001 dan basis data MySQL <code>devorme</code>.
-                  </p>
-                  <button className="btn btn-primary btn-sm" onClick={onNavigateToAdmin}>
-                    Kelola Database di Portal Admin
+                <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                  <a 
+                    href="https://e-sekolah.devorme.site" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="btn-navy" 
+                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem' }}
+                  >
+                    Buka e-sekolah.devorme.site ↗
+                  </a>
+                  <button 
+                    className="btn-white-outline"
+                    style={{ padding: '12px 18px', fontSize: '0.9rem' }}
+                    onClick={() => onSelectProduct('e-sekolah')}
+                  >
+                    Detail
                   </button>
                 </div>
-              )}
-            </div>
-          </div>
+              </div>
 
-        </section>
-
-        {/* ==================================================================
-            2. PRODUCT SHOWCASE BENTO GRID
-            ================================================================== */}
-        <section id="products-showcase" style={{ marginBottom: '100px' }}>
-          <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 50px' }}>
-            <div className="badge-pill">
-              <span>Portofolio Produk Unggulan</span>
-            </div>
-            <h2 style={{ fontSize: '2.6rem', marginBottom: '14px' }}>Ekosistem Software Berbasis Subdomain</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              Setiap produk dikembangkan dengan arsitektur modern yang berdiri di bawah subdomain resmi masing-masing untuk pengalaman pengguna terbaik.
-            </p>
-          </div>
-
-          <div className="bento-grid">
-            {/* Card 1: E-Sekolah (Featured Bento Card - 7 Columns) */}
-            <div className="bento-card-main">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #3b82f6, #06b6d4)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', boxShadow: '0 8px 20px rgba(59, 130, 246, 0.3)' }}>
-                  🎓
-                </div>
-                <span className="domain-pill">
-                  e-sekolah.devorme.site
+              {/* Product 2: DIS Smart System */}
+              <div className="solution-card">
+                <span className="card-top-tag">🏛️ Layanan Publik & Korporasi</span>
+                <span className="domain-pill" style={{ marginBottom: '14px' }}>
+                  🌐 dis.devorme.site
                 </span>
-              </div>
+                <h3 className="solution-title">DIS Smart System</h3>
+                <p className="solution-desc">
+                  Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan alur approval bertingkat dan analitik kinerja instansi.
+                </p>
 
-              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
-                PRODUK PENDIDIKAN & AKADEMIK
-              </div>
+                <ul className="solution-features-list">
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Digitalisasi Dokumen & Approval Alur Dinas</span>
+                  </li>
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Dashboard Pelaporan Publik Real-time</span>
+                  </li>
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Database MySQL: <strong>dis_db</strong></span>
+                  </li>
+                  <li>
+                    <span className="feature-check-orange">✓</span>
+                    <span>Enkripsi Data Tingkat Tinggi</span>
+                  </li>
+                </ul>
 
-              <h3 style={{ fontSize: '1.9rem', marginBottom: '10px' }}>E-Sekolah Cloud System</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                Solusi digital terpadu untuk sekolah modern: manajemen rekap presensi guru & siswa, absensi mapel, input nilai rapor, serta alur kenaikan kelas dan alumni otomatis.
-              </p>
-
-              <div className="feature-badge-list">
-                <span className="feature-tag-chip">✓ Presensi Guru & Siswa</span>
-                <span className="feature-tag-chip">✓ Manajemen Kenaikan Kelas</span>
-                <span className="feature-tag-chip">✓ Input Nilai & Rapor Digital</span>
-                <span className="feature-tag-chip">✓ Mobile Android (.apk) Ready</span>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <a href="https://e-sekolah.devorme.site" target="_blank" rel="noreferrer" className="btn btn-primary">
-                  Buka Website e-sekolah.devorme.site ↗
-                </a>
-                <button className="btn btn-secondary" onClick={() => onSelectProduct('e-sekolah')}>
-                  Lihat Rincian Fitur
-                </button>
-              </div>
-            </div>
-
-            {/* Card 2: DIS (Side Bento Card - 5 Columns) */}
-            <div className="bento-card-side">
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-                <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'linear-gradient(135deg, #a855f7, #ec4899)', color: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', boxShadow: '0 8px 20px rgba(168, 85, 247, 0.3)' }}>
-                  🏛️
+                <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                  <a 
+                    href="https://dis.devorme.site" 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="btn-navy" 
+                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem' }}
+                  >
+                    Buka dis.devorme.site ↗
+                  </a>
+                  <button 
+                    className="btn-white-outline"
+                    style={{ padding: '12px 18px', fontSize: '0.9rem' }}
+                    onClick={() => onSelectProduct('dis')}
+                  >
+                    Detail
+                  </button>
                 </div>
-                <span className="domain-pill">
-                  dis.devorme.site
-                </span>
-              </div>
-
-              <div style={{ fontSize: '0.82rem', fontWeight: 700, color: '#9333ea', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '6px' }}>
-                LAYANAN PUBLIK & DINAS
-              </div>
-
-              <h3 style={{ fontSize: '1.9rem', marginBottom: '10px' }}>DIS Smart System</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6, marginBottom: '20px' }}>
-                Sistem informasi digitalisasi birokrasi dan pelaporan publik dengan alur approval dinas yang terstruktur dan aman.
-              </p>
-
-              <div className="feature-badge-list">
-                <span className="feature-tag-chip">✓ Manajemen Dokumen</span>
-                <span className="feature-tag-chip">✓ Dashboard Pelaporan</span>
-                <span className="feature-tag-chip">✓ Database MySQL Devorme</span>
-              </div>
-
-              <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                <a href="https://dis.devorme.site" target="_blank" rel="noreferrer" className="btn btn-primary">
-                  Kunjungi Website dis ↗
-                </a>
-                <button className="btn btn-secondary" onClick={() => onSelectProduct('dis')}>
-                  Lihat Detail
-                </button>
               </div>
             </div>
-          </div>
-        </section>
+          )}
+        </div>
+      </section>
 
-        {/* ==================================================================
-            3. WHY CHOOSE DEVORME (4 Key Strengths)
-            ================================================================== */}
-        <section style={{ marginBottom: '100px' }}>
-          <div style={{ textAlign: 'center', maxWidth: '650px', margin: '0 auto 50px' }}>
-            <div className="badge-pill">
-              <span>Keunggulan Arsitektur Kami</span>
+      {/* ==================================================================
+          4. MENGAPA MEMILIH DEVORME (Bento Fitur Keunggulan)
+          ================================================================== */}
+      <section id="tentang-kami" style={{ padding: '80px 0', background: 'var(--bg-warm)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 48px' }}>
+            <div className="hero-pill-orange">
+              <span>Keunggulan Sistem</span>
             </div>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '12px' }}>Mengapa Memilih Ekosistem Devorme?</h2>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
+              Infrastruktur Andal untuk Ketenangan Bisnis Anda
+            </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem' }}>
-              Dirancang untuk efisiensi biaya, skalabilitas tinggi, dan kemudahan perawatan sistem jangka panjang.
+              Kombinasi fleksibilitas multi-subdomain dengan keamanan server terpusat.
             </p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '24px' }}>
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-light)', borderRadius: '18px', padding: '32px 28px', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#eef2ff', color: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '20px' }}>
-                🎯
-              </div>
-              <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>1 Domain, Banyak Produk</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                Cukup satu domain utama <code>devorme.site</code>, Anda bebas membuat puluhan subdomain produk baru tanpa perlu membeli domain tambahan.
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🎯</div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>1 Domain, Banyak Aplikasi</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Hanya butuh 1 domain utama <code>devorme.site</code> untuk membuat puluhan subdomain produk baru tanpa biaya pembelian domain tambahan.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-light)', borderRadius: '18px', padding: '32px 28px', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#ecfdf5', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '20px' }}>
-                🗄️
-              </div>
-              <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Database Terpusat di Server</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🗄️</div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Database Terpusat di Server</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
                 MySQL 8.0 berjalan di server VPS yang sama, memudahkan sinkronisasi data antar produk, backup otomatis, dan efisiensi resource server.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-light)', borderRadius: '18px', padding: '32px 28px', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '20px' }}>
-                📱
-              </div>
-              <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Mobile Android Siap Rilis</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                Didukung arsitektur PWA dan Capacitor, sehingga kode web produk Anda langsung bisa diubah menjadi aplikasi native Android (.apk).
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '14px' }}>📱</div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Mobile Android Siap Pakai</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Didukung arsitektur PWA dan Capacitor, kode web produk Anda langsung bisa diubah menjadi aplikasi native Android (.apk).
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-light)', borderRadius: '18px', padding: '32px 28px', boxShadow: 'var(--shadow-card)' }}>
-              <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#fdf2f8', color: '#db2777', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '20px' }}>
-                🛡️
-              </div>
-              <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Keamanan SSL Otomatis</h3>
-              <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-                Konfigurasi Nginx teroptimasi dengan sertifikat SSL Let's Encrypt menjamin seluruh transaksi data terenkripsi aman secara otomatis.
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+              <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🛡️</div>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Keamanan SSL Otomatis</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
+                Konfigurasi Nginx teroptimasi dengan sertifikat SSL Let's Encrypt menjamin seluruh transaksi data terenkripsi aman.
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ==================================================================
-            4. SUBDOMAIN SIMULATOR COMPONENT
-            ================================================================== */}
-        <section style={{ marginBottom: '100px' }}>
+      {/* ==================================================================
+          5. SUBDOMAIN SIMULATOR INTERAKTIF
+          ================================================================== */}
+      <section style={{ padding: '0 0 80px', background: 'var(--bg-warm)' }}>
+        <div className="container">
           <DomainSimulator onSelectProduct={onSelectProduct} />
-        </section>
+        </div>
+      </section>
 
-        {/* ==================================================================
-            5. CONSULTATION / CALL TO ACTION
-            ================================================================== */}
-        <section style={{ background: 'linear-gradient(135deg, #1e1b4b 0%, #312e81 60%, #4338ca 100%)', borderRadius: '24px', padding: '60px 40px', color: '#ffffff', textAlign: 'center', boxShadow: 'var(--shadow-card)' }}>
-          <div className="badge-pill" style={{ background: 'rgba(255,255,255,0.15)', color: '#ffffff', border: '1px solid rgba(255,255,255,0.25)', marginBottom: '18px' }}>
-            <span>🚀 Konsultasi Pengembangan Software</span>
+      {/* ==================================================================
+          6. KONTAK & KONSULTASI
+          ================================================================== */}
+      <section id="kontak" style={{ padding: '80px 0', background: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
+        <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
+          <div className="hero-pill-orange">
+            <span>Mulai Konsultasi</span>
           </div>
-          <h2 style={{ fontSize: '2.6rem', color: '#ffffff', marginBottom: '16px' }}>Siap Mengembangkan Produk Software Anda?</h2>
-          <p style={{ color: '#cbd5e1', fontSize: '1.15rem', maxWidth: '640px', margin: '0 auto 36px', lineHeight: 1.7 }}>
-            Tim arsitek software Devorme siap membantu Anda merancang sistem informasi institusi, aplikasi custom, hingga arsitektur multi-subdomain yang kokoh.
+          <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
+            Siap Mengembangkan Ekosistem Software Anda?
+          </h2>
+          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '32px', lineHeight: 1.6 }}>
+            Hubungi tim pengembang Devorme untuk mendiskusikan implementasi E-Sekolah, DIS, atau kebutuhan software custom perusahaan Anda.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <a href="mailto:admin@devorme.site" className="btn btn-secondary" style={{ padding: '14px 32px', fontSize: '1rem', fontWeight: 700 }}>
-              Hubungi Tim Teknis
+            <a 
+              href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
+              target="_blank" 
+              rel="noreferrer"
+              className="btn-orange" 
+              style={{ padding: '14px 32px', fontSize: '1rem' }}
+            >
+              💬 Hubungi via WhatsApp
             </a>
-            <button className="btn btn-ghost" onClick={onNavigateToAdmin} style={{ color: '#ffffff', borderColor: 'rgba(255,255,255,0.4)', padding: '14px 28px' }}>
-              Masuk ke Portal Admin
+            <button className="btn-navy" onClick={onNavigateToAdmin} style={{ padding: '14px 28px', fontSize: '1rem' }}>
+              🔐 Buka Portal Admin
             </button>
           </div>
-        </section>
+        </div>
+      </section>
 
-      </main>
+      {/* ==================================================================
+          7. FLOATING WHATSAPP US BUTTON (Leapfactor Signature)
+          ================================================================== */}
+      <a 
+        href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
+        target="_blank" 
+        rel="noreferrer" 
+        className="floating-whatsapp-btn"
+        aria-label="Chat WhatsApp Devorme"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.392-12.416c-5.518 0-10 4.482-10 10 0 1.764.461 3.42 1.267 4.869l-1.344 4.912 5.044-1.323c1.401.765 2.999 1.197 4.697 1.197 5.518 0 10-4.482 10-10s-4.482-10-10-10zm0 18.232c-1.545 0-2.989-.43-4.226-1.176l-.303-.182-2.99.784.798-2.916-.2-.319c-.818-1.299-1.26-2.812-1.26-4.423 0-4.542 3.693-8.235 8.235-8.235 4.543 0 8.235 3.693 8.235 8.235 0 4.542-3.692 8.235-8.235 8.235z"/>
+        </svg>
+        <span>WhatsApp Us</span>
+      </a>
     </div>
   );
 }
