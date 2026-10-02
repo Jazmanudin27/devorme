@@ -5,14 +5,14 @@
 require('dotenv').config();
 
 module.exports = {
-  PORT: process.env.PORT || 5000,
+  PORT: process.env.PORT || 5001,
   NODE_ENV: process.env.NODE_ENV || 'development',
   DB: {
     HOST: process.env.DB_HOST || 'localhost',
-    PORT: process.env.DB_PORT || 5432,
-    USER: process.env.DB_USER || 'root',
-    PASSWORD: process.env.DB_PASSWORD || '',
-    NAME: process.env.DB_NAME || 'devorme_master'
+    PORT: process.env.DB_PORT || 3306,
+    USER: process.env.DB_USER || 'devorme',
+    PASSWORD: process.env.DB_PASSWORD || 'Jazman@271998',
+    NAME: process.env.DB_NAME || 'devorme'
   },
   JWT: {
     SECRET: process.env.JWT_SECRET || 'devorme_secret_key_default',

@@ -3,7 +3,7 @@
 -- Data Awal untuk Produk dan Admin Terpusat
 -- ============================================================================
 
-USE `devorme_master`;
+USE `devorme`;
 
 -- 1. Insert Akun Superadmin Terpusat (Password default: 'Admin123!' - hash bcrypt)
 INSERT INTO `users` (`uuid`, `full_name`, `email`, `password_hash`, `role`, `status`)

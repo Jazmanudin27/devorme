@@ -2,12 +2,7 @@
 -- DEVORME MASTER DATABASE SCHEMA (MySQL 8.0+)
 -- Arsitektur Server Terpusat untuk Ekosistem Multi-Domain
 -- ============================================================================
-
-CREATE DATABASE IF NOT EXISTS `devorme_master`
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE `devorme_master`;
+USE `devorme`;
 
 -- ----------------------------------------------------------------------------
 -- 1. TABEL PENGGUNA TERPUSAT (Single Sign-On / SSO)
