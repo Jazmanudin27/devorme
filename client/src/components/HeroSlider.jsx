@@ -7,12 +7,12 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
 
   const totalSlides = 3;
 
-  // Auto-play timer (5.5 seconds per slide, pause on hover)
+  // Auto-play timer (6 seconds per slide, pause on hover)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % totalSlides);
-    }, 5500);
+    }, 6000);
     return () => clearInterval(interval);
   }, [isPaused, totalSlides]);
 
@@ -48,68 +48,65 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
       onTouchEnd={handleTouchEnd}
     >
       <div className="container">
-        {/* Main Slider Frame */}
+        {/* Main Slider Frame with Balanced Compact Height */}
         <div className="slider-outer-frame">
-          <div className="slider-viewport">
-            <div 
-              className="slider-track" 
-              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-            >
-              {/* =======================================================
-                  SLIDE 1: Flagship Banner (Banner.png Full Slider)
-                  ======================================================= */}
-              <div className="slider-slide banner-slide">
-                <div className="banner-image-container">
-                  <img 
-                    src="/Banner.png" 
-                    alt="Devorme - Wujudkan Ide Anda dengan Mudah! Platform Ekosistem Software Terpadu"
-                    className="full-slider-banner-img"
-                  />
-                  {/* Subtle Interactive Quick-CTA Strip over or under banner */}
-                  <div className="banner-quick-actions-bar">
-                    <div className="banner-badge-live">
-                      <span className="live-pulse-dot"></span>
-                      <span>Ekosistem Software Terpadu Devorme</span>
-                    </div>
-                    <div className="banner-actions-btns">
-                      <a href="#solusi-produk" className="btn-slider-primary">
-                        Jelajahi Produk Kami ▾
-                      </a>
-                      <a 
-                        href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn-slider-glass"
-                      >
-                        💬 Konsultasi Sekarang
-                      </a>
-                    </div>
+          <div className="slider-fade-viewport">
+            
+            {/* =======================================================
+                SLIDE 1: Flagship Banner.png (Full, Crisp, Proportional)
+                ======================================================= */}
+            <div className={`slider-fade-slide ${currentSlide === 0 ? 'active' : ''}`}>
+              <div className="banner-slide-inner">
+                <img 
+                  src="/Banner.png" 
+                  alt="Devorme - Wujudkan Ide Anda dengan Mudah! Platform Ekosistem Software Terpadu"
+                  className="banner-compact-img"
+                />
+                <div className="banner-quick-actions-bar">
+                  <div className="banner-badge-live">
+                    <span className="live-pulse-dot"></span>
+                    <span>Devorme Software Ecosystem • Subdomain & Database Terpusat</span>
+                  </div>
+                  <div className="banner-actions-btns">
+                    <a href="#solusi-produk" className="btn-slider-primary">
+                      Lihat Produk Kami ▾
+                    </a>
+                    <a 
+                      href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn-slider-glass"
+                    >
+                      💬 Konsultasi WhatsApp
+                    </a>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* =======================================================
-                  SLIDE 2: E-Sekolah Cloud Suite Highlight
-                  ======================================================= */}
-              <div className="slider-slide feature-slide slide-blue-gradient">
-                <div className="slide-content-grid">
-                  <div className="slide-text-col">
+            {/* =======================================================
+                SLIDE 2: E-Sekolah Cloud Suite Highlight
+                ======================================================= */}
+            <div className={`slider-fade-slide ${currentSlide === 1 ? 'active' : ''}`}>
+              <div className="feature-slide-inner slide-blue-gradient">
+                <div className="compact-slide-grid">
+                  <div className="compact-text-col">
                     <div className="hero-pill-blue">
                       <span className="pill-check-icon">✓</span>
                       <span>Solusi Manajemen Sekolah & Yayasan</span>
                     </div>
-                    <h2 className="slide-title">
-                      E-Sekolah Cloud Platform: <span className="text-cyan-glow">Cerdas, Cepat & Terintegrasi</span>
+                    <h2 className="slide-title-compact">
+                      E-Sekolah Cloud: <span className="text-cyan-glow">Akademik & Presensi Cerdas</span>
                     </h2>
-                    <p className="slide-desc">
-                      Kelola presensi siswa & guru secara realtime, otomatisasi kenaikan kelas, rekap nilai rapor digital, dan jadwal pelajaran dalam satu aplikasi modern yang siap dipakai di web maupun smartphone Android.
+                    <p className="slide-desc-compact">
+                      Otomatisasi rekap presensi guru & siswa secara realtime, kenaikan kelas, penilaian rapor digital, dan jadwal pelajaran dalam satu aplikasi terintegrasi.
                     </p>
-                    <div className="slide-pills-row">
-                      <span className="slide-tag">📱 Aplikasi Android (.apk)</span>
+                    <div className="compact-tags-row">
+                      <span className="slide-tag">📱 Android APK Ready</span>
                       <span className="slide-tag">🗄️ MySQL: e_sekolah_db</span>
-                      <span className="slide-tag">⚡ Presensi QR & Realtime</span>
+                      <span className="slide-tag">⚡ Presensi Realtime</span>
                     </div>
-                    <div className="slide-cta-row">
+                    <div className="compact-btns-row">
                       <a 
                         href="https://e-sekolah.devorme.site" 
                         target="_blank" 
@@ -119,82 +116,72 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
                         Buka e-sekolah.devorme.site ↗
                       </a>
                       <button 
-                        className="btn-slider-glass"
+                        className="btn-slider-glass-light"
                         onClick={() => onSelectProduct && onSelectProduct('e-sekolah')}
                       >
-                        Lihat Detail Produk
+                        Detail Solusi
                       </button>
                     </div>
                   </div>
 
-                  <div className="slide-visual-col">
-                    <div className="mockup-glass-card">
-                      <div className="mockup-header-bar">
-                        <div className="browser-dots">
-                          <span className="dot red"></span>
-                          <span className="dot yellow"></span>
-                          <span className="dot green"></span>
-                        </div>
-                        <span className="browser-url-text">https://e-sekolah.devorme.site</span>
-                        <span className="status-badge-green">Online 99.9%</span>
+                  <div className="compact-visual-col">
+                    <div className="compact-card-box">
+                      <div className="compact-card-header">
+                        <span className="dot red"></span>
+                        <span className="dot yellow"></span>
+                        <span className="dot green"></span>
+                        <span className="url-badge">e-sekolah.devorme.site</span>
                       </div>
-                      <div className="mockup-card-body">
-                        <div className="mockup-stat-row">
-                          <div className="mockup-stat-box">
-                            <span className="mockup-stat-num">100%</span>
-                            <span className="mockup-stat-lbl">Otomasi Rekap</span>
+                      <div className="compact-card-content">
+                        <div className="mini-stat-grid">
+                          <div className="mini-stat">
+                            <strong>100%</strong>
+                            <span>Rekap Otomatis</span>
                           </div>
-                          <div className="mockup-stat-box">
-                            <span className="mockup-stat-num">Realtime</span>
-                            <span className="mockup-stat-lbl">Presensi Guru & Siswa</span>
+                          <div className="mini-stat">
+                            <strong>Realtime</strong>
+                            <span>Absensi GPS/QR</span>
                           </div>
-                          <div className="mockup-stat-box">
-                            <span className="mockup-stat-num">Terpusat</span>
-                            <span className="mockup-stat-lbl">Server VPS MySQL</span>
+                          <div className="mini-stat">
+                            <strong>Multi-User</strong>
+                            <span>Guru & Wali</span>
                           </div>
                         </div>
-                        <div className="mockup-feature-list">
-                          <div className="mockup-feature-item">
-                            <span className="feat-icon">✅</span>
-                            <span>Manajemen Rombel, Kelas & Kenaikan Tingkat</span>
-                          </div>
-                          <div className="mockup-feature-item">
-                            <span className="feat-icon">✅</span>
-                            <span>Tracking Kehadiran Sakit, Izin, & Alpa Otomatis</span>
-                          </div>
-                          <div className="mockup-feature-item">
-                            <span className="feat-icon">✅</span>
-                            <span>Login Khusus Admin, Guru, & Siswa/Wali Murid</span>
-                          </div>
+                        <div className="mini-check-list">
+                          <div>✓ Rekapitulasi Hadir, Izin, Sakit & Cuti</div>
+                          <div>✓ Rapor Digital & Arsip Nilai Siswa</div>
+                          <div>✓ Notifikasi & Portal Wali Murid</div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* =======================================================
-                  SLIDE 3: DIS Smart System & Server Architecture
-                  ======================================================= */}
-              <div className="slider-slide feature-slide slide-navy-deep">
-                <div className="slide-content-grid">
-                  <div className="slide-text-col">
+            {/* =======================================================
+                SLIDE 3: DIS Smart System & Central Database
+                ======================================================= */}
+            <div className={`slider-fade-slide ${currentSlide === 2 ? 'active' : ''}`}>
+              <div className="feature-slide-inner slide-navy-deep">
+                <div className="compact-slide-grid">
+                  <div className="compact-text-col">
                     <div className="hero-pill-blue">
                       <span className="pill-check-icon">✓</span>
-                      <span>Arsitektur Server Enterprise & Multi-Subdomain</span>
+                      <span>Infrastruktur Server VPS & Multi-Subdomain</span>
                     </div>
-                    <h2 className="slide-title">
-                      DIS Smart System & <span className="text-cyan-glow">Server Database Terpusat</span>
+                    <h2 className="slide-title-compact">
+                      DIS Smart System: <span className="text-cyan-glow">Birokrasi & Pelaporan Cepat</span>
                     </h2>
-                    <p className="slide-desc">
-                      Devorme merancang seluruh subdomain produk software agar beroperasi independen namun tetap terhubung dalam satu server VPS berkecepatan tinggi dengan proteksi SSL Nginx dan backup database berkala.
+                    <p className="slide-desc-compact">
+                      Platform pelaporan dan dokumen digital dinas/institusi dengan alur approval bertingkat, keamanan enkripsi tinggi, dan uptime server 99.98%.
                     </p>
-                    <div className="slide-pills-row">
+                    <div className="compact-tags-row">
                       <span className="slide-tag">🏛️ dis.devorme.site</span>
-                      <span className="slide-tag">🛡️ Enkripsi SSL Otomatis</span>
-                      <span className="slide-tag">📊 Multi-Tenant Cloud</span>
+                      <span className="slide-tag">🛡️ SSL Nginx Enkripsi</span>
+                      <span className="slide-tag">⚡ Uptime 99.98%</span>
                     </div>
-                    <div className="slide-cta-row">
+                    <div className="compact-btns-row">
                       <a 
                         href="https://dis.devorme.site" 
                         target="_blank" 
@@ -204,41 +191,38 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
                         Buka dis.devorme.site ↗
                       </a>
                       <button 
-                        className="btn-slider-glass"
+                        className="btn-slider-glass-light"
                         onClick={onNavigateToArchitecture}
                       >
-                        Pelajari Arsitektur Server
+                        Pelajari Arsitektur
                       </button>
                     </div>
                   </div>
 
-                  <div className="slide-visual-col">
-                    <div className="mockup-glass-card">
-                      <div className="mockup-header-bar">
-                        <div className="browser-dots">
-                          <span className="dot red"></span>
-                          <span className="dot yellow"></span>
-                          <span className="dot green"></span>
-                        </div>
-                        <span className="browser-url-text">Host: 31.97.109.165</span>
-                        <span className="status-badge-blue">Database Cluster</span>
+                  <div className="compact-visual-col">
+                    <div className="compact-card-box">
+                      <div className="compact-card-header">
+                        <span className="dot red"></span>
+                        <span className="dot yellow"></span>
+                        <span className="dot green"></span>
+                        <span className="url-badge">Host: 31.97.109.165</span>
                       </div>
-                      <div className="mockup-card-body">
-                        <div className="server-cluster-preview">
-                          <div className="server-unit-card">
-                            <span className="server-unit-icon">🌐</span>
-                            <div>
-                              <strong>devorme.site</strong>
-                              <p>Main Portal & Branding</p>
-                            </div>
+                      <div className="compact-card-content">
+                        <div className="server-status-box">
+                          <div className="server-row">
+                            <span className="server-dot green"></span>
+                            <span>devorme.site (Domain Induk)</span>
                           </div>
-                          <div className="server-unit-arrow">⬇ 1 Server Terpusat ⬇</div>
-                          <div className="server-db-box">
-                            <span className="db-icon">🗄️</span>
-                            <div>
-                              <strong>MySQL Server VPS</strong>
-                              <p>e_sekolah_db • dis_db • devorme_master</p>
-                            </div>
+                          <div className="server-row">
+                            <span className="server-dot blue"></span>
+                            <span>e-sekolah.devorme.site (Akademik)</span>
+                          </div>
+                          <div className="server-row">
+                            <span className="server-dot purple"></span>
+                            <span>dis.devorme.site (Sistem Informasi)</span>
+                          </div>
+                          <div className="server-sync-hint">
+                            🗄️ Seluruh Data Tersinkron di 1 Database MySQL VPS
                           </div>
                         </div>
                       </div>
@@ -246,8 +230,8 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
                   </div>
                 </div>
               </div>
-
             </div>
+
           </div>
 
           {/* Navigation Controls: Prev & Next */}
@@ -266,7 +250,7 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
             ›
           </button>
 
-          {/* Pagination Indicators / Dots */}
+          {/* Indicators Bar */}
           <div className="slider-indicators-bar">
             {Array.from({ length: totalSlides }).map((_, idx) => (
               <button
@@ -293,7 +277,6 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
               <span>Subdomain mandiri untuk setiap produk institusi</span>
             </div>
           </div>
-          <div className="metric-divider"></div>
           <div className="metric-item">
             <span className="metric-icon">⚡</span>
             <div>
@@ -301,7 +284,6 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
               <span>Host VPS cepat & database MySQL terpusat</span>
             </div>
           </div>
-          <div className="metric-divider"></div>
           <div className="metric-item">
             <span className="metric-icon">📱</span>
             <div>
@@ -309,7 +291,6 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
               <span>Dukungan instalasi APK & Progressive Web App</span>
             </div>
           </div>
-          <div className="metric-divider"></div>
           <div className="metric-item">
             <span className="metric-icon">🛡️</span>
             <div>

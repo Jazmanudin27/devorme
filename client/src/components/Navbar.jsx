@@ -3,7 +3,7 @@ import React from 'react';
 export default function Navbar({ currentView, setCurrentView }) {
   return (
     <>
-      {/* Top Navy Announcement Strip */}
+      {/* Top Announcement Strip (Deep Dark Navy) */}
       <div className="top-bar-navy">
         <div className="container top-bar-inner">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -18,10 +18,10 @@ export default function Navbar({ currentView, setCurrentView }) {
         </div>
       </div>
 
-      {/* Main Navigation Header */}
-      <header className="main-nav-bar">
+      {/* Main Navigation Header (Berwarna: Gradient Royal Navy & Electric Blue) */}
+      <header className="main-nav-bar main-nav-colored">
         <div className="container nav-container">
-          {/* Logo with Logo.png */}
+          {/* Brand Logo with Logo.png */}
           <div className="brand-wrapper" onClick={() => setCurrentView('home')}>
             <img 
               src="/Logo.png" 
@@ -29,29 +29,29 @@ export default function Navbar({ currentView, setCurrentView }) {
               className="brand-logo-img" 
             />
             <div className="brand-text-block">
-              <div className="brand-text">
-                DEVOR<span className="brand-highlight">ME</span>
+              <div className="brand-text brand-text-white">
+                DEVOR<span className="brand-highlight-cyan">ME</span>
               </div>
-              <span className="brand-subtitle">ENTERPRISE SOFTWARE ECOSYSTEM</span>
+              <span className="brand-subtitle brand-subtitle-light">ENTERPRISE SOFTWARE ECOSYSTEM</span>
             </div>
           </div>
 
           {/* Nav Links */}
           <nav className="nav-links-list">
             <button 
-              className={`nav-link-btn ${currentView === 'home' ? 'active' : ''}`}
+              className={`nav-link-btn nav-link-colored ${currentView === 'home' ? 'active' : ''}`}
               onClick={() => setCurrentView('home')}
             >
               Beranda
             </button>
-            <a href="#solusi-produk" className="nav-link-btn">
+            <a href="#solusi-produk" className="nav-link-btn nav-link-colored">
               Solusi Produk ▾
             </a>
-            <a href="#tentang-kami" className="nav-link-btn">
+            <a href="#tentang-kami" className="nav-link-btn nav-link-colored">
               Tentang Kami
             </a>
             <button 
-              className={`nav-link-btn ${currentView === 'architecture' ? 'active' : ''}`}
+              className={`nav-link-btn nav-link-colored ${currentView === 'architecture' ? 'active' : ''}`}
               onClick={() => setCurrentView('architecture')}
             >
               Arsitektur Server
@@ -62,21 +62,21 @@ export default function Navbar({ currentView, setCurrentView }) {
           <div className="nav-actions-group">
             {currentView === 'admin' ? (
               <button 
-                className="btn-white-outline"
+                className="btn-nav-glass"
                 onClick={() => setCurrentView('home')}
               >
                 ← Ke Beranda
               </button>
             ) : (
               <button 
-                className="btn-white-outline"
+                className="btn-nav-glass"
                 onClick={() => setCurrentView('admin')}
               >
                 🔐 Portal Admin
               </button>
             )}
 
-            <a href="#kontak" className="btn-navy">
+            <a href="#kontak" className="btn-nav-accent">
               Kontak Kami
             </a>
           </div>
