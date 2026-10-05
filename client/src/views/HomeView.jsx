@@ -48,29 +48,29 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           ================================================================== */}
       <section id="solusi-produk" className="products-section-leap">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}>
             <div className="hero-pill-blue">
               <span>Portofolio Produk Kami</span>
             </div>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
-              Solusi Software Spesifik Berbasis Subdomain
+              Portofolio Solusi Software Devorme
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              Setiap aplikasi beroperasi mandiri dengan domain resminya masing-masing, namun seluruh data tersinkronisasi aman dalam satu basis data server terpusat.
+              Kumpulan produk dan ekosistem digital mandiri yang telah kami kembangkan. Untuk menguji coba atau meminta akses demo aplikasi secara langsung, silakan hubungi tim kami via WhatsApp.
             </p>
           </div>
 
           {loading ? (
             <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)' }}>
-              Memuat data solusi produk dari server...
+              Memuat data portofolio produk dari server...
             </div>
           ) : (
             <div className="solution-grid">
               {/* Product 1: E-Sekolah Cloud */}
               <div className="solution-card">
-                <span className="card-top-tag">🎓 Solusi Akademik & Sekolah</span>
+                <span className="card-top-tag">🎓 Portofolio Sekolah & Yayasan</span>
                 <span className="domain-pill" style={{ marginBottom: '14px' }}>
-                  🌐 e-sekolah.devorme.site
+                  🌐 e-sekolah.devorme.site • Akses Demo via WA
                 </span>
                 <h3 className="solution-title">E-Sekolah Cloud Platform</h3>
                 <p className="solution-desc">
@@ -98,29 +98,29 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
                 <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
                   <a 
-                    href="https://e-sekolah.devorme.site" 
+                    href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="btn-navy" 
-                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem' }}
+                    className="btn-blue" 
+                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }}
                   >
-                    Buka e-sekolah.devorme.site ↗
+                    💬 Request Demo via WA
                   </a>
                   <button 
                     className="btn-white-outline"
                     style={{ padding: '12px 18px', fontSize: '0.9rem' }}
                     onClick={() => onSelectProduct('e-sekolah')}
                   >
-                    Detail
+                    Detail Portofolio
                   </button>
                 </div>
               </div>
 
               {/* Product 2: DIS Smart System */}
               <div className="solution-card">
-                <span className="card-top-tag">🏛️ Layanan Publik & Korporasi</span>
+                <span className="card-top-tag">🏛️ Portofolio Layanan Publik & Dinas</span>
                 <span className="domain-pill" style={{ marginBottom: '14px' }}>
-                  🌐 dis.devorme.site
+                  🌐 dis.devorme.site • Akses Demo via WA
                 </span>
                 <h3 className="solution-title">DIS Smart System</h3>
                 <p className="solution-desc">
@@ -148,20 +148,20 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
                 <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
                   <a 
-                    href="https://dis.devorme.site" 
+                    href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="btn-navy" 
-                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem' }}
+                    className="btn-blue" 
+                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }}
                   >
-                    Buka dis.devorme.site ↗
+                    💬 Request Demo via WA
                   </a>
                   <button 
                     className="btn-white-outline"
                     style={{ padding: '12px 18px', fontSize: '0.9rem' }}
                     onClick={() => onSelectProduct('dis')}
                   >
-                    Detail
+                    Detail Portofolio
                   </button>
                 </div>
               </div>

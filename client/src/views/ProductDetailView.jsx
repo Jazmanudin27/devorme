@@ -36,8 +36,8 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
   return (
     <div>
       {/* Top Banner */}
-      <div style={{ background: '#f0fdf4', borderBottom: '1px solid #bbf7d0', padding: '10px 20px', textAlign: 'center', fontSize: '0.88rem', color: '#15803d', fontWeight: 600 }}>
-        🌐 Halaman Khusus Produk: <strong>https://{product.domain}</strong> — Terintegrasi dengan Server Devorme
+      <div style={{ background: '#eff6ff', borderBottom: '1px solid #bfdbfe', padding: '10px 20px', textAlign: 'center', fontSize: '0.88rem', color: '#0369a1', fontWeight: 600 }}>
+        📁 Portofolio Produk Devorme: <strong>https://{product.domain}</strong> — Akses Uji Coba & Demo Melalui WhatsApp
       </div>
 
       <div className="container" style={{ padding: '50px 24px' }}>
@@ -52,7 +52,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
         <div style={{ background: '#ffffff', border: '1px solid var(--border-subtle)', borderRadius: '20px', padding: '40px', boxShadow: 'var(--shadow-card)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px', marginBottom: '50px' }}>
           <div>
             <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: '99px', background: '#eef2ff', color: 'var(--accent-indigo)', fontSize: '0.82rem', fontWeight: 700, marginBottom: '12px' }}>
-              PRODUK RESMI DEVORME
+              PORTOFOLIO RESMI DEVORME
             </div>
             <h1 style={{ fontSize: '3rem', marginBottom: '10px', color: '#0f172a' }}>{product.name}</h1>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '650px', lineHeight: 1.6 }}>{product.tagline}</p>
@@ -89,20 +89,20 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
           ))}
         </div>
 
-        {/* Direct Action Link */}
-        <div style={{ background: 'linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%)', border: '1px solid #c7d2fe', borderRadius: '20px', padding: '48px', textAlign: 'center' }}>
-          <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: '#1e1b4b' }}>Buka Aplikasi {product.name}</h3>
-          <p style={{ color: '#4338ca', maxWidth: '520px', margin: '0 auto 24px', fontSize: '1.05rem' }}>
-            Akses langsung ke domain resmi produk di <strong>https://{product.domain}</strong>
+        {/* Request Demo via WhatsApp */}
+        <div style={{ background: 'linear-gradient(135deg, #eef5ff 0%, #dbeafe 100%)', border: '1px solid #bfdbfe', borderRadius: '20px', padding: '48px', textAlign: 'center' }}>
+          <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: 'var(--navy-dark)' }}>Ingin Mencoba Demo {product.name}?</h3>
+          <p style={{ color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto 24px', fontSize: '1.02rem', lineHeight: 1.6 }}>
+            Akses demo dan kredensial uji coba untuk domain <strong>{product.domain}</strong> diberikan secara terarah. Silakan hubungi kami via WhatsApp untuk mendapatkan akses demo langsung.
           </p>
           <a 
-            href={`https://${product.domain}`} 
+            href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20untuk%20${encodeURIComponent(product.name)}%20(${product.domain})`} 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="btn btn-primary"
-            style={{ padding: '14px 32px', fontSize: '1rem' }}
+            className="btn-blue"
+            style={{ padding: '14px 32px', fontSize: '1rem', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
           >
-            Buka https://{product.domain} ↗
+            💬 Request Akses Demo via WhatsApp
           </a>
         </div>
       </div>

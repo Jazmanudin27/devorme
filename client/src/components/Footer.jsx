@@ -26,11 +26,11 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="footer-col-title">Solusi Produk</h4>
+            <h4 className="footer-col-title">Portofolio Produk</h4>
             <ul className="footer-links-list">
-              <li><a href="https://e-sekolah.devorme.site" target="_blank" rel="noreferrer">E-Sekolah Cloud</a></li>
-              <li><a href="https://dis.devorme.site" target="_blank" rel="noreferrer">DIS Smart System</a></li>
-              <li><a href="#solusi-produk">Custom Software ERP</a></li>
+              <li><a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20E-Sekolah%20Cloud" target="_blank" rel="noreferrer">E-Sekolah Cloud (Demo via WA)</a></li>
+              <li><a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20DIS%20Smart%20System" target="_blank" rel="noreferrer">DIS Smart System (Demo via WA)</a></li>
+              <li><a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software%20custom" target="_blank" rel="noreferrer">Custom Software ERP (via WA)</a></li>
             </ul>
           </div>
 
