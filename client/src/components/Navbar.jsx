@@ -3,16 +3,17 @@ import React from 'react';
 export default function Navbar({ currentView, setCurrentView }) {
   return (
     <>
-      {/* Top Navy Announcement Strip (Leapfactor Style) */}
+      {/* Top Navy Announcement Strip */}
       <div className="top-bar-navy">
         <div className="container top-bar-inner">
-          <div>
-            <span>Butuh bantuan atau konsultasi software?</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', background: '#38bdf8' }}></span>
+            <span>Butuh bantuan atau konsultasi arsitektur software?</span>
           </div>
           <div className="top-contacts">
-            <span>(021)-2056-9264</span>
-            <span className="phone-gold">0812-2233-2376</span>
-            <a href="mailto:info@devorme.site">info@devorme.site</a>
+            <span>📞 (021)-2056-9264</span>
+            <span className="phone-cyan">📱 0812-2233-2376</span>
+            <a href="mailto:info@devorme.site">✉️ info@devorme.site</a>
           </div>
         </div>
       </div>
@@ -20,12 +21,19 @@ export default function Navbar({ currentView, setCurrentView }) {
       {/* Main Navigation Header */}
       <header className="main-nav-bar">
         <div className="container nav-container">
-          {/* Logo */}
+          {/* Logo with Logo.png */}
           <div className="brand-wrapper" onClick={() => setCurrentView('home')}>
-            <div className="brand-text">
-              DEVOR<span className="brand-highlight">ME</span>
+            <img 
+              src="/Logo.png" 
+              alt="Devorme Ecosystem Logo" 
+              className="brand-logo-img" 
+            />
+            <div className="brand-text-block">
+              <div className="brand-text">
+                DEVOR<span className="brand-highlight">ME</span>
+              </div>
+              <span className="brand-subtitle">ENTERPRISE SOFTWARE ECOSYSTEM</span>
             </div>
-            <span className="brand-subtitle">ENTERPRISE SOFTWARE ECOSYSTEM</span>
           </div>
 
           {/* Nav Links */}

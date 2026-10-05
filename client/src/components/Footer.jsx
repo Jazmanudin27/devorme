@@ -6,10 +6,17 @@ export default function Footer() {
       <div className="container">
         <div className="footer-top-grid">
           <div>
-            <div className="footer-brand-title">
-              DEVOR<span style={{ color: 'var(--orange-primary)' }}>ME</span>
+            <div className="footer-brand-title" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+              <img 
+                src="/Logo.png" 
+                alt="Devorme Logo" 
+                style={{ width: '48px', height: '48px', borderRadius: '12px', objectFit: 'cover', boxShadow: '0 4px 16px rgba(0, 102, 255, 0.25)' }} 
+              />
+              <div>
+                DEVOR<span style={{ color: 'var(--cyan-accent)' }}>ME</span>
+              </div>
             </div>
-            <p style={{ fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '340px', marginBottom: '20px' }}>
+            <p style={{ fontSize: '0.9rem', lineHeight: 1.6, maxWidth: '340px', margin: '14px 0 20px', color: '#94a3b8' }}>
               Solusi digitalisasi dan ekosistem software multi-subdomain terintegrasi satu server dan database MySQL terpusat.
             </p>
             <div className="server-pill">
@@ -41,7 +48,7 @@ export default function Footer() {
             <p style={{ fontSize: '0.88rem', lineHeight: 1.6, marginBottom: '10px' }}>
               Surabaya & Jakarta, Indonesia
             </p>
-            <p style={{ fontSize: '0.88rem', color: '#fbbf24', fontWeight: 700 }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--cyan-accent)', fontWeight: 700 }}>
               📞 0812-2233-2376
             </p>
           </div>

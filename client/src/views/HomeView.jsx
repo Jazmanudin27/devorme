@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import HeroSlider from '../components/HeroSlider';
 import DomainSimulator from '../components/DomainSimulator';
 import { productService } from '../api/productService';
 
@@ -18,87 +19,20 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   return (
     <div>
       {/* ==================================================================
-          1. HERO SECTION (Persis Gaya Visual Leapfactor)
+          1. FULL HERO SLIDER (Banner.png & Interactive Ekosistem Showcase)
           ================================================================== */}
-      <section className="hero-wrapper-leap">
-        <div className="container">
-          <div className="hero-grid-two-col">
-            
-            {/* Left Column: Headline & Action Buttons */}
-            <div>
-              <div className="hero-pill-orange">
-                <span className="pill-check-icon">✓</span>
-                <span>Solusi Software & Digitalisasi Ekosistem Terpadu</span>
-              </div>
-
-              <h1 className="hero-title-lead">
-                <span className="title-orange-text">Software Terpadu</span>
-                untuk Ekosistem Bisnis yang Lebih Efisien
-              </h1>
-
-              <p className="hero-sub-description">
-                Atasi kendala operasional, tingkatkan produktivitas, dan dukung pertumbuhan institusi Anda dengan ekosistem software multi-subdomain Devorme yang terhubung langsung ke satu server dan database MySQL terpusat.
-              </p>
-
-              <div className="hero-cta-btns">
-                <a href="#kontak" className="btn-navy" style={{ padding: '14px 30px', fontSize: '1rem' }}>
-                  Konsultasi Gratis
-                </a>
-                <a href="#solusi-produk" className="btn-white-outline" style={{ padding: '14px 28px', fontSize: '1rem' }}>
-                  Lihat Solusi Kami →
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: Hero Specialist Image with Floating Badges */}
-            <div className="hero-person-stage">
-              <div className="hero-person-img-wrapper">
-                <img 
-                  src="/hero-person.jpg" 
-                  alt="Devorme Software Specialist" 
-                  className="hero-person-img"
-                />
-              </div>
-
-              {/* Floating Stat Badge 1 (Top Left) */}
-              <div className="floating-stat-card stat-card-top-left">
-                <div className="stat-icon-box">📊</div>
-                <div>
-                  <span className="stat-val-bold">Efisiensi Naik 35%</span>
-                  <span className="stat-label-small">Digitalisasi Operasional</span>
-                </div>
-              </div>
-
-              {/* Floating Stat Badge 2 (Bottom Right) */}
-              <div className="floating-stat-card stat-card-bottom-right">
-                <div className="stat-icon-box" style={{ background: '#ecfdf5', color: '#16a34a' }}>⚡</div>
-                <div>
-                  <span className="stat-val-bold">Uptime 99.98%</span>
-                  <span className="stat-label-small">Server VPS Aktif</span>
-                </div>
-              </div>
-
-              {/* Floating Stat Badge 3 (Bottom Left Dark Navy) */}
-              <div className="floating-stat-card stat-card-bottom-left">
-                <div style={{ fontSize: '1.2rem' }}>🚀</div>
-                <div>
-                  <span className="stat-val-bold" style={{ color: '#ffffff' }}>Produktivitas Naik 25%</span>
-                  <span className="stat-label-small" style={{ color: '#94a3b8' }}>Multi-Subdomain Terpadu</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <HeroSlider 
+        onSelectProduct={onSelectProduct} 
+        onNavigateToArchitecture={onNavigateToArchitecture} 
+      />
 
       {/* ==================================================================
-          2. TRUST STRIP / PARTNERS
+          2. TRUST STRIP / PARTNERS & TARGET SECTORS
           ================================================================== */}
       <section className="trust-strip">
         <div className="container">
           <div className="trust-label">
-            Ekosistem Teknologi Terintegrasi untuk Institusi & Korporasi
+            Ekosistem Teknologi Terintegrasi untuk Institusi, Yayasan & Korporasi
           </div>
           <div className="trust-badges">
             <span className="trust-badge-item">🏛️ Dinas & Pemerintahan</span>
@@ -110,19 +44,19 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       </section>
 
       {/* ==================================================================
-          3. SOLUSI PRODUK EKOSISTEM (Cards dengan Aksen Oranye & Navy)
+          3. SOLUSI PRODUK EKOSISTEM (Cards Biru & Navy)
           ================================================================== */}
       <section id="solusi-produk" className="products-section-leap">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto' }}>
-            <div className="hero-pill-orange">
+          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto' }}>
+            <div className="hero-pill-blue">
               <span>Portofolio Produk Kami</span>
             </div>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
               Solusi Software Spesifik Berbasis Subdomain
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              Setiap aplikasi beroperasi mandiri dengan domain resminya masing-masing, namun seluruh data tersinkronisasi aman dalam satu basis data server.
+              Setiap aplikasi beroperasi mandiri dengan domain resminya masing-masing, namun seluruh data tersinkronisasi aman dalam satu basis data server terpusat.
             </p>
           </div>
 
@@ -145,19 +79,19 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
                 <ul className="solution-features-list">
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Presensi Guru & Siswa Real-time</span>
                   </li>
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Kenaikan Kelas & Manajemen Alumni</span>
                   </li>
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Database MySQL: <strong>e_sekolah_db</strong></span>
                   </li>
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Tersedia Aplikasi Mobile Android (.apk)</span>
                   </li>
                 </ul>
@@ -195,19 +129,19 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
                 <ul className="solution-features-list">
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Digitalisasi Dokumen & Approval Alur Dinas</span>
                   </li>
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Dashboard Pelaporan Publik Real-time</span>
                   </li>
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Database MySQL: <strong>dis_db</strong></span>
                   </li>
                   <li>
-                    <span className="feature-check-orange">✓</span>
+                    <span className="feature-check-blue">✓</span>
                     <span>Enkripsi Data Tingkat Tinggi</span>
                   </li>
                 </ul>
@@ -242,7 +176,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       <section id="tentang-kami" style={{ padding: '80px 0', background: 'var(--bg-warm)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '680px', margin: '0 auto 48px' }}>
-            <div className="hero-pill-orange">
+            <div className="hero-pill-blue">
               <span>Keunggulan Sistem</span>
             </div>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
@@ -254,7 +188,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '30px', boxShadow: 'var(--shadow-card)', transition: 'var(--transition)' }} className="bento-card-hover">
               <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🎯</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>1 Domain, Banyak Aplikasi</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
@@ -262,7 +196,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '30px', boxShadow: 'var(--shadow-card)', transition: 'var(--transition)' }} className="bento-card-hover">
               <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🗄️</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Database Terpusat di Server</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
@@ -270,15 +204,15 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '30px', boxShadow: 'var(--shadow-card)', transition: 'var(--transition)' }} className="bento-card-hover">
               <div style={{ fontSize: '2rem', marginBottom: '14px' }}>📱</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Mobile Android Siap Pakai</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                Didukung arsitektur PWA dan Capacitor, kode web produk Anda langsung bisa diubah menjadi aplikasi native Android (.apk).
+                Didukung arsitektur PWA dan instalasi Android (.apk), klien Anda dapat mengakses platform langsung dari ponsel secara mandiri.
               </p>
             </div>
 
-            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '14px', padding: '30px', boxShadow: 'var(--shadow-card)' }}>
+            <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '30px', boxShadow: 'var(--shadow-card)', transition: 'var(--transition)' }} className="bento-card-hover">
               <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🛡️</div>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Keamanan SSL Otomatis</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
@@ -303,7 +237,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           ================================================================== */}
       <section id="kontak" style={{ padding: '80px 0', background: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
         <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-          <div className="hero-pill-orange">
+          <div className="hero-pill-blue">
             <span>Mulai Konsultasi</span>
           </div>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
@@ -316,8 +250,8 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
             <a 
               href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
               target="_blank" 
-              rel="noreferrer"
-              className="btn-orange" 
+              rel="noreferrer" 
+              className="btn-blue" 
               style={{ padding: '14px 32px', fontSize: '1rem' }}
             >
               💬 Hubungi via WhatsApp
@@ -330,7 +264,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       </section>
 
       {/* ==================================================================
-          7. FLOATING WHATSAPP US BUTTON (Leapfactor Signature)
+          7. FLOATING WHATSAPP US BUTTON
           ================================================================== */}
       <a 
         href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
