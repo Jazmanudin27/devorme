@@ -123,105 +123,32 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
                   </div>
                 </div>
 
-                <div className="compact-visual-col">
-                  <div className="compact-card-box">
-                    <div className="compact-card-header">
-                      <span className="dot red"></span>
-                      <span className="dot yellow"></span>
-                      <span className="dot green"></span>
-                      <span className="url-badge">Portofolio: e-sekolah.devorme.site</span>
-                    </div>
-                    <div className="compact-card-content">
-                      <div className="mini-stat-grid">
-                        <div className="mini-stat">
-                          <strong>100%</strong>
-                          <span>Rekap Otomatis</span>
-                        </div>
-                        <div className="mini-stat">
-                          <strong>Realtime</strong>
-                          <span>Absensi GPS/QR</span>
-                        </div>
-                        <div className="mini-stat">
-                          <strong>Multi-User</strong>
-                          <span>Guru & Wali</span>
-                        </div>
+                    <div className="compact-card-box">
+                      <div className="compact-card-header">
+                        <span className="dot red"></span>
+                        <span className="dot yellow"></span>
+                        <span className="dot green"></span>
+                        <span className="url-badge">Portofolio: E-Sekolah Cloud Suite</span>
                       </div>
-                      <div className="mini-check-list">
-                        <div>✓ Rekapitulasi Hadir, Izin, Sakit & Cuti</div>
-                        <div>✓ Rapor Digital & Arsip Nilai Siswa</div>
-                        <div>✓ Kredensial Demo Diberikan via WhatsApp</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* =======================================================
-              SLIDE 3: DIS Smart System & Central Database (Portofolio)
-              ======================================================= */}
-          <div className={`slider-fade-slide ${currentSlide === 2 ? 'active' : ''}`}>
-            <div className="feature-slide-inner slide-navy-deep">
-              <div className="compact-slide-grid">
-                <div className="compact-text-col">
-                  <div className="hero-pill-blue">
-                    <span className="pill-check-icon">✓</span>
-                    <span>Portofolio Layanan Publik & Institusi</span>
-                  </div>
-                  <h2 className="slide-title-compact">
-                    DIS Smart System: <span className="text-cyan-glow">Birokrasi & Pelaporan Cepat</span>
-                  </h2>
-                  <p className="slide-desc-compact">
-                    Platform pelaporan dan dokumen digital dinas/institusi dengan alur approval bertingkat, keamanan enkripsi tinggi, dan uptime server 99.98%.
-                  </p>
-                  <div className="compact-tags-row">
-                    <span className="slide-tag">🏛️ dis.devorme.site</span>
-                    <span className="slide-tag">🛡️ SSL Nginx Enkripsi</span>
-                    <span className="slide-tag">⚡ Uptime 99.98%</span>
-                  </div>
-                  <div className="compact-btns-row">
-                    <a 
-                      href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20DIS%20Smart%20System" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="btn-slider-primary"
-                    >
-                      💬 Request Demo via WhatsApp
-                    </a>
-                    <button 
-                      className="btn-slider-glass-light"
-                      onClick={() => onSelectProduct && onSelectProduct('dis')}
-                    >
-                      Detail Portofolio
-                    </button>
-                  </div>
-                </div>
-
-                <div className="compact-visual-col">
-                  <div className="compact-card-box">
-                    <div className="compact-card-header">
-                      <span className="dot red"></span>
-                      <span className="dot yellow"></span>
-                      <span className="dot green"></span>
-                      <span className="url-badge">Portofolio: dis.devorme.site</span>
-                    </div>
-                    <div className="compact-card-content">
-                      <div className="server-status-box">
-                        <div className="server-row">
-                          <span className="server-dot green"></span>
-                          <span>devorme.site (Domain Induk)</span>
+                      <div className="compact-card-content">
+                        <div className="mini-stat-grid">
+                          <div className="mini-stat">
+                            <strong>100%</strong>
+                            <span>Rekap Otomatis</span>
+                          </div>
+                          <div className="mini-stat">
+                            <strong>Realtime</strong>
+                            <span>Absensi GPS/QR</span>
+                          </div>
+                          <div className="mini-stat">
+                            <strong>Multi-User</strong>
+                            <span>Guru & Wali</span>
+                          </div>
                         </div>
-                        <div className="server-row">
-                          <span className="server-dot blue"></span>
-                          <span>e-sekolah.devorme.site (Akademik)</span>
-                        </div>
-                        <div className="server-row">
-                          <span className="server-dot purple"></span>
-                          <span>dis.devorme.site (Sistem Informasi)</span>
-                        </div>
-                        <div className="server-sync-hint">
-                          💬 Akses Uji Coba Demo Disediakan Melalui WhatsApp
+                        <div className="mini-check-list">
+                          <div>✓ Rekapitulasi Hadir, Izin, Sakit & Cuti</div>
+                          <div>✓ Rapor Digital & Arsip Nilai Siswa</div>
+                          <div>✓ Kredensial Demo Diberikan via WhatsApp</div>
                         </div>
                       </div>
                     </div>
@@ -229,11 +156,81 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
                 </div>
               </div>
             </div>
+
+            {/* =======================================================
+                SLIDE 3: DIS Smart System & Central Database (Portofolio)
+                ======================================================= */}
+            <div className={`slider-fade-slide ${currentSlide === 2 ? 'active' : ''}`}>
+              <div className="feature-slide-inner slide-navy-deep">
+                <div className="compact-slide-grid">
+                  <div className="compact-text-col">
+                    <div className="hero-pill-blue">
+                      <span className="pill-check-icon">✓</span>
+                      <span>Portofolio Layanan Publik & Institusi</span>
+                    </div>
+                    <h2 className="slide-title-compact">
+                      DIS Smart System: <span className="text-cyan-glow">Birokrasi & Pelaporan Cepat</span>
+                    </h2>
+                    <p className="slide-desc-compact">
+                      Platform pelaporan dan dokumen digital dinas/institusi dengan alur approval bertingkat, keamanan enkripsi tinggi, dan uptime server 99.98%.
+                    </p>
+                    <div className="compact-tags-row">
+                      <span className="slide-tag">🏛️ Sistem Informasi Publik</span>
+                      <span className="slide-tag">🛡️ SSL Nginx Enkripsi</span>
+                      <span className="slide-tag">⚡ Uptime 99.98%</span>
+                    </div>
+                    <div className="compact-btns-row">
+                      <a 
+                        href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20DIS%20Smart%20System" 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="btn-slider-primary"
+                      >
+                        💬 Request Demo via WhatsApp
+                      </a>
+                      <button 
+                        className="btn-slider-glass-light"
+                        onClick={() => onSelectProduct && onSelectProduct('dis')}
+                      >
+                        Detail Portofolio
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="compact-visual-col">
+                    <div className="compact-card-box">
+                      <div className="compact-card-header">
+                        <span className="dot red"></span>
+                        <span className="dot yellow"></span>
+                        <span className="dot green"></span>
+                        <span className="url-badge">Portofolio: DIS Smart System Enterprise</span>
+                      </div>
+                      <div className="compact-card-content">
+                        <div className="server-status-box">
+                          <div className="server-row">
+                            <span className="server-dot green"></span>
+                            <span>Core System & Database Master</span>
+                          </div>
+                          <div className="server-row">
+                            <span className="server-dot blue"></span>
+                            <span>Modul Akademik & Presensi Cerdas</span>
+                          </div>
+                          <div className="server-row">
+                            <span className="server-dot purple"></span>
+                            <span>Modul Pelaporan & Dokumen Instansi</span>
+                          </div>
+                          <div className="server-sync-hint">
+                            💬 Akses Uji Coba Demo Disediakan Melalui WhatsApp
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </div>
 
-        </div>
-
-        {/* Navigation Controls: Prev & Next */}
+          {/* Navigation Controls: Prev & Next */}
         <button 
           className="slider-nav-btn slider-nav-prev" 
           onClick={handlePrev}

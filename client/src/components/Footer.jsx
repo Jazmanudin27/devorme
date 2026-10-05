@@ -56,7 +56,7 @@ export default function Footer() {
 
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px', fontSize: '0.82rem' }}>
           <div>&copy; 2026 Devorme Technologies Inc. All rights reserved.</div>
-          <div style={{ color: '#64748b' }}>Domain Utama: devorme.site • Subdomain Ecosystem</div>
+          <div style={{ color: '#64748b' }}>Devorme Software Ecosystem • Central Enterprise Database</div>
         </div>
       </div>
     </footer>

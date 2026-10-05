@@ -70,7 +70,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               <div className="solution-card">
                 <span className="card-top-tag">🎓 Portofolio Sekolah & Yayasan</span>
                 <span className="domain-pill" style={{ marginBottom: '14px' }}>
-                  🌐 e-sekolah.devorme.site • Akses Demo via WA
+                  💼 Sistem Informasi Akademik • Demo via WA
                 </span>
                 <h3 className="solution-title">E-Sekolah Cloud Platform</h3>
                 <p className="solution-desc">
@@ -88,7 +88,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                   </li>
                   <li>
                     <span className="feature-check-blue">✓</span>
-                    <span>Database MySQL: <strong>e_sekolah_db</strong></span>
+                    <span>Database Terpusat & Sinkronisasi Otomatis</span>
                   </li>
                   <li>
                     <span className="feature-check-blue">✓</span>
@@ -120,7 +120,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               <div className="solution-card">
                 <span className="card-top-tag">🏛️ Portofolio Layanan Publik & Dinas</span>
                 <span className="domain-pill" style={{ marginBottom: '14px' }}>
-                  🌐 dis.devorme.site • Akses Demo via WA
+                  💼 Sistem Informasi Publik • Demo via WA
                 </span>
                 <h3 className="solution-title">DIS Smart System</h3>
                 <p className="solution-desc">
@@ -138,7 +138,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                   </li>
                   <li>
                     <span className="feature-check-blue">✓</span>
-                    <span>Database MySQL: <strong>dis_db</strong></span>
+                    <span>Enkripsi Enterprise & Database Terpusat</span>
                   </li>
                   <li>
                     <span className="feature-check-blue">✓</span>
@@ -190,9 +190,9 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
             <div style={{ background: '#ffffff', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '30px', boxShadow: 'var(--shadow-card)', transition: 'var(--transition)' }} className="bento-card-hover">
               <div style={{ fontSize: '2rem', marginBottom: '14px' }}>🎯</div>
-              <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>1 Domain, Banyak Aplikasi</h3>
+              <h3 style={{ fontSize: '1.25rem', marginBottom: '8px' }}>Arsitektur Modular Terpadu</h3>
               <p style={{ color: 'var(--text-muted)', fontSize: '0.92rem', lineHeight: 1.6 }}>
-                Hanya butuh 1 domain utama <code>devorme.site</code> untuk membuat puluhan subdomain produk baru tanpa biaya pembelian domain tambahan.
+                Setiap modul aplikasi berjalan independen sesuai perannya, namun seluruh ekosistem tersinkronisasi mulus di bawah satu database terpusat.
               </p>
             </div>
 

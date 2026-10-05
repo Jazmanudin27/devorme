@@ -7,16 +7,16 @@ export default function ArchitectureView({ onBackToCompany }) {
         onClick={onBackToCompany}
         style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}
       >
-        ← Kembali ke Beranda devorme.site
+        ← Kembali ke Beranda
       </button>
 
       <div style={{ textAlign: 'center', marginBottom: '60px' }}>
         <div className="badge-pill">
           <span>Infrastruktur & Arsitektur Sistem</span>
         </div>
-        <h1 style={{ fontSize: '3rem', marginBottom: '16px' }}>Arsitektur Subdomain & Database Terpusat</h1>
+        <h1 style={{ fontSize: '3rem', marginBottom: '16px' }}>Arsitektur Modular & Database Terpusat</h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.15rem', maxWidth: '720px', margin: '0 auto', lineHeight: 1.7 }}>
-          Panduan teknis alur komunikasi antara Website Utama (<code>devorme.site</code>), Subdomain Produk (<code>e-sekolah.devorme.site</code>), Nginx Reverse Proxy, dan Database Server MySQL.
+          Panduan teknis alur komunikasi antara Portal Utama, Modul Aplikasi Ekosistem, Nginx Reverse Proxy, dan Database Server MySQL.
         </p>
       </div>
 
@@ -25,9 +25,9 @@ export default function ArchitectureView({ onBackToCompany }) {
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', background: '#eef2ff', color: 'var(--accent-indigo)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.4rem', marginBottom: '18px' }}>
             🌐
           </div>
-          <h3 style={{ fontSize: '1.35rem', marginBottom: '12px', color: '#0f172a' }}>1. Nginx Subdomain Routing</h3>
+          <h3 style={{ fontSize: '1.35rem', marginBottom: '12px', color: '#0f172a' }}>1. Nginx Modular Routing</h3>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6 }}>
-            Setiap subdomain (<code>devorme.site</code>, <code>e-sekolah.devorme.site</code>, <code>dis.devorme.site</code>) diarahkan ke IP VPS Anda melalui DNS Record A. Nginx kemudian memetakan domain ke folder frontend (dist) dan port API yang sesuai.
+            Setiap modul aplikasi diarahkan ke IP VPS Anda melalui konfigurasi server web terisolasi. Nginx kemudian memetakan request ke folder frontend (dist) dan port API yang sesuai.
           </p>
         </div>
 

@@ -37,7 +37,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
     <div>
       {/* Top Banner */}
       <div style={{ background: '#eff6ff', borderBottom: '1px solid #bfdbfe', padding: '10px 20px', textAlign: 'center', fontSize: '0.88rem', color: '#0369a1', fontWeight: 600 }}>
-        📁 Portofolio Produk Devorme: <strong>https://{product.domain}</strong> — Akses Uji Coba & Demo Melalui WhatsApp
+        📁 Portofolio Produk Devorme: <strong>{product.name}</strong> — Akses Uji Coba & Demo Melalui WhatsApp
       </div>
 
       <div className="container" style={{ padding: '50px 24px' }}>
@@ -45,7 +45,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
           onClick={onBackToCompany}
           style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', marginBottom: '30px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem', fontWeight: 600 }}
         >
-          ← Kembali ke Website Induk devorme.site
+          ← Kembali ke Beranda Portofolio
         </button>
 
         {/* Product Brand Header */}
@@ -93,10 +93,10 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
         <div style={{ background: 'linear-gradient(135deg, #eef5ff 0%, #dbeafe 100%)', border: '1px solid #bfdbfe', borderRadius: '20px', padding: '48px', textAlign: 'center' }}>
           <h3 style={{ fontSize: '1.8rem', marginBottom: '12px', color: 'var(--navy-dark)' }}>Ingin Mencoba Demo {product.name}?</h3>
           <p style={{ color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto 24px', fontSize: '1.02rem', lineHeight: 1.6 }}>
-            Akses demo dan kredensial uji coba untuk domain <strong>{product.domain}</strong> diberikan secara terarah. Silakan hubungi kami via WhatsApp untuk mendapatkan akses demo langsung.
+            Akses demo dan kredensial uji coba untuk produk <strong>{product.name}</strong> diberikan secara eksklusif. Silakan hubungi kami via WhatsApp untuk mendapatkan akses demo langsung.
           </p>
           <a 
-            href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20untuk%20${encodeURIComponent(product.name)}%20(${product.domain})`} 
+            href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20untuk%20${encodeURIComponent(product.name)}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-blue"
