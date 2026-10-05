@@ -41,16 +41,15 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
 
   return (
     <section 
-      className="hero-slider-section"
+      className="hero-slider-section hero-slider-fullwidth"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
-      <div className="container">
-        {/* Main Slider Frame with Balanced Compact Height */}
-        <div className="slider-outer-frame">
-          <div className="slider-fade-viewport">
+      {/* Edge-to-Edge Full Width Slider Frame */}
+      <div className="slider-outer-frame slider-frame-fullwidth">
+        <div className="slider-fade-viewport">
             
             {/* =======================================================
                 SLIDE 1: Flagship Banner.png (Full, Crisp, Proportional)
@@ -266,9 +265,10 @@ export default function HeroSlider({ onSelectProduct, onNavigateToArchitecture }
               </button>
             ))}
           </div>
-        </div>
+      </div>
 
-        {/* Highlight Metric Strip below Slider */}
+      {/* Highlight Metric Strip below Slider in Container */}
+      <div className="container" style={{ marginTop: '24px' }}>
         <div className="slider-bottom-metrics">
           <div className="metric-item">
             <span className="metric-icon">🚀</span>
