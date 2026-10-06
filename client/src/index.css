@@ -402,8 +402,9 @@ a {
   border-top: none;
 }
 
-/* Single Hero Banner: Banner.png Full Layar */
+/* Single Hero Banner: Banner.png Full Layar dengan Tombol Nimpa Kanan Bawah */
 .banner-image-container {
+  position: relative;
   display: block;
   width: 100%;
   background: #ebf6fe;
@@ -420,93 +421,58 @@ a {
   margin: 0 auto;
 }
 
-.banner-quick-actions-bar {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(14px);
-  border-top: 1px solid rgba(0, 102, 255, 0.15);
-  padding: 14px 40px;
+/* Floating Actions Overlay directly on Banner (Right Bottom) */
+.banner-floating-actions-overlay {
+  position: absolute;
+  right: 5vw;
+  bottom: 4vw;
   display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 10;
+  line-height: normal;
+}
+
+.btn-hero-overlay {
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 1.08rem;
+  font-weight: 800;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 14px;
-  width: 100%;
-}
-
-.banner-badge-live {
-  display: flex;
-  align-items: center;
   gap: 10px;
-  font-weight: 700;
-  color: var(--navy-dark);
-  font-size: 0.9rem;
-}
-
-.live-pulse-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--blue-primary);
-  box-shadow: 0 0 0 4px rgba(0, 102, 255, 0.25);
-  animation: pulseDot 2s infinite;
-}
-
-@keyframes pulseDot {
-  0% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.5); }
-  70% { box-shadow: 0 0 0 8px rgba(0, 102, 255, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0); }
-}
-
-.banner-actions-btns {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn-slider-primary {
-  background: linear-gradient(135deg, var(--blue-primary) 0%, #0052d4 100%);
-  color: #ffffff;
-  padding: 9px 20px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.86rem;
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
-  transition: var(--transition);
-  border: none;
+  text-decoration: none;
   cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.3px;
 }
 
-.btn-slider-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 102, 255, 0.45);
+.btn-hero-portfolio {
+  background: linear-gradient(135deg, #0066ff 0%, #004bbd 100%);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 25px rgba(0, 102, 255, 0.45), 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.btn-hero-portfolio:hover {
+  background: linear-gradient(135deg, #1a7bff 0%, #0066ff 100%);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 32px rgba(0, 102, 255, 0.6), 0 6px 14px rgba(0, 0, 0, 0.3);
   color: #ffffff;
 }
 
-.btn-slider-whatsapp {
+.btn-hero-whatsapp {
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
   color: #ffffff;
-  padding: 9px 20px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.86rem;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
-  transition: var(--transition);
-  border: none;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45), 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.btn-slider-whatsapp:hover {
+.btn-hero-whatsapp:hover {
   background: linear-gradient(135deg, #1ebe5d 0%, #0d7367 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 14px 32px rgba(37, 211, 102, 0.65), 0 6px 14px rgba(0, 0, 0, 0.3);
   color: #ffffff;
 }
 
@@ -1154,17 +1120,36 @@ a {
   }
   .slider-nav-prev { left: 8px; }
   .slider-nav-next { right: 8px; }
-  .banner-quick-actions-bar {
-    padding: 10px 14px;
-    flex-direction: column;
-    align-items: flex-start;
+  .banner-floating-actions-overlay {
+    right: 4vw;
+    bottom: 3.5vw;
+    gap: 10px;
   }
-  .banner-actions-btns {
-    width: 100%;
+  .btn-hero-overlay {
+    padding: 9px 18px;
+    font-size: 0.88rem;
+    border-radius: 9px;
   }
-  .banner-actions-btns a, .banner-actions-btns button {
-    flex: 1;
-    text-align: center;
-    justify-content: center;
+  .btn-hero-overlay svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-floating-actions-overlay {
+    right: 3vw;
+    bottom: 3vw;
+    gap: 6px;
+  }
+  .btn-hero-overlay {
+    padding: 6px 12px;
+    font-size: 0.76rem;
+    border-radius: 7px;
+    gap: 6px;
+  }
+  .btn-hero-overlay svg {
+    width: 15px;
+    height: 15px;
   }
 }
