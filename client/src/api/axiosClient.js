@@ -1,8 +1,12 @@
-/**
- * API Client Interceptor
- * Menghubungkan Frontend ke Central Backend API Server
- */
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
+export const getApiBaseUrl = () => {
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+    return '/api/v1';
+  }
+  return 'http://localhost:5000/api/v1';
+};
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('admin_token');
@@ -12,7 +16,7 @@ const getAuthHeaders = () => {
 export const apiClient = {
   get: async (endpoint) => {
     try {
-      const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+      const res = await fetch(`${getApiBaseUrl()}${endpoint}`, {
         headers: getAuthHeaders()
       });
       if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
@@ -24,7 +28,7 @@ export const apiClient = {
   },
   post: async (endpoint, data) => {
     try {
-      const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+      const res = await fetch(`${getApiBaseUrl()}${endpoint}`, {
         method: 'POST',
         headers: getAuthHeaders(),
         body: JSON.stringify(data)

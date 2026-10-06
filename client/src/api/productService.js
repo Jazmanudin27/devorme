@@ -1,4 +1,4 @@
-import { apiClient } from './axiosClient';
+import { apiClient, getApiBaseUrl } from './axiosClient';
 
 export const productService = {
   // 1. READ ALL
@@ -27,10 +27,9 @@ export const productService = {
 
   // 4. UPDATE
   updateProduct: async (id, updateData) => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`${API_BASE_URL}/products/${id}`, {
+      const res = await fetch(`${getApiBaseUrl()}/products/${id}`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',
@@ -47,10 +46,9 @@ export const productService = {
 
   // 5. DELETE
   deleteProduct: async (id) => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`${API_BASE_URL}/products/${id}`, {
+      const res = await fetch(`${getApiBaseUrl()}/products/${id}`, {
         method: 'DELETE',
         headers: {
           ...(token ? { 'Authorization': `Bearer ${token}` } : {})
@@ -80,10 +78,9 @@ export const productService = {
   },
 
   updateSettings: async (settingsData) => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
     const token = localStorage.getItem('admin_token');
     try {
-      const res = await fetch(`${API_BASE_URL}/company/settings`, {
+      const res = await fetch(`${getApiBaseUrl()}/company/settings`, {
         method: 'PUT',
         headers: { 
           'Content-Type': 'application/json',
@@ -100,9 +97,8 @@ export const productService = {
 
   // 7. LOGIN ADMIN
   loginAdmin: async (email, password) => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
     try {
-      const res = await fetch(`${API_BASE_URL}/auth/login`, {
+      const res = await fetch(`${getApiBaseUrl()}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
@@ -121,12 +117,11 @@ export const productService = {
 
   // 8. UPLOAD FILE GAMBAR
   uploadImage: async (file) => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
     const token = localStorage.getItem('admin_token');
     const formData = new FormData();
     formData.append('image', file);
     try {
-      const res = await fetch(`${API_BASE_URL}/products/upload`, {
+      const res = await fetch(`${getApiBaseUrl()}/products/upload`, {
         method: 'POST',
         headers: {
           ...(token ? { 'Authorization': `Bearer ${token}` } : {})
