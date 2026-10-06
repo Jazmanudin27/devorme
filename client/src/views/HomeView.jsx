@@ -7,11 +7,8 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Image Carousel state per product card
-  const [cardSlides, setCardSlides] = useState({
-    'e-sekolah': 0,
-    'dis': 0
-  });
+  // Image Carousel state per product card (dinamis berdasar ID produk database)
+  const [cardSlides, setCardSlides] = useState({});
 
   // Lightbox Zoom Viewer state
   const [lightbox, setLightbox] = useState({
