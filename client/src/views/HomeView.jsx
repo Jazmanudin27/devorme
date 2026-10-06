@@ -106,16 +106,16 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       {/* ==================================================================
           3. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF
           ================================================================== */}
-      <section id="solusi-produk" className="products-section-leap" style={{ background: '#f8fafc', padding: '84px 0' }}>
+      <section id="solusi-produk" className="products-section-leap" style={{ background: 'linear-gradient(180deg, #0b152b 0%, #111f3d 100%)', padding: '84px 0' }}>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
             <div className="hero-pill-blue">
               <span>🖼️ Galeri Portofolio & Sistem Teruji</span>
             </div>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '14px', color: 'var(--navy-dark)' }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '14px', color: '#ffffff' }}>
               Galeri Portofolio Solusi Software Devorme
             </h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
+            <p style={{ color: '#94a3b8', fontSize: '1.05rem', lineHeight: 1.6 }}>
               Kumpulan produk dan ekosistem digital mandiri yang telah kami kembangkan. Lihat pratinjau galeri sistem di bawah atau minta akses demo aplikasi secara langsung via WhatsApp.
             </p>
           </div>
