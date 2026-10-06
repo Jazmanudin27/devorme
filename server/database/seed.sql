@@ -89,3 +89,26 @@ VALUES
   (1, 'Enterprise ERP', 4900000.00, 'monthly', 'Unlimited', TRUE),
   (2, 'Merchant Basic', 0.00, 'monthly', 'Unlimited', TRUE),
   (3, 'Pro Analytics', 2900000.00, 'monthly', '5 Akun Analyst', TRUE);
+
+-- 5. Insert Galeri Foto Slider & Caption Produk
+INSERT INTO `product_images` (`product_id`, `image_url`, `caption`, `sort_order`)
+VALUES 
+  -- E-Sekolah Cloud (Product 1)
+  (1, '/esekolah_preview.jpg', 'Dashboard Utama Akademik & Presensi Siswa', 1),
+  (1, '/esekolah_preview_2.jpg', 'Manajemen E-Rapor & Rekap Nilai Akademik', 2),
+  (1, '/Banner4.png?v=4.0', 'Arsitektur Multi-Domain Server E-Sekolah', 3),
+
+  -- DIS Smart System (Product 2)
+  (2, '/dis_preview.jpg', 'Dashboard Birokrasi & Pelaporan Publik', 1),
+  (2, '/Banner4.png?v=4.0', 'Infrastruktur Server Terpusat DIS System', 2),
+  (2, '/esekolah_preview_2.jpg', 'Alur Workflows Approval Dokumen Dinas', 3),
+
+  -- Apotek & Klinik Smart POS (Product 3)
+  (3, '/Banner4.png?v=4.0', 'Kasir POS Farmasi & QRIS Dinamis', 1),
+  (3, '/esekolah_preview.jpg', 'Rekam Medis Pasien & Resep Dokter Digital', 2),
+  (3, '/dis_preview.jpg', 'Manajemen Stok Obat & Expired Warning', 3),
+
+  -- Enterprise ERP & Logistics (Product 4)
+  (4, '/dis_preview.jpg', 'Tracking Pengiriman & Multi-Gudang', 1),
+  (4, '/esekolah_preview_2.jpg', 'Laporan Keuangan & Akuntansi Realtime', 2),
+  (4, '/Banner4.png?v=4.0', 'Integrasi Multi-Subdomain ERP Enterprise', 3);

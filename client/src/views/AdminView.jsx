@@ -306,6 +306,60 @@ export default function AdminView({ onBackToHome }) {
                 />
               </div>
 
+              {/* Multi Image & Caption Manager */}
+              <div style={{ background: '#f8fafc', padding: '16px', borderRadius: '12px', border: '1px solid #e2e8f0' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <label style={{ fontSize: '0.86rem', fontWeight: 700, color: '#0f172a' }}>🖼️ Galeri Foto Slider & Caption Database</label>
+                  <button 
+                    type="button" 
+                    className="btn btn-secondary btn-sm"
+                    onClick={() => setForm({ ...form, images: [...(form.images || []), { url: '', caption: '' }] })}
+                    style={{ fontSize: '0.78rem', padding: '4px 10px' }}
+                  >
+                    + Tambah Foto Slide
+                  </button>
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '180px', overflowY: 'auto' }}>
+                  {(form.images || [{ url: '', caption: '' }]).map((img, idx) => (
+                    <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '8px', alignItems: 'center' }}>
+                      <input 
+                        type="text"
+                        placeholder="URL / Path Foto (/Banner4.png)"
+                        value={img.url}
+                        onChange={e => {
+                          const newImgs = [...form.images];
+                          newImgs[idx].url = e.target.value;
+                          setForm({ ...form, images: newImgs });
+                        }}
+                        style={{ padding: '6px 10px', fontSize: '0.82rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
+                      />
+                      <input 
+                        type="text"
+                        placeholder="Caption / Keterangan Slide"
+                        value={img.caption}
+                        onChange={e => {
+                          const newImgs = [...form.images];
+                          newImgs[idx].caption = e.target.value;
+                          setForm({ ...form, images: newImgs });
+                        }}
+                        style={{ padding: '6px 10px', fontSize: '0.82rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
+                      />
+                      <button 
+                        type="button" 
+                        onClick={() => {
+                          const newImgs = form.images.filter((_, i) => i !== idx);
+                          setForm({ ...form, images: newImgs });
+                        }}
+                        style={{ background: '#fee2e2', color: '#b91c1c', border: 'none', borderRadius: '6px', padding: '6px 10px', fontSize: '0.8rem', cursor: 'pointer' }}
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               <div style={{ display: 'flex', gap: '10px', marginTop: '14px' }}>
                 <button type="submit" className="btn btn-primary" style={{ flex: 1 }}>
                   {isEditing ? 'Simpan Perubahan' : 'Daftarkan ke Server'}
