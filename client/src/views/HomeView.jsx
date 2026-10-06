@@ -7,6 +7,65 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Image Carousel state per product card
+  const [cardSlides, setCardSlides] = useState({
+    'e-sekolah': 0,
+    'dis': 0
+  });
+
+  // Lightbox Zoom Viewer state
+  const [lightbox, setLightbox] = useState({
+    isOpen: false,
+    images: [],
+    currentIndex: 0,
+    title: ''
+  });
+  const [zoomScale, setZoomScale] = useState(1);
+
+  const productImages = {
+    'e-sekolah': [
+      { src: '/esekolah_preview.jpg', caption: 'Dashboard Utama Akademik & Presensi Siswa' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Manajemen E-Rapor & Rekap Nilai Akademik' },
+      { src: '/Banner.png', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
+    ],
+    'dis': [
+      { src: '/dis_preview.jpg', caption: 'Dashboard Birokrasi & Pelaporan Publik' },
+      { src: '/Banner.png', caption: 'Infrastruktur Server Terpusat DIS System' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Alur Workflows Approval Dokumen Dinas' }
+    ]
+  };
+
+  const handlePrevSlide = (prodId) => {
+    setCardSlides(prev => {
+      const total = productImages[prodId]?.length || 1;
+      const current = prev[prodId] || 0;
+      return { ...prev, [prodId]: (current - 1 + total) % total };
+    });
+  };
+
+  const handleNextSlide = (prodId) => {
+    setCardSlides(prev => {
+      const total = productImages[prodId]?.length || 1;
+      const current = prev[prodId] || 0;
+      return { ...prev, [prodId]: (current + 1) % total };
+    });
+  };
+
+  const openLightbox = (prodId, index = 0, title = '') => {
+    setLightbox({
+      isOpen: true,
+      images: productImages[prodId] || [],
+      currentIndex: index,
+      title: title
+    });
+    setZoomScale(1);
+  };
+
+  const closeLightbox = () => {
+    setLightbox({ isOpen: false, images: [], currentIndex: 0, title: '' });
+    setZoomScale(1);
+  };
+
   useEffect(() => {
     async function loadData() {
       const data = await productService.getAllProducts();
@@ -71,15 +130,61 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               {/* Product 1: E-Sekolah Cloud */}
               <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
                 
-                {/* Image Banner Showcase */}
-                <div style={{ position: 'relative', width: '100%', height: '220px', overflow: 'hidden', background: '#ebf6fe' }}>
+                {/* Image Banner Showcase Slider */}
+                <div style={{ position: 'relative', width: '100%', height: '230px', overflow: 'hidden', background: '#07153b' }}>
                   <img 
-                    src="/esekolah_preview.jpg" 
+                    src={productImages['e-sekolah'][cardSlides['e-sekolah'] || 0].src} 
                     alt="E-Sekolah Cloud Platform UI Preview" 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
+                    onClick={() => openLightbox('e-sekolah', cardSlides['e-sekolah'] || 0, 'E-Sekolah Cloud Platform')}
                   />
-                  <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '5px 12px', borderRadius: '99px', fontSize: '0.78rem', fontWeight: 700, border: '1px solid rgba(255,255,255,0.2)' }}>
+                  
+                  {/* Category Tag */}
+                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 12px', borderRadius: '99px', fontSize: '0.76rem', fontWeight: 700, border: '1px solid rgba(255,255,255,0.2)', pointerEvents: 'none' }}>
                     🎓 Sekolah & Yayasan
+                  </div>
+
+                  {/* Zoom Badge Trigger */}
+                  <button 
+                    onClick={() => openLightbox('e-sekolah', cardSlides['e-sekolah'] || 0, 'E-Sekolah Cloud Platform')}
+                    style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0, 102, 255, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 10px', borderRadius: '8px', fontSize: '0.74rem', fontWeight: 700, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 5 }}
+                  >
+                    🔍 Zoom Foto ({ (cardSlides['e-sekolah'] || 0) + 1 }/3)
+                  </button>
+
+                  {/* Slider Controls */}
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); handlePrevSlide('e-sekolah'); }}
+                    style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
+                    aria-label="Foto Sebelumnya"
+                  >
+                    ‹
+                  </button>
+
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); handleNextSlide('e-sekolah'); }}
+                    style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
+                    aria-label="Foto Selanjutnya"
+                  >
+                    ›
+                  </button>
+
+                  {/* Dots Indicators */}
+                  <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 5 }}>
+                    {productImages['e-sekolah'].map((_, idx) => (
+                      <span 
+                        key={idx}
+                        onClick={(e) => { e.stopPropagation(); setCardSlides(prev => ({ ...prev, 'e-sekolah': idx })); }}
+                        style={{
+                          width: (cardSlides['e-sekolah'] || 0) === idx ? '18px' : '6px',
+                          height: '6px',
+                          borderRadius: '99px',
+                          background: (cardSlides['e-sekolah'] || 0) === idx ? '#38bdf8' : 'rgba(255,255,255,0.5)',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease'
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
@@ -113,15 +218,61 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               {/* Product 2: DIS Smart System */}
               <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
                 
-                {/* Image Banner Showcase */}
-                <div style={{ position: 'relative', width: '100%', height: '220px', overflow: 'hidden', background: '#0f172a' }}>
+                {/* Image Banner Showcase Slider */}
+                <div style={{ position: 'relative', width: '100%', height: '230px', overflow: 'hidden', background: '#0f172a' }}>
                   <img 
-                    src="/dis_preview.jpg" 
+                    src={productImages['dis'][cardSlides['dis'] || 0].src} 
                     alt="DIS Smart System UI Preview" 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
+                    onClick={() => openLightbox('dis', cardSlides['dis'] || 0, 'DIS Smart System')}
                   />
-                  <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#c084fc', padding: '5px 12px', borderRadius: '99px', fontSize: '0.78rem', fontWeight: 700, border: '1px solid rgba(168,85,247,0.3)' }}>
+                  
+                  {/* Category Tag */}
+                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#c084fc', padding: '4px 12px', borderRadius: '99px', fontSize: '0.76rem', fontWeight: 700, border: '1px solid rgba(168,85,247,0.3)', pointerEvents: 'none' }}>
                     🏛️ Layanan Publik & Dinas
+                  </div>
+
+                  {/* Zoom Badge Trigger */}
+                  <button 
+                    onClick={() => openLightbox('dis', cardSlides['dis'] || 0, 'DIS Smart System')}
+                    style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(168, 85, 247, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 10px', borderRadius: '8px', fontSize: '0.74rem', fontWeight: 700, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 5 }}
+                  >
+                    🔍 Zoom Foto ({ (cardSlides['dis'] || 0) + 1 }/3)
+                  </button>
+
+                  {/* Slider Controls */}
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); handlePrevSlide('dis'); }}
+                    style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
+                    aria-label="Foto Sebelumnya"
+                  >
+                    ‹
+                  </button>
+
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); handleNextSlide('dis'); }}
+                    style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
+                    aria-label="Foto Selanjutnya"
+                  >
+                    ›
+                  </button>
+
+                  {/* Dots Indicators */}
+                  <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 5 }}>
+                    {productImages['dis'].map((_, idx) => (
+                      <span 
+                        key={idx}
+                        onClick={(e) => { e.stopPropagation(); setCardSlides(prev => ({ ...prev, 'dis': idx })); }}
+                        style={{
+                          width: (cardSlides['dis'] || 0) === idx ? '18px' : '6px',
+                          height: '6px',
+                          borderRadius: '99px',
+                          background: (cardSlides['dis'] || 0) === idx ? '#c084fc' : 'rgba(255,255,255,0.5)',
+                          cursor: 'pointer',
+                          transition: 'all 0.3s ease'
+                        }}
+                      />
+                    ))}
                   </div>
                 </div>
 
@@ -180,6 +331,139 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
             </div>
           </div>
         </div>
+
+        {/* Lightbox Zoom Viewer Modal */}
+        {lightbox.isOpen && (
+          <div 
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              zIndex: 9999,
+              background: 'rgba(5, 12, 28, 0.95)',
+              backdropFilter: 'blur(16px)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              padding: '24px'
+            }}
+            onClick={closeLightbox}
+          >
+            {/* Header Bar */}
+            <div 
+              style={{
+                width: '100%',
+                maxWidth: '1200px',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                color: '#ffffff'
+              }}
+              onClick={e => e.stopPropagation()}
+            >
+              <div>
+                <h4 style={{ fontSize: '1.25rem', color: '#ffffff', marginBottom: '4px' }}>{lightbox.title}</h4>
+                <span style={{ fontSize: '0.86rem', color: '#93c5fd' }}>
+                  {lightbox.images[lightbox.currentIndex]?.caption} ({lightbox.currentIndex + 1} dari {lightbox.images.length})
+                </span>
+              </div>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <button 
+                  onClick={() => setZoomScale(prev => Math.min(prev + 0.3, 2.5))}
+                  style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', color: '#fff', padding: '6px 14px', borderRadius: '8px', cursor: 'pointer', fontWeight: 700 }}
+                >
+                  🔍 Zoom In +
+                </button>
+                <button 
+                  onClick={() => setZoomScale(prev => Math.max(prev - 0.3, 0.8))}
+                  style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', color: '#fff', padding: '6px 14px', borderRadius: '8px', cursor: 'pointer', fontWeight: 700 }}
+                >
+                  🔍 Zoom Out -
+                </button>
+                <button 
+                  onClick={() => setZoomScale(1)}
+                  style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', color: '#fff', padding: '6px 14px', borderRadius: '8px', cursor: 'pointer', fontWeight: 700 }}
+                >
+                  🔄 Reset
+                </button>
+                <button 
+                  onClick={closeLightbox}
+                  style={{ background: '#ef4444', border: 'none', color: '#fff', padding: '6px 16px', borderRadius: '8px', cursor: 'pointer', fontWeight: 800, fontSize: '1.1rem' }}
+                >
+                  ✕ Tutup
+                </button>
+              </div>
+            </div>
+
+            {/* Main Zoomable Image Container */}
+            <div 
+              style={{
+                flex: 1,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                overflow: 'hidden',
+                position: 'relative',
+                width: '100%',
+                maxWidth: '1200px',
+                margin: '20px 0'
+              }}
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Prev Arrow */}
+              {lightbox.images.length > 1 && (
+                <button 
+                  onClick={() => {
+                    setLightbox(prev => ({ ...prev, currentIndex: (prev.currentIndex - 1 + prev.images.length) % prev.images.length }));
+                    setZoomScale(1);
+                  }}
+                  style={{ position: 'absolute', left: '10px', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', width: '48px', height: '48px', borderRadius: '50%', fontSize: '1.6rem', cursor: 'pointer', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  aria-label="Foto Sebelumnya"
+                >
+                  ‹
+                </button>
+              )}
+
+              <img 
+                src={lightbox.images[lightbox.currentIndex]?.src} 
+                alt={lightbox.images[lightbox.currentIndex]?.caption}
+                style={{
+                  maxWidth: '90%',
+                  maxHeight: '80vh',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                  boxShadow: '0 20px 50px rgba(0,0,0,0.8)',
+                  transform: `scale(${zoomScale})`,
+                  transition: 'transform 0.25s ease',
+                  cursor: zoomScale > 1 ? 'grab' : 'zoom-in'
+                }}
+                onClick={() => setZoomScale(prev => prev === 1 ? 1.6 : 1)}
+              />
+
+              {/* Next Arrow */}
+              {lightbox.images.length > 1 && (
+                <button 
+                  onClick={() => {
+                    setLightbox(prev => ({ ...prev, currentIndex: (prev.currentIndex + 1) % prev.images.length }));
+                    setZoomScale(1);
+                  }}
+                  style={{ position: 'absolute', right: '10px', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.3)', width: '48px', height: '48px', borderRadius: '50%', fontSize: '1.6rem', cursor: 'pointer', zIndex: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+                  aria-label="Foto Selanjutnya"
+                >
+                  ›
+                </button>
+              )}
+            </div>
+
+            <div style={{ color: '#cbd5e1', fontSize: '0.84rem' }}>
+              💡 Klik pada gambar untuk memperbesar (Zoom) • Klik area luar untuk menutup
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ==================================================================
