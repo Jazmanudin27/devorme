@@ -9,22 +9,19 @@ let mockProducts = [
   {
     id: 1,
     slug: "e-sekolah",
-    name: "E-Sekolah Cloud",
+    name: "E-Sekolah Cloud Platform",
     domain: "e-sekolah.devorme.site",
-    category: "Pendidikan & Akademik",
-    tagline: "Sistem Informasi Manajemen Sekolah, Presensi Guru & Siswa, serta Penilaian",
-    description: "E-Sekolah beroperasi di domain https://e-sekolah.devorme.site untuk digitalisasi sekolah, rekap presensi guru/siswa, jadwal pelajaran, dan kenaikan kelas.",
+    category: "🎓 Sekolah & Yayasan",
+    tagline: "Sistem Informasi Manajemen Sekolah, Presensi Guru & Siswa, serta Penilaian Rapor",
+    description: "Platform e-sekolah terpadu untuk mengotomasi rekap presensi guru & siswa, jadwal pelajaran, e-rapor, serta kenaikan kelas dan alumni.",
     db_schema: "e_sekolah_db",
     api_endpoint: "https://api.devorme.site/v1/e-sekolah",
     status: "active",
     icon_bg: "linear-gradient(135deg, #3b82f6, #06b6d4)",
     features: [
-      "Presensi Guru & Siswa Realtime",
-      "Manajemen Kenaikan Kelas & Alumni",
-      "Input Nilai & Rapor Otomatis"
-    ],
-    pricingPlans: [
-      { name: "Sekolah Reguler", price: "Rp 750.000/bln", userLimit: "1000 Siswa" }
+      "Presensi QR & GPS Guru-Siswa",
+      "E-Rapor Akademik Otomatis",
+      "Database Kenaikan Kelas & Alumni"
     ]
   },
   {
@@ -32,20 +29,53 @@ let mockProducts = [
     slug: "dis",
     name: "DIS Smart System",
     domain: "dis.devorme.site",
-    category: "Enterprise & Public Service",
-    tagline: "Digital Information System & Layanan Publik Terpadu",
-    description: "Platform DIS beroperasi di domain https://dis.devorme.site dengan enkripsi data dan pelaporan terintegrasi.",
+    category: "🏛️ Birokrasi & Dinas",
+    tagline: "Digital Information System & Alur Workflows Approval Dokumen Dinas",
+    description: "Sistem birokrasi digital instansi untuk pengelolaan surat masuk/keluar, approval bertingkat, dan pelaporan publik transparan.",
     db_schema: "dis_db",
     api_endpoint: "https://api.devorme.site/v1/dis",
     status: "active",
     icon_bg: "linear-gradient(135deg, #a855f7, #ec4899)",
     features: [
-      "Manajemen Dokumen Digital",
-      "Laporan Realtime Terpadu",
-      "Integrasi Database Server Devorme"
-    ],
-    pricingPlans: [
-      { name: "Enterprise DIS", price: "Custom", userLimit: "Unlimited" }
+      "Workflow Approval Dokumen Digital",
+      "Pelaporan Publik Transparan",
+      "Integrasi Server VPS Terpusat"
+    ]
+  },
+  {
+    id: 3,
+    slug: "pos-apotek",
+    name: "Apotek & Klinik Smart POS",
+    domain: "pos.devorme.site",
+    category: "💊 Kesehatan & Apotek",
+    tagline: "Manajemen Stok Obat, Rekam Medis Pasien, & Kasir POS Farmasi Terpadu",
+    description: "Platform kasir dan rekam medis digital khusus apotek dan klinik kesehatan dengan integrasi stok otomatis dan peringatan obat kedaluwarsa.",
+    db_schema: "pos_db",
+    api_endpoint: "https://api.devorme.site/v1/pos",
+    status: "active",
+    icon_bg: "linear-gradient(135deg, #10b981, #059669)",
+    features: [
+      "Kasir POS & QRIS Dinamis",
+      "Rekam Medis Digital Pasien",
+      "Peringatan Obat Expired Automated"
+    ]
+  },
+  {
+    id: 4,
+    slug: "erp-distributor",
+    name: "Enterprise ERP & Logistics",
+    domain: "erp.devorme.site",
+    category: "🚚 Perusahaan & Distribusi",
+    tagline: "Manajemen Inventori Gudang, Tracking Pengiriman, & Akuntansi Keuangan Realtime",
+    description: "Sistem ERP ekosistem manufaktur & distribusi barang dengan fitur multi-warehouse, pencatatan transaksi otomatis, dan laporan neraca keuangan.",
+    db_schema: "erp_db",
+    api_endpoint: "https://api.devorme.site/v1/erp",
+    status: "active",
+    icon_bg: "linear-gradient(135deg, #f59e0b, #d97706)",
+    features: [
+      "Multi-Warehouse Inventory Tracking",
+      "Pencatatan Akuntansi & Invoice",
+      "Tracking Expedisi & Pengiriman"
     ]
   }
 ];

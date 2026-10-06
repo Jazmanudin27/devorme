@@ -32,6 +32,16 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       { src: '/dis_preview.jpg', caption: 'Dashboard Birokrasi & Pelaporan Publik' },
       { src: '/Banner4.png?v=4.0', caption: 'Infrastruktur Server Terpusat DIS System' },
       { src: '/esekolah_preview_2.jpg', caption: 'Alur Workflows Approval Dokumen Dinas' }
+    ],
+    'pos-apotek': [
+      { src: '/Banner4.png?v=4.0', caption: 'Kasir POS Farmasi & QRIS Dinamis' },
+      { src: '/esekolah_preview.jpg', caption: 'Rekam Medis Pasien & Resep Dokter Digital' },
+      { src: '/dis_preview.jpg', caption: 'Manajemen Stok Obat & Expired Warning' }
+    ],
+    'erp-distributor': [
+      { src: '/dis_preview.jpg', caption: 'Tracking Pengiriman & Multi-Gudang' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Laporan Keuangan & Akuntansi Realtime' },
+      { src: '/Banner4.png?v=4.0', caption: 'Integrasi Multi-Subdomain ERP Enterprise' }
     ]
   };
 

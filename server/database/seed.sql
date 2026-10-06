@@ -17,11 +17,11 @@ VALUES
   (
     1,
     'e-sekolah', 
-    'E-Sekolah Cloud', 
+    'E-Sekolah Cloud Platform', 
     'e-sekolah.devorme.site', 
-    'Pendidikan & Akademik', 
-    'Sistem Informasi Manajemen Sekolah, Presensi Guru & Siswa, serta Penilaian Terpadu', 
-    'E-Sekolah berjalan di domain https://e-sekolah.devorme.site untuk digitalisasi sekolah, rekap presensi guru/siswa, jadwal pelajaran, dan kenaikan kelas.', 
+    '🎓 Sekolah & Yayasan', 
+    'Sistem Informasi Manajemen Sekolah, Presensi Guru & Siswa, serta Penilaian Rapor', 
+    'Platform e-sekolah terpadu untuk mengotomasi rekap presensi guru & siswa, jadwal pelajaran, e-rapor, serta kenaikan kelas dan alumni.', 
     'e_sekolah_db', 
     'https://api.devorme.site/v1/e-sekolah',
     'active', 
@@ -32,13 +32,39 @@ VALUES
     'dis', 
     'DIS Smart System', 
     'dis.devorme.site', 
-    'Enterprise & Public Service', 
-    'Digital Information System & Layanan Publik Terpadu', 
-    'Platform DIS beroperasi di domain https://dis.devorme.site dengan enkripsi data dan pelaporan terintegrasi.', 
+    '🏛️ Birokrasi & Dinas', 
+    'Digital Information System & Alur Workflows Approval Dokumen Dinas', 
+    'Sistem birokrasi digital instansi untuk pengelolaan surat masuk/keluar, approval bertingkat, dan pelaporan publik transparan.', 
     'dis_db', 
     'https://api.devorme.site/v1/dis',
     'active', 
     'linear-gradient(135deg, #a855f7, #ec4899)'
+  ),
+  (
+    3,
+    'pos-apotek', 
+    'Apotek & Klinik Smart POS', 
+    'pos.devorme.site', 
+    '💊 Kesehatan & Apotek', 
+    'Manajemen Stok Obat, Rekam Medis Pasien, & Kasir POS Farmasi Terpadu', 
+    'Platform kasir dan rekam medis digital khusus apotek dan klinik kesehatan dengan integrasi stok otomatis dan peringatan obat kedaluwarsa.', 
+    'pos_db', 
+    'https://api.devorme.site/v1/pos',
+    'active', 
+    'linear-gradient(135deg, #10b981, #059669)'
+  ),
+  (
+    4,
+    'erp-distributor', 
+    'Enterprise ERP & Logistics', 
+    'erp.devorme.site', 
+    '🚚 Perusahaan & Distribusi', 
+    'Manajemen Inventori Gudang, Tracking Pengiriman, & Akuntansi Keuangan Realtime', 
+    'Sistem ERP ekosistem manufaktur & distribusi barang dengan fitur multi-warehouse, pencatatan transaksi otomatis, dan laporan neraca keuangan.', 
+    'erp_db', 
+    'https://api.devorme.site/v1/erp',
+    'active', 
+    'linear-gradient(135deg, #f59e0b, #d97706)'
   )
 ON DUPLICATE KEY UPDATE `slug` = VALUES(`slug`), `domain` = VALUES(`domain`);
 
