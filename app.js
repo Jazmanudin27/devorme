@@ -69,6 +69,50 @@ const productsData = {
       "Ekspor Laporan PDF & Spreadsheet Otomatis"
     ],
     demoScreenshotText: "Menampilkan Antarmuka Khusus Domain pulseai.io"
+  },
+  esekolah: {
+    id: "esekolah",
+    name: "E-Sekolah Cloud Platform",
+    domain: "e-sekolah.devorme.site",
+    category: "Pendidikan & Sekolah",
+    iconBg: "linear-gradient(135deg, #0066ff, #00c4ff)",
+    tagline: "Sistem Informasi Akademik Sekolah, Presensi Realtime & E-Rapor",
+    description: "E-Sekolah Cloud Platform beroperasi di domain mandiri https://e-sekolah.devorme.site untuk sekolah dan yayasan pendidikan. Mengotomasi presensi QR/GPS, jadwal pelajaran, penilaian e-rapor, serta kenaikan kelas.",
+    serverDetails: {
+      dbSchema: "e_sekolah_db",
+      serverIP: "103.144.120.45",
+      authMechanism: "Devorme SSO (Guru, Siswa, Ortu)",
+      apiEndpoint: "https://api.devorme.site/v1/e-sekolah"
+    },
+    features: [
+      "Presensi Guru & Siswa Real-time (QR & GPS)",
+      "Kenaikan Kelas & Manajemen Alumni Otomatis",
+      "Database Terpusat & Sinkronisasi Realtime",
+      "Aplikasi Mobile Android Native (.apk ready)"
+    ],
+    demoScreenshotText: "Menampilkan Antarmuka Khusus Domain e-sekolah.devorme.site"
+  },
+  dis: {
+    id: "dis",
+    name: "DIS Smart System",
+    domain: "dis.devorme.site",
+    category: "Layanan Publik & Dinas",
+    iconBg: "linear-gradient(135deg, #a855f7, #ec4899)",
+    tagline: "Digital Information System & Layanan Birokrasi Dinas Terpadu",
+    description: "Platform DIS beroperasi di domain mandiri https://dis.devorme.site untuk birokrasi pemerintahan dan pelaporan publik. Dilengkapi approval bertingkat, enkripsi dokumen 256-bit, dan statistik instansi realtime.",
+    serverDetails: {
+      dbSchema: "dis_db",
+      serverIP: "103.144.120.45",
+      authMechanism: "Devorme SSO + Two-Factor Authentication",
+      apiEndpoint: "https://api.devorme.site/v1/dis"
+    },
+    features: [
+      "Digitalisasi Dokumen & Approval Alur Dinas",
+      "Dashboard Pelaporan Publik & Statistik Real-time",
+      "Enkripsi Enterprise & Database Terpusat",
+      "Enkripsi Data & Hak Akses Berjenjang Tingkat Tinggi"
+    ],
+    demoScreenshotText: "Menampilkan Antarmuka Khusus Domain dis.devorme.site"
   }
 };
 

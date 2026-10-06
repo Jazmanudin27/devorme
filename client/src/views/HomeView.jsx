@@ -27,146 +27,260 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       />
 
       {/* ==================================================================
-          2. TRUST STRIP / PARTNERS & TARGET SECTORS
+          2. TRUST STRIP / PARTNERS & CLIENTS
           ================================================================== */}
       <section className="trust-strip">
         <div className="container">
           <div className="trust-label">
-            Ekosistem Teknologi Terintegrasi untuk Institusi, Yayasan & Korporasi
+            Dipercaya oleh Perusahaan dan Terkemuka..
           </div>
           <div className="trust-badges">
-            <span className="trust-badge-item">🏛️ Dinas & Pemerintahan</span>
-            <span className="trust-badge-item">🎓 Sekolah & Yayasan Pendidikan</span>
-            <span className="trust-badge-item">🏢 Korporasi & Manufaktur</span>
-            <span className="trust-badge-item">📱 Mobile Android Ready</span>
+            <span className="trust-badge-item">🏢 CV Makmur Permata</span>
+            <span className="trust-badge-item">🍲 Seblak Katel NDR</span>
+            <span className="trust-badge-item">🍚 Warung Nasi Haji Aah Putra</span>
+            <span className="trust-badge-item">🎓 SMK ARTANITA TASIKMALAYA</span>
+            <span className="trust-badge-item">🚚 CV MITRA JAYA ABADI DISTRIBUTOR</span>
           </div>
         </div>
       </section>
 
       {/* ==================================================================
-          3. SOLUSI PRODUK EKOSISTEM (Cards Biru & Navy)
+          3. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF
           ================================================================== */}
-      <section id="solusi-produk" className="products-section-leap">
+      <section id="solusi-produk" className="products-section-leap" style={{ background: '#f8fafc', padding: '84px 0' }}>
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '760px', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
             <div className="hero-pill-blue">
-              <span>Portofolio Produk Kami</span>
+              <span>🖼️ Galeri Portofolio & Sistem Teruji</span>
             </div>
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
-              Portofolio Solusi Software Devorme
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '14px', color: 'var(--navy-dark)' }}>
+              Galeri Portofolio Solusi Software Devorme
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-              Kumpulan produk dan ekosistem digital mandiri yang telah kami kembangkan. Untuk menguji coba atau meminta akses demo aplikasi secara langsung, silakan hubungi tim kami via WhatsApp.
+              Kumpulan produk dan ekosistem digital mandiri yang telah kami kembangkan. Lihat pratinjau galeri sistem di bawah atau minta akses demo aplikasi secara langsung via WhatsApp.
             </p>
           </div>
 
           {loading ? (
             <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)' }}>
-              Memuat data portofolio produk dari server...
+              Memuat galeri portofolio produk...
             </div>
           ) : (
-            <div className="solution-grid">
+            <div className="solution-grid" style={{ gap: '32px' }}>
+
               {/* Product 1: E-Sekolah Cloud */}
-              <div className="solution-card">
-                <span className="card-top-tag">🎓 Portofolio Sekolah & Yayasan</span>
-                <span className="domain-pill" style={{ marginBottom: '14px' }}>
-                  💼 Sistem Informasi Akademik • Demo via WA
-                </span>
-                <h3 className="solution-title">E-Sekolah Cloud Platform</h3>
-                <p className="solution-desc">
-                  Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, penilaian rapor, serta kenaikan kelas dan alumni.
-                </p>
+              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 12px 30px -10px rgba(0, 102, 255, 0.1)', display: 'flex', flexDirection: 'column' }}>
+                
+                {/* Gallery Visual Header Mockup */}
+                <div style={{ background: 'linear-gradient(135deg, #07153b, #0d2861)', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'relative' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }}></span>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }}></span>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
+                    </div>
+                    <span style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.4)', fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '99px', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                      🟢 LIVE SYSTEM
+                    </span>
+                  </div>
 
-                <ul className="solution-features-list">
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Presensi Guru & Siswa Real-time</span>
-                  </li>
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Kenaikan Kelas & Manajemen Alumni</span>
-                  </li>
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Database Terpusat & Sinkronisasi Otomatis</span>
-                  </li>
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Tersedia Aplikasi Mobile Android (.apk)</span>
-                  </li>
-                </ul>
+                  <div style={{ background: 'rgba(255,255,255,0.08)', borderRadius: '8px', padding: '6px 12px', fontSize: '0.78rem', color: '#93c5fd', fontFamily: 'monospace', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    🔒 https://e-sekolah.devorme.site
+                  </div>
 
-                <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
-                  <a 
-                    href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="btn-blue" 
-                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }}
-                  >
-                    💬 Request Demo via WA
-                  </a>
-                  <button 
-                    className="btn-white-outline"
-                    style={{ padding: '12px 18px', fontSize: '0.9rem' }}
-                    onClick={() => onSelectProduct('e-sekolah')}
-                  >
-                    Detail Portofolio
-                  </button>
+                  <div style={{ marginTop: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '14px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', fontSize: '0.85rem', fontWeight: 700, marginBottom: '8px' }}>
+                      <span>📊 Dashboard Akademik Realtime</span>
+                      <span style={{ color: '#38bdf8' }}>99.98% Uptime</span>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', textAlign: 'center' }}>
+                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
+                        <strong style={{ color: '#00c4ff', fontSize: '0.9rem', display: 'block' }}>1,250+</strong>
+                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Siswa Aktif</span>
+                      </div>
+                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
+                        <strong style={{ color: '#34d399', fontSize: '0.9rem', display: 'block' }}>100%</strong>
+                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Absensi QR</span>
+                      </div>
+                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
+                        <strong style={{ color: '#fbbf24', fontSize: '0.9rem', display: 'block' }}>Mobile</strong>
+                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Android .APK</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
+                    <span className="card-top-tag" style={{ margin: 0 }}>🎓 Sekolah & Yayasan</span>
+                    <span className="domain-pill" style={{ margin: 0, fontSize: '0.78rem' }}>💼 Akademik & Rapor</span>
+                  </div>
+
+                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px' }}>E-Sekolah Cloud Platform</h3>
+                  <p className="solution-desc" style={{ fontSize: '0.92rem', marginBottom: '20px' }}>
+                    Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, penilaian rapor, serta kenaikan kelas dan alumni.
+                  </p>
+
+                  <ul className="solution-features-list" style={{ marginBottom: '24px' }}>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Presensi Guru & Siswa Real-time (QR & GPS)</span>
+                    </li>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Kenaikan Kelas & Manajemen Alumni Otomatis</span>
+                    </li>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Database Terpusat & Sinkronisasi Realtime</span>
+                    </li>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Aplikasi Mobile Android Native (.apk ready)</span>
+                    </li>
+                  </ul>
+
+                  <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                    <a 
+                      href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="btn-blue" 
+                      style={{ flex: 1, padding: '12px', fontSize: '0.88rem', justifyContent: 'center' }}
+                    >
+                      💬 Request Demo via WA
+                    </a>
+                    <button 
+                      className="btn-white-outline"
+                      style={{ padding: '12px 16px', fontSize: '0.88rem' }}
+                      onClick={() => onSelectProduct('e-sekolah')}
+                    >
+                      Detail Portofolio
+                    </button>
+                  </div>
                 </div>
               </div>
 
               {/* Product 2: DIS Smart System */}
-              <div className="solution-card">
-                <span className="card-top-tag">🏛️ Portofolio Layanan Publik & Dinas</span>
-                <span className="domain-pill" style={{ marginBottom: '14px' }}>
-                  💼 Sistem Informasi Publik • Demo via WA
-                </span>
-                <h3 className="solution-title">DIS Smart System</h3>
-                <p className="solution-desc">
-                  Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan alur approval bertingkat dan analitik kinerja instansi.
-                </p>
+              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 12px 30px -10px rgba(0, 102, 255, 0.1)', display: 'flex', flexDirection: 'column' }}>
+                
+                {/* Gallery Visual Header Mockup */}
+                <div style={{ background: 'linear-gradient(135deg, #0f172a, #1e1b4b)', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'relative' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }}></span>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }}></span>
+                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
+                    </div>
+                    <span style={{ background: 'rgba(168, 85, 247, 0.25)', color: '#c084fc', border: '1px solid rgba(168, 85, 247, 0.4)', fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '99px', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
+                      🛡️ ENTERPRISE SECURE
+                    </span>
+                  </div>
 
-                <ul className="solution-features-list">
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Digitalisasi Dokumen & Approval Alur Dinas</span>
-                  </li>
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Dashboard Pelaporan Publik Real-time</span>
-                  </li>
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Enkripsi Enterprise & Database Terpusat</span>
-                  </li>
-                  <li>
-                    <span className="feature-check-blue">✓</span>
-                    <span>Enkripsi Data Tingkat Tinggi</span>
-                  </li>
-                </ul>
+                  <div style={{ background: 'rgba(255,255,255,0.08)', borderRadius: '8px', padding: '6px 12px', fontSize: '0.78rem', color: '#e9d5ff', fontFamily: 'monospace', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    🔒 https://dis.devorme.site
+                  </div>
 
-                <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
-                  <a 
-                    href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="btn-blue" 
-                    style={{ flex: 1, padding: '12px', fontSize: '0.9rem', justifyContent: 'center' }}
-                  >
-                    💬 Request Demo via WA
-                  </a>
-                  <button 
-                    className="btn-white-outline"
-                    style={{ padding: '12px 18px', fontSize: '0.9rem' }}
-                    onClick={() => onSelectProduct('dis')}
-                  >
-                    Detail Portofolio
-                  </button>
+                  <div style={{ marginTop: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '14px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', fontSize: '0.85rem', fontWeight: 700, marginBottom: '8px' }}>
+                      <span>🏛️ Birokrasi & Pelaporan Dinas</span>
+                      <span style={{ color: '#c084fc' }}>SSL Active</span>
+                    </div>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', textAlign: 'center' }}>
+                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
+                        <strong style={{ color: '#c084fc', fontSize: '0.9rem', display: 'block' }}>Surat/Dispo</strong>
+                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Digital Approval</span>
+                      </div>
+                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
+                        <strong style={{ color: '#38bdf8', fontSize: '0.9rem', display: 'block' }}>Multi-Tier</strong>
+                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Hierarki Instansi</span>
+                      </div>
+                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
+                        <strong style={{ color: '#f43f5e', fontSize: '0.9rem', display: 'block' }}>256-Bit</strong>
+                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>AES Encryption</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
+                    <span className="card-top-tag" style={{ margin: 0, background: '#f3e8ff', color: '#9333ea', borderColor: '#d8b4fe' }}>🏛️ Layanan Publik & Dinas</span>
+                    <span className="domain-pill" style={{ margin: 0, fontSize: '0.78rem' }}>💼 Digital Information System</span>
+                  </div>
+
+                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px' }}>DIS Smart System</h3>
+                  <p className="solution-desc" style={{ fontSize: '0.92rem', marginBottom: '20px' }}>
+                    Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan alur approval bertingkat dan analitik kinerja instansi.
+                  </p>
+
+                  <ul className="solution-features-list" style={{ marginBottom: '24px' }}>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Digitalisasi Dokumen & Approval Alur Dinas</span>
+                    </li>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Dashboard Pelaporan Publik & Statistik Real-time</span>
+                    </li>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Enkripsi Enterprise & Database Terpusat</span>
+                    </li>
+                    <li>
+                      <span className="feature-check-blue">✓</span>
+                      <span>Enkripsi Data & Hak Akses Berjenjang Tingkat Tinggi</span>
+                    </li>
+                  </ul>
+
+                  <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                    <a 
+                      href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="btn-blue" 
+                      style={{ flex: 1, padding: '12px', fontSize: '0.88rem', justifyContent: 'center' }}
+                    >
+                      💬 Request Demo via WA
+                    </a>
+                    <button 
+                      className="btn-white-outline"
+                      style={{ padding: '12px 16px', fontSize: '0.88rem' }}
+                      onClick={() => onSelectProduct('dis')}
+                    >
+                      Detail Portofolio
+                    </button>
+                  </div>
                 </div>
               </div>
+
             </div>
           )}
+
+          {/* High Trust Proof Footer Strip */}
+          <div style={{ marginTop: '48px', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '16px', padding: '24px', display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '20px', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ fontSize: '1.6rem' }}>🛡️</span>
+              <div>
+                <strong style={{ display: 'block', fontSize: '0.92rem', color: 'var(--navy-dark)' }}>Garansi Maintenance 24/7</strong>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Dukungan teknis tim arsitek senior</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ fontSize: '1.6rem' }}>⚡</span>
+              <div>
+                <strong style={{ display: 'block', fontSize: '0.92rem', color: 'var(--navy-dark)' }}>Pendampingan & Training</strong>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Bimbingan penggunaan hingga lancar</span>
+              </div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <span style={{ fontSize: '1.6rem' }}>🔒</span>
+              <div>
+                <strong style={{ display: 'block', fontSize: '0.92rem', color: 'var(--navy-dark)' }}>Data Full Ownership</strong>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Database 100% milik instansi Anda</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

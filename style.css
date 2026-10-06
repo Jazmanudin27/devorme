@@ -1437,3 +1437,268 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   COLORFUL KEY FEATURES HIGHLIGHT SECTION
+   ========================================================================== */
+.features-colorful-section {
+  padding: 80px 0;
+  position: relative;
+  z-index: 2;
+}
+
+.gradient-text-rainbow {
+  background: linear-gradient(135deg, #00f2fe 0%, #4facfe 25%, #00f2fe 50%, #f093fb 75%, #f5576c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowGlow 6s linear infinite;
+}
+
+@keyframes rainbowGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.badge-pill.colorful-pill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+}
+
+.colorful-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 44px;
+}
+
+@media (max-width: 1200px) {
+  .colorful-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .colorful-features-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.colorful-feature-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 30px 24px;
+  background: rgba(13, 17, 26, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.colorful-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: opacity 0.4s ease;
+}
+
+.colorful-feature-card .feature-card-glow {
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.15;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.colorful-feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.colorful-feature-card:hover .feature-card-glow {
+  opacity: 0.45;
+  transform: scale(1.3);
+}
+
+.feature-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.feature-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.colorful-feature-card:hover .feature-icon-wrapper {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.feature-emoji {
+  font-size: 1.6rem;
+}
+
+.feature-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-card-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.feature-card-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.feature-card-footer {
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Feature 1: Multi-Domain Ecosystem */
+.feature-card-domain::before {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+.bg-domain {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+}
+.feature-card-domain .feature-card-glow {
+  background: #00c6ff;
+}
+.tag-domain {
+  background: rgba(0, 198, 255, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(0, 198, 255, 0.35);
+}
+.chip-domain {
+  color: #38bdf8;
+  border: 1px solid rgba(0, 198, 255, 0.2);
+}
+.feature-card-domain:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(0, 114, 255, 0.4), 0 0 25px rgba(0, 198, 255, 0.25);
+}
+
+/* Feature 2: Uptime Server 99.98% */
+.feature-card-uptime::before {
+  background: linear-gradient(90deg, #ff9900, #ff0055);
+}
+.bg-uptime {
+  background: linear-gradient(135deg, #ff9900, #ff0055);
+}
+.feature-card-uptime .feature-card-glow {
+  background: #ff9900;
+}
+.tag-uptime {
+  background: rgba(255, 153, 0, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(255, 153, 0, 0.35);
+}
+.chip-uptime {
+  color: #fbbf24;
+  border: 1px solid rgba(255, 153, 0, 0.2);
+}
+.feature-card-uptime:hover {
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(255, 0, 85, 0.4), 0 0 25px rgba(255, 153, 0, 0.25);
+}
+
+/* Feature 3: Mobile Android Ready */
+.feature-card-mobile::before {
+  background: linear-gradient(90deg, #10b981, #00f2fe);
+}
+.bg-mobile {
+  background: linear-gradient(135deg, #10b981, #00f2fe);
+}
+.feature-card-mobile .feature-card-glow {
+  background: #10b981;
+}
+.tag-mobile {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+.chip-mobile {
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+.feature-card-mobile:hover {
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.4), 0 0 25px rgba(0, 242, 254, 0.25);
+}
+
+/* Feature 4: Keamanan Enterprise */
+.feature-card-security::before {
+  background: linear-gradient(90deg, #a855f7, #ec4899);
+}
+.bg-security {
+  background: linear-gradient(135deg, #a855f7, #ec4899);
+}
+.feature-card-security .feature-card-glow {
+  background: #a855f7;
+}
+.tag-security {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+.chip-security {
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.2);
+}
+.feature-card-security:hover {
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 20px 40px -15px rgba(236, 72, 153, 0.4), 0 0 25px rgba(168, 85, 247, 0.25);
+}
+
