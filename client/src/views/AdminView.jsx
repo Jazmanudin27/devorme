@@ -198,32 +198,6 @@ export default function AdminView({ onBackToHome }) {
         <div style={{ position: 'absolute', top: '-10%', left: '20%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: '-10%', right: '20%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
 
-        {/* Dedicated Admin Header */}
-        <header style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '16px 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backdropFilter: 'blur(12px)', background: 'rgba(7, 9, 14, 0.8)', zIndex: 10 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={onBackToHome}>
-            <img src="/Logo.png" alt="Devorme Admin" style={{ width: '40px', height: '40px', borderRadius: '10px' }} />
-            <div>
-              <div style={{ fontWeight: 800, fontSize: '1.1rem', letterSpacing: '0.5px' }}>
-                DEVORME <span style={{ color: '#38bdf8' }}>ADMIN CONSOLE</span>
-              </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Central Management Portal</div>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '99px', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.2)', color: '#4ade80', fontSize: '0.8rem', fontWeight: 600 }}>
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
-              Server VPS: 31.97.109.165
-            </div>
-            <button 
-              onClick={onBackToHome}
-              style={{ padding: '8px 16px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s' }}
-            >
-              🌐 ke Website Utama
-            </button>
-          </div>
-        </header>
-
         {/* Dedicated Admin Login Card */}
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 10 }}>
           <div style={{ 
