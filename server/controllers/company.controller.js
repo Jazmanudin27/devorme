@@ -67,7 +67,70 @@ const getProducts = async (req, res, next) => {
   }
 };
 
+// In-Memory store untuk site_settings
+let mockSettings = {
+  default_banner_image: '/Banner4.png?v=4.0',
+  default_banner_caption: 'Dokumentasi & Platform Infrastruktur Devorme'
+};
+
+// Ambil site settings dari DB
+const getSettings = async (req, res, next) => {
+  try {
+    if (db.isMySqlAvailable()) {
+      const rows = await db.execute('SELECT setting_key, setting_value FROM site_settings');
+      if (rows && rows.length > 0) {
+        const settingsObj = {};
+        rows.forEach(r => {
+          settingsObj[r.setting_key] = r.setting_value;
+        });
+        return res.status(200).json({
+          success: true,
+          source: 'mysql_database',
+          data: settingsObj
+        });
+      }
+    }
+    return res.status(200).json({
+      success: true,
+      source: 'in_memory_fallback',
+      data: mockSettings
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+// Update site settings ke DB
+const updateSettings = async (req, res, next) => {
+  try {
+    const { default_banner_image, default_banner_caption } = req.body;
+
+    if (db.isMySqlAvailable()) {
+      if (default_banner_image !== undefined) {
+        await db.execute('INSERT INTO site_settings (setting_key, setting_value) VALUES (?, ?) ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value)', ['default_banner_image', default_banner_image]);
+      }
+      if (default_banner_caption !== undefined) {
+        await db.execute('INSERT INTO site_settings (setting_key, setting_value) VALUES (?, ?) ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value)', ['default_banner_caption', default_banner_caption]);
+      }
+    }
+
+    if (default_banner_image !== undefined) mockSettings.default_banner_image = default_banner_image;
+    if (default_banner_caption !== undefined) mockSettings.default_banner_caption = default_banner_caption;
+
+    return res.status(200).json({
+      success: true,
+      message: 'Pengaturan website berhasil diperbarui.',
+      data: mockSettings
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getCompanyInfo,
-  getProducts
+  getProducts,
+  getSettings,
+  updateSettings
 };
+

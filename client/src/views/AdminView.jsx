@@ -18,16 +18,44 @@ export default function AdminView({ onBackToHome }) {
     status: 'active'
   });
 
+  const [settingsForm, setSettingsForm] = useState({
+    default_banner_image: '/Banner4.png?v=4.0',
+    default_banner_caption: 'Dokumentasi & Platform Infrastruktur Devorme'
+  });
+  const [savingSettings, setSavingSettings] = useState(false);
+
   const loadProducts = async () => {
     setLoading(true);
-    const data = await productService.getAllProducts();
+    const [data, settingsData] = await Promise.all([
+      productService.getAllProducts(),
+      productService.getSettings()
+    ]);
     setProducts(data);
+    if (settingsData) {
+      setSettingsForm({
+        default_banner_image: settingsData.default_banner_image || '/Banner4.png?v=4.0',
+        default_banner_caption: settingsData.default_banner_caption || 'Dokumentasi & Platform Infrastruktur Devorme'
+      });
+    }
     setLoading(false);
+  };
+
+  const handleSaveSettings = async (e) => {
+    e.preventDefault();
+    setSavingSettings(true);
+    const res = await productService.updateSettings(settingsForm);
+    if (res && res.success) {
+      alert('Pengaturan Gambar Default (Fallback Banner) berhasil disimpan ke Database!');
+    } else {
+      alert('Gagal menyimpan pengaturan: ' + (res?.message || 'Error'));
+    }
+    setSavingSettings(false);
   };
 
   useEffect(() => {
     loadProducts();
   }, []);
+
 
   const handleOpenAdd = () => {
     setIsEditing(false);
@@ -145,7 +173,48 @@ export default function AdminView({ onBackToHome }) {
           </div>
         </div>
 
+        {/* Global Site Settings Card (Default Fallback Banner) */}
+        <div style={{ background: '#ffffff', borderRadius: '16px', border: '1px solid var(--border-subtle)', padding: '24px', marginBottom: '24px', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <div>
+              <h3 style={{ fontSize: '1.15rem', color: '#0f172a' }}>🖼️ Pengaturan Gambar Banner Default & Caption (Database)</h3>
+              <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)' }}>
+                Gambar dan caption ini disimpan di tabel <code>site_settings</code> database MySQL dan digunakan sebagai fallback jika produk belum memiliki foto khusus.
+              </p>
+            </div>
+          </div>
+
+          <form onSubmit={handleSaveSettings} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '12px', alignItems: 'end' }}>
+            <div>
+              <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>URL / Path Banner Default *</label>
+              <input 
+                type="text"
+                placeholder="/Banner4.png?v=4.0"
+                value={settingsForm.default_banner_image}
+                onChange={e => setSettingsForm({ ...settingsForm, default_banner_image: e.target.value })}
+                style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border-subtle)', outline: 'none' }}
+                required
+              />
+            </div>
+            <div>
+              <label style={{ fontSize: '0.82rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '4px' }}>Caption Banner Default *</label>
+              <input 
+                type="text"
+                placeholder="Dokumentasi & Platform Infrastruktur Devorme"
+                value={settingsForm.default_banner_caption}
+                onChange={e => setSettingsForm({ ...settingsForm, default_banner_caption: e.target.value })}
+                style={{ width: '100%', padding: '10px 14px', borderRadius: '8px', border: '1px solid var(--border-subtle)', outline: 'none' }}
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary" disabled={savingSettings} style={{ height: '42px', whiteSpace: 'nowrap' }}>
+              {savingSettings ? 'Menyimpan...' : '💾 Simpan ke Database'}
+            </button>
+          </form>
+        </div>
+
         {/* Product Table Card */}
+
         <div className="admin-table-card">
           <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <h3 style={{ fontSize: '1.2rem' }}>Daftar Produk & Subdomain Terdaftar</h3>

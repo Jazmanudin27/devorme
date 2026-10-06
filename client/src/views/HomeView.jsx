@@ -19,12 +19,17 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   });
   const [zoomScale, setZoomScale] = useState(1);
 
+  const [defaultBanner, setDefaultBanner] = useState({
+    src: '',
+    caption: ''
+  });
+
   const getProductImages = (product) => {
     if (product.images && product.images.length > 0) {
       return product.images.map(img => typeof img === 'string' ? { src: img, caption: product.name } : { src: img.image_url || img.url || img.src, caption: img.caption || product.name });
     }
     return [
-      { src: '/Banner4.png?v=4.0', caption: product.name }
+      { src: defaultBanner.src || '/Banner4.png?v=4.0', caption: defaultBanner.caption || product.name }
     ];
   };
 
@@ -59,12 +64,23 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
   useEffect(() => {
     async function loadData() {
-      const data = await productService.getAllProducts();
+      setLoading(true);
+      const [data, settings] = await Promise.all([
+        productService.getAllProducts(),
+        productService.getSettings()
+      ]);
       setProducts(data);
+      if (settings && settings.default_banner_image) {
+        setDefaultBanner({
+          src: settings.default_banner_image,
+          caption: settings.default_banner_caption || ''
+        });
+      }
       setLoading(false);
     }
     loadData();
   }, []);
+
 
   return (
     <div>

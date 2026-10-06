@@ -112,3 +112,10 @@ VALUES
   (4, '/dis_preview.jpg', 'Tracking Pengiriman & Multi-Gudang', 1),
   (4, '/esekolah_preview_2.jpg', 'Laporan Keuangan & Akuntansi Realtime', 2),
   (4, '/Banner4.png?v=4.0', 'Integrasi Multi-Subdomain ERP Enterprise', 3);
+
+-- 6. Insert Pengaturan Site & Default Banner Image
+INSERT INTO `site_settings` (`setting_key`, `setting_value`) VALUES
+  ('default_banner_image', '/Banner4.png?v=4.0'),
+  ('default_banner_caption', 'Dokumentasi & Platform Infrastruktur Devorme')
+ON DUPLICATE KEY UPDATE `setting_value` = VALUES(`setting_value`);
+

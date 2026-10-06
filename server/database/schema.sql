@@ -124,3 +124,15 @@ CREATE TABLE IF NOT EXISTS `product_images` (
   CONSTRAINT `fk_images_product` FOREIGN KEY (`product_id`) 
     REFERENCES `products`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ----------------------------------------------------------------------------
+-- 8. TABEL PENGATURAN GLOBAL WEBSITE & DEFAULT BANNER (Site Settings)
+-- Menyimpan pengaturan global seperti gambar banner default fallback
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `site_settings` (
+  `setting_key` VARCHAR(100) PRIMARY KEY,
+  `setting_value` TEXT NOT NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
