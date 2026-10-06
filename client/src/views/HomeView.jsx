@@ -26,11 +26,11 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
     'e-sekolah': [
       { src: '/esekolah_preview.jpg', caption: 'Dashboard Utama Akademik & Presensi Siswa' },
       { src: '/esekolah_preview_2.jpg', caption: 'Manajemen E-Rapor & Rekap Nilai Akademik' },
-      { src: '/Banner3.png?v=3.1', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
+      { src: '/Banner4.png?v=3.1', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
     ],
     'dis': [
       { src: '/dis_preview.jpg', caption: 'Dashboard Birokrasi & Pelaporan Publik' },
-      { src: '/Banner3.png?v=3.1', caption: 'Infrastruktur Server Terpusat DIS System' },
+      { src: '/Banner4.png?v=3.1', caption: 'Infrastruktur Server Terpusat DIS System' },
       { src: '/esekolah_preview_2.jpg', caption: 'Alur Workflows Approval Dokumen Dinas' }
     ]
   };
