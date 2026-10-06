@@ -26,6 +26,7 @@ app.use(cors({
 }));
 
 const path = require('path');
+const fs = require('fs');
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
