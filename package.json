@@ -2,9 +2,9 @@
   "name": "devorme-ecosystem",
   "version": "1.0.0",
   "description": "Devorme Multi-Domain Software Ecosystem Prototype",
-  "main": "server.js",
+  "main": "server/index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server/index.js"
   },
   "keywords": ["devorme", "multi-domain", "saas", "enterprise", "central-db"],
   "author": "Devorme Technologies",

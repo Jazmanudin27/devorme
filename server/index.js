@@ -47,14 +47,17 @@ app.get('/', (req, res) => {
   });
 });
 
-// Mount Master API v1
+// Mount Master API Router (fleksibel untuk berbagai konfigurasi Nginx proxy)
 app.use('/api/v1', apiRoutes);
+app.use('/api', apiRoutes);
+app.use('/v1', apiRoutes);
+app.use('/', apiRoutes);
 
 // 404 Handler untuk route yang tidak ditemukan
 app.use('*', (req, res) => {
   res.status(404).json({
     success: false,
-    message: `Endpoint '${req.originalUrl}' tidak ditemukan pada server API.`
+    message: `Endpoint '${req.originalUrl}' tidak ditemukan pada server API Devorme.`
   });
 });
 
