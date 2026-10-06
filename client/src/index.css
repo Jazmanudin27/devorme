@@ -421,15 +421,15 @@ a {
   margin: 0 auto;
 }
 
-/* Floating Actions Overlay directly on Banner (Right Bottom) */
+/* Floating Actions Overlay directly on Banner (Left Bottom below Description) */
 .banner-floating-actions-overlay {
   position: absolute;
-  right: 5vw;
-  bottom: 4vw;
+  left: 4.5vw;
+  bottom: 15%;
   display: flex;
   align-items: center;
   gap: 16px;
-  z-index: 10;
+  z-index: 80;
   line-height: normal;
 }
 
@@ -1121,8 +1121,8 @@ a {
   .slider-nav-prev { left: 8px; }
   .slider-nav-next { right: 8px; }
   .banner-floating-actions-overlay {
-    right: 4vw;
-    bottom: 3.5vw;
+    left: 4vw;
+    bottom: 12%;
     gap: 10px;
   }
   .btn-hero-overlay {
@@ -1138,8 +1138,8 @@ a {
 
 @media (max-width: 480px) {
   .banner-floating-actions-overlay {
-    right: 3vw;
-    bottom: 3vw;
+    left: 3vw;
+    bottom: 10%;
     gap: 6px;
   }
   .btn-hero-overlay {

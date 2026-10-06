@@ -45,7 +45,7 @@ export default function Navbar({ currentView, setCurrentView }) {
               Beranda
             </button>
             <a href="#solusi-produk" className="nav-link-btn nav-link-colored">
-              Solusi Produk ▾
+              Portofolio Produk
             </a>
             <a href="#tentang-kami" className="nav-link-btn nav-link-colored">
               Tentang Kami
