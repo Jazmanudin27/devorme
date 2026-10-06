@@ -69,78 +69,27 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
             <div className="solution-grid" style={{ gap: '32px' }}>
 
               {/* Product 1: E-Sekolah Cloud */}
-              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 12px 30px -10px rgba(0, 102, 255, 0.1)', display: 'flex', flexDirection: 'column' }}>
+              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
                 
-                {/* Gallery Visual Header Mockup */}
-                <div style={{ background: 'linear-gradient(135deg, #07153b, #0d2861)', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'relative' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }}></span>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }}></span>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
-                    </div>
-                    <span style={{ background: 'rgba(16, 185, 129, 0.2)', color: '#34d399', border: '1px solid rgba(16, 185, 129, 0.4)', fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '99px', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                      🟢 LIVE SYSTEM
-                    </span>
-                  </div>
-
-                  <div style={{ background: 'rgba(255,255,255,0.08)', borderRadius: '8px', padding: '6px 12px', fontSize: '0.78rem', color: '#93c5fd', fontFamily: 'monospace', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    🔒 https://e-sekolah.devorme.site
-                  </div>
-
-                  <div style={{ marginTop: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '14px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', fontSize: '0.85rem', fontWeight: 700, marginBottom: '8px' }}>
-                      <span>📊 Dashboard Akademik Realtime</span>
-                      <span style={{ color: '#38bdf8' }}>99.98% Uptime</span>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', textAlign: 'center' }}>
-                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
-                        <strong style={{ color: '#00c4ff', fontSize: '0.9rem', display: 'block' }}>1,250+</strong>
-                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Siswa Aktif</span>
-                      </div>
-                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
-                        <strong style={{ color: '#34d399', fontSize: '0.9rem', display: 'block' }}>100%</strong>
-                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Absensi QR</span>
-                      </div>
-                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
-                        <strong style={{ color: '#fbbf24', fontSize: '0.9rem', display: 'block' }}>Mobile</strong>
-                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Android .APK</span>
-                      </div>
-                    </div>
+                {/* Image Banner Showcase */}
+                <div style={{ position: 'relative', width: '100%', height: '220px', overflow: 'hidden', background: '#ebf6fe' }}>
+                  <img 
+                    src="/esekolah_preview.jpg" 
+                    alt="E-Sekolah Cloud Platform UI Preview" 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '5px 12px', borderRadius: '99px', fontSize: '0.78rem', fontWeight: 700, border: '1px solid rgba(255,255,255,0.2)' }}>
+                    🎓 Sekolah & Yayasan
                   </div>
                 </div>
 
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                    <span className="card-top-tag" style={{ margin: 0 }}>🎓 Sekolah & Yayasan</span>
-                    <span className="domain-pill" style={{ margin: 0, fontSize: '0.78rem' }}>💼 Akademik & Rapor</span>
-                  </div>
-
-                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px' }}>E-Sekolah Cloud Platform</h3>
-                  <p className="solution-desc" style={{ fontSize: '0.92rem', marginBottom: '20px' }}>
+                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px', color: 'var(--navy-dark)' }}>E-Sekolah Cloud Platform</h3>
+                  <p className="solution-desc" style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
                     Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, penilaian rapor, serta kenaikan kelas dan alumni.
                   </p>
 
-                  <ul className="solution-features-list" style={{ marginBottom: '24px' }}>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Presensi Guru & Siswa Real-time (QR & GPS)</span>
-                    </li>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Kenaikan Kelas & Manajemen Alumni Otomatis</span>
-                    </li>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Database Terpusat & Sinkronisasi Realtime</span>
-                    </li>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Aplikasi Mobile Android Native (.apk ready)</span>
-                    </li>
-                  </ul>
-
-                  <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                  <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
                     <a 
                       href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" 
                       target="_blank" 
@@ -152,88 +101,37 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                     </a>
                     <button 
                       className="btn-white-outline"
-                      style={{ padding: '12px 16px', fontSize: '0.88rem' }}
+                      style={{ padding: '12px 18px', fontSize: '0.88rem', fontWeight: 700 }}
                       onClick={() => onSelectProduct('e-sekolah')}
                     >
-                      Detail Portofolio
+                      Detail Portofolio →
                     </button>
                   </div>
                 </div>
               </div>
 
               {/* Product 2: DIS Smart System */}
-              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 12px 30px -10px rgba(0, 102, 255, 0.1)', display: 'flex', flexDirection: 'column' }}>
+              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
                 
-                {/* Gallery Visual Header Mockup */}
-                <div style={{ background: 'linear-gradient(135deg, #0f172a, #1e1b4b)', padding: '16px 20px', borderBottom: '1px solid rgba(255,255,255,0.1)', position: 'relative' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }}></span>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#f59e0b', display: 'inline-block' }}></span>
-                      <span style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#10b981', display: 'inline-block' }}></span>
-                    </div>
-                    <span style={{ background: 'rgba(168, 85, 247, 0.25)', color: '#c084fc', border: '1px solid rgba(168, 85, 247, 0.4)', fontSize: '0.72rem', fontWeight: 800, padding: '3px 10px', borderRadius: '99px', display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
-                      🛡️ ENTERPRISE SECURE
-                    </span>
-                  </div>
-
-                  <div style={{ background: 'rgba(255,255,255,0.08)', borderRadius: '8px', padding: '6px 12px', fontSize: '0.78rem', color: '#e9d5ff', fontFamily: 'monospace', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    🔒 https://dis.devorme.site
-                  </div>
-
-                  <div style={{ marginTop: '16px', background: 'rgba(255,255,255,0.05)', borderRadius: '12px', padding: '14px', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', color: '#fff', fontSize: '0.85rem', fontWeight: 700, marginBottom: '8px' }}>
-                      <span>🏛️ Birokrasi & Pelaporan Dinas</span>
-                      <span style={{ color: '#c084fc' }}>SSL Active</span>
-                    </div>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '8px', textAlign: 'center' }}>
-                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
-                        <strong style={{ color: '#c084fc', fontSize: '0.9rem', display: 'block' }}>Surat/Dispo</strong>
-                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Digital Approval</span>
-                      </div>
-                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
-                        <strong style={{ color: '#38bdf8', fontSize: '0.9rem', display: 'block' }}>Multi-Tier</strong>
-                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>Hierarki Instansi</span>
-                      </div>
-                      <div style={{ background: 'rgba(255,255,255,0.08)', padding: '6px', borderRadius: '6px' }}>
-                        <strong style={{ color: '#f43f5e', fontSize: '0.9rem', display: 'block' }}>256-Bit</strong>
-                        <span style={{ fontSize: '0.68rem', color: '#cbd5e1' }}>AES Encryption</span>
-                      </div>
-                    </div>
+                {/* Image Banner Showcase */}
+                <div style={{ position: 'relative', width: '100%', height: '220px', overflow: 'hidden', background: '#0f172a' }}>
+                  <img 
+                    src="/dis_preview.jpg" 
+                    alt="DIS Smart System UI Preview" 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                  />
+                  <div style={{ position: 'absolute', top: '14px', left: '14px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#c084fc', padding: '5px 12px', borderRadius: '99px', fontSize: '0.78rem', fontWeight: 700, border: '1px solid rgba(168,85,247,0.3)' }}>
+                    🏛️ Layanan Publik & Dinas
                   </div>
                 </div>
 
                 <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '12px' }}>
-                    <span className="card-top-tag" style={{ margin: 0, background: '#f3e8ff', color: '#9333ea', borderColor: '#d8b4fe' }}>🏛️ Layanan Publik & Dinas</span>
-                    <span className="domain-pill" style={{ margin: 0, fontSize: '0.78rem' }}>💼 Digital Information System</span>
-                  </div>
-
-                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px' }}>DIS Smart System</h3>
-                  <p className="solution-desc" style={{ fontSize: '0.92rem', marginBottom: '20px' }}>
+                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px', color: 'var(--navy-dark)' }}>DIS Smart System</h3>
+                  <p className="solution-desc" style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
                     Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan alur approval bertingkat dan analitik kinerja instansi.
                   </p>
 
-                  <ul className="solution-features-list" style={{ marginBottom: '24px' }}>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Digitalisasi Dokumen & Approval Alur Dinas</span>
-                    </li>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Dashboard Pelaporan Publik & Statistik Real-time</span>
-                    </li>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Enkripsi Enterprise & Database Terpusat</span>
-                    </li>
-                    <li>
-                      <span className="feature-check-blue">✓</span>
-                      <span>Enkripsi Data & Hak Akses Berjenjang Tingkat Tinggi</span>
-                    </li>
-                  </ul>
-
-                  <div style={{ display: 'flex', gap: '10px', marginTop: 'auto' }}>
+                  <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
                     <a 
                       href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" 
                       target="_blank" 
@@ -245,10 +143,10 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                     </a>
                     <button 
                       className="btn-white-outline"
-                      style={{ padding: '12px 16px', fontSize: '0.88rem' }}
+                      style={{ padding: '12px 18px', fontSize: '0.88rem', fontWeight: 700 }}
                       onClick={() => onSelectProduct('dis')}
                     >
-                      Detail Portofolio
+                      Detail Portofolio →
                     </button>
                   </div>
                 </div>
