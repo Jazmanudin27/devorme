@@ -418,8 +418,15 @@ a {
   max-width: 100%;
   display: block;
   object-fit: cover;
-  margin-top: -50px;
-  margin-bottom: -50px;
+  margin-top: -95px;
+  margin-bottom: -95px;
+}
+
+@media (max-width: 768px) {
+  .banner-hero-full-img {
+    margin-top: -45px;
+    margin-bottom: -45px;
+  }
 }
 
 /* Floating Actions Overlay directly on Banner (Right Bottom) */
