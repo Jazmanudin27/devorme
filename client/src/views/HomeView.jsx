@@ -467,6 +467,107 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       </section>
 
       {/* ==================================================================
+          3.5 MANFAAT & TUJUAN DEVORME (Section Baru Gaya IoT Card Grid)
+          ================================================================== */}
+      <section id="manfaat-tujuan" style={{ padding: '84px 0', background: 'linear-gradient(180deg, #071726 0%, #0c2338 100%)', borderTop: '1px solid rgba(16, 185, 129, 0.2)', borderBottom: '1px solid rgba(16, 185, 129, 0.2)' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 52px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', borderRadius: '99px', background: 'rgba(16, 185, 129, 0.15)', border: '1px solid rgba(16, 185, 129, 0.35)', color: '#34d399', fontSize: '0.86rem', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '1.2px', marginBottom: '16px' }}>
+              <span>💡 Manfaat & Tujuan</span>
+            </div>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#ffffff', fontWeight: 800, letterSpacing: '-0.5px' }}>
+              Manfaat & Tujuan Ekosistem Devorme
+            </h2>
+            <p style={{ color: '#94a3b8', fontSize: '1.08rem', lineHeight: 1.6, maxWidth: '720px', margin: '0 auto' }}>
+              Dirancang dengan arsitektur modular yang adaptif untuk mempercepat efisiensi operasional dan fleksibilitas digital institusi Anda.
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '28px' }}>
+            
+            {/* Card 1 */}
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(16, 185, 129, 0.22)', borderRadius: '20px', padding: '34px 28px', transition: 'all 0.35s ease', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} className="bento-card-hover">
+              <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#ffffff', boxShadow: '0 8px 20px rgba(16, 185, 129, 0.3)' }}>
+                ⚡
+              </div>
+              <h3 style={{ fontSize: '1.28rem', color: '#ffffff', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>
+                Efisiensi Operasional 100%
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
+                Mengotomasi rekap presensi guru & siswa, jadwal pelajaran, hingga pelaporan publik secara otomatis tanpa risiko kesalahan manual.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(16, 185, 129, 0.22)', borderRadius: '20px', padding: '34px 28px', transition: 'all 0.35s ease', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} className="bento-card-hover">
+              <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#ffffff', boxShadow: '0 8px 20px rgba(16, 185, 129, 0.3)' }}>
+                🌐
+              </div>
+              <h3 style={{ fontSize: '1.28rem', color: '#ffffff', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>
+                Identitas Multi-Domain Mandiri
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
+                Setiap instansi memiliki nama domain & branding mandiri yang kredibel, meningkatkan trust dan profesionalisme institusi di mata publik.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(16, 185, 129, 0.22)', borderRadius: '20px', padding: '34px 28px', transition: 'all 0.35s ease', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} className="bento-card-hover">
+              <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#ffffff', boxShadow: '0 8px 20px rgba(16, 185, 129, 0.3)' }}>
+                🚀
+              </div>
+              <h3 style={{ fontSize: '1.28rem', color: '#ffffff', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>
+                Infrastruktur Cepat & 99.98% Uptime
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
+                Server VPS cloud berkinerja tinggi yang menjamin akses secepat kilat tanpa kendala down-time saat digunakan oleh ribuan pengguna bersamaan.
+              </p>
+            </div>
+
+            {/* Card 4 */}
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(16, 185, 129, 0.22)', borderRadius: '20px', padding: '34px 28px', transition: 'all 0.35s ease', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} className="bento-card-hover">
+              <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#ffffff', boxShadow: '0 8px 20px rgba(16, 185, 129, 0.3)' }}>
+                🔒
+              </div>
+              <h3 style={{ fontSize: '1.28rem', color: '#ffffff', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>
+                Keamanan Data & Encrypted Backup
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
+                Proteksi enkripsi data tingkat tinggi SSL 256-bit dengan sistem pencadangan database otomatis berkala untuk mencegah kebocoran data.
+              </p>
+            </div>
+
+            {/* Card 5 */}
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(16, 185, 129, 0.22)', borderRadius: '20px', padding: '34px 28px', transition: 'all 0.35s ease', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} className="bento-card-hover">
+              <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#ffffff', boxShadow: '0 8px 20px rgba(16, 185, 129, 0.3)' }}>
+                📱
+              </div>
+              <h3 style={{ fontSize: '1.28rem', color: '#ffffff', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>
+                Akses Multi-Platform & Mobile Ready
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
+                Aplikasi dapat diakses secara fleksibel dari browser laptop, tablet, hingga Android APK native langsung dari smartphone pengguna.
+              </p>
+            </div>
+
+            {/* Card 6 */}
+            <div style={{ background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(16, 185, 129, 0.22)', borderRadius: '20px', padding: '34px 28px', transition: 'all 0.35s ease', boxShadow: '0 10px 30px rgba(0,0,0,0.3)' }} className="bento-card-hover">
+              <div style={{ width: '52px', height: '52px', borderRadius: '14px', background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', color: '#ffffff', boxShadow: '0 8px 20px rgba(16, 185, 129, 0.3)' }}>
+                🎯
+              </div>
+              <h3 style={{ fontSize: '1.28rem', color: '#ffffff', marginTop: '20px', marginBottom: '10px', fontWeight: 800 }}>
+                Skalabilitas Tanpa Batas
+              </h3>
+              <p style={{ color: '#94a3b8', fontSize: '0.94rem', lineHeight: 1.65, margin: 0 }}>
+                Sistem modular yang mudah dikembangkan dan disesuaikan dengan pertumbuhan jumlah pengguna, cabang baru, atau kebutuhan fitur instansi Anda.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================================
           4. MENGAPA MEMILIH DEVORME (Bento Fitur Keunggulan)
           ================================================================== */}
       <section id="tentang-kami" style={{ padding: '80px 0', background: 'var(--bg-warm)' }}>
