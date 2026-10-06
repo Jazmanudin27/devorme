@@ -22,7 +22,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   });
   const [zoomScale, setZoomScale] = useState(1);
 
-  const productImages = {
+  const fallbackImages = {
     'e-sekolah': [
       { src: '/esekolah_preview.jpg', caption: 'Dashboard Utama Akademik & Presensi Siswa' },
       { src: '/esekolah_preview_2.jpg', caption: 'Manajemen E-Rapor & Rekap Nilai Akademik' },
@@ -45,26 +45,33 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
     ]
   };
 
-  const handlePrevSlide = (prodId) => {
+  const getProductImages = (product) => {
+    if (product.images && product.images.length > 0) {
+      return product.images.map(img => typeof img === 'string' ? { src: img, caption: product.name } : { src: img.image_url || img.url || img.src, caption: img.caption || product.name });
+    }
+    return fallbackImages[product.slug] || [
+      { src: '/Banner4.png?v=4.0', caption: product.name }
+    ];
+  };
+
+  const handlePrevSlide = (prodId, total) => {
     setCardSlides(prev => {
-      const total = productImages[prodId]?.length || 1;
       const current = prev[prodId] || 0;
       return { ...prev, [prodId]: (current - 1 + total) % total };
     });
   };
 
-  const handleNextSlide = (prodId) => {
+  const handleNextSlide = (prodId, total) => {
     setCardSlides(prev => {
-      const total = productImages[prodId]?.length || 1;
       const current = prev[prodId] || 0;
       return { ...prev, [prodId]: (current + 1) % total };
     });
   };
 
-  const openLightbox = (prodId, index = 0, title = '') => {
+  const openLightbox = (imagesList, index = 0, title = '') => {
     setLightbox({
       isOpen: true,
-      images: productImages[prodId] || [],
+      images: imagesList,
       currentIndex: index,
       title: title
     });
@@ -96,7 +103,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       />
 
       {/* ==================================================================
-          2. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF
+          2. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF (Dinamis Database)
           ================================================================== */}
       <section id="solusi-produk" className="products-section-leap" style={{ background: 'rgb(56, 164, 247)', padding: '84px 0' }}>
         <div className="container">
@@ -113,188 +120,111 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           </div>
 
           {loading ? (
-            <div style={{ textAlign: 'center', padding: '60px', color: 'var(--text-muted)' }}>
-              Memuat galeri portofolio produk...
+            <div style={{ textAlign: 'center', padding: '60px', color: '#ffffff', fontWeight: 600 }}>
+              Memuat galeri portofolio dari database...
             </div>
           ) : (
             <div className="solution-grid" style={{ gap: '32px' }}>
+              {products.map((product) => {
+                const images = getProductImages(product);
+                const slideIdx = cardSlides[product.id || product.slug] || 0;
+                const activeImg = images[slideIdx] || images[0];
 
-              {/* Product 1: E-Sekolah Cloud */}
-              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
-                
-                {/* Image Banner Showcase Slider */}
-                <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', maxHeight: '220px', minHeight: '150px', overflow: 'hidden', background: '#07153b' }}>
-                  <img 
-                    src={productImages['e-sekolah'][cardSlides['e-sekolah'] || 0].src} 
-                    alt="E-Sekolah Cloud Platform UI Preview" 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
-                    onClick={() => openLightbox('e-sekolah', cardSlides['e-sekolah'] || 0, 'E-Sekolah Cloud Platform')}
-                  />
-                  
-                  {/* Category Tag */}
-                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 12px', borderRadius: '99px', fontSize: '0.76rem', fontWeight: 700, border: '1px solid rgba(255,255,255,0.2)', pointerEvents: 'none' }}>
-                    🎓 Sekolah & Yayasan
-                  </div>
-
-                  {/* Zoom Badge Trigger */}
-                  <button 
-                    onClick={() => openLightbox('e-sekolah', cardSlides['e-sekolah'] || 0, 'E-Sekolah Cloud Platform')}
-                    style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0, 102, 255, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 10px', borderRadius: '8px', fontSize: '0.74rem', fontWeight: 700, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 5 }}
-                  >
-                    🔍 Zoom Foto ({ (cardSlides['e-sekolah'] || 0) + 1 }/3)
-                  </button>
-
-                  {/* Slider Controls */}
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); handlePrevSlide('e-sekolah'); }}
-                    style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
-                    aria-label="Foto Sebelumnya"
-                  >
-                    ‹
-                  </button>
-
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); handleNextSlide('e-sekolah'); }}
-                    style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
-                    aria-label="Foto Selanjutnya"
-                  >
-                    ›
-                  </button>
-
-                  {/* Dots Indicators */}
-                  <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 5 }}>
-                    {productImages['e-sekolah'].map((_, idx) => (
-                      <span 
-                        key={idx}
-                        onClick={(e) => { e.stopPropagation(); setCardSlides(prev => ({ ...prev, 'e-sekolah': idx })); }}
-                        style={{
-                          width: (cardSlides['e-sekolah'] || 0) === idx ? '18px' : '6px',
-                          height: '6px',
-                          borderRadius: '99px',
-                          background: (cardSlides['e-sekolah'] || 0) === idx ? '#38bdf8' : 'rgba(255,255,255,0.5)',
-                          cursor: 'pointer',
-                          transition: 'all 0.3s ease'
-                        }}
+                return (
+                  <div key={product.id || product.slug} className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
+                    
+                    {/* Image Banner Showcase Slider */}
+                    <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', maxHeight: '220px', minHeight: '150px', overflow: 'hidden', background: '#07153b' }}>
+                      <img 
+                        src={activeImg.src} 
+                        alt={`${product.name} Preview`} 
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
+                        onClick={() => openLightbox(images, slideIdx, product.name)}
                       />
-                    ))}
+                      
+                      {/* Category Tag */}
+                      <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 12px', borderRadius: '99px', fontSize: '0.76rem', fontWeight: 700, border: '1px solid rgba(255,255,255,0.2)', pointerEvents: 'none' }}>
+                        {product.category || 'Software Solution'}
+                      </div>
+
+                      {/* Zoom Badge Trigger */}
+                      <button 
+                        onClick={() => openLightbox(images, slideIdx, product.name)}
+                        style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0, 102, 255, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 10px', borderRadius: '8px', fontSize: '0.74rem', fontWeight: 700, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 5 }}
+                      >
+                        🔍 Zoom Foto ({ slideIdx + 1 }/{ images.length })
+                      </button>
+
+                      {/* Slider Controls */}
+                      {images.length > 1 && (
+                        <>
+                          <button 
+                            onClick={(e) => { e.stopPropagation(); handlePrevSlide(product.id || product.slug, images.length); }}
+                            style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
+                            aria-label="Foto Sebelumnya"
+                          >
+                            ‹
+                          </button>
+
+                          <button 
+                            onClick={(e) => { e.stopPropagation(); handleNextSlide(product.id || product.slug, images.length); }}
+                            style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
+                            aria-label="Foto Selanjutnya"
+                          >
+                            ›
+                          </button>
+                        </>
+                      )}
+
+                      {/* Dots Indicators */}
+                      {images.length > 1 && (
+                        <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 5 }}>
+                          {images.map((_, idx) => (
+                            <span 
+                              key={idx}
+                              onClick={(e) => { e.stopPropagation(); setCardSlides(prev => ({ ...prev, [product.id || product.slug]: idx })); }}
+                              style={{
+                                width: slideIdx === idx ? '18px' : '6px',
+                                height: '6px',
+                                borderRadius: '99px',
+                                background: slideIdx === idx ? '#38bdf8' : 'rgba(255,255,255,0.5)',
+                                cursor: 'pointer',
+                                transition: 'all 0.3s ease'
+                              }}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                      <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px', color: 'var(--navy-dark)' }}>{product.name}</h3>
+                      <p className="solution-desc" style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
+                        {product.tagline || product.description}
+                      </p>
+
+                      <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
+                        <a 
+                          href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
+                          target="_blank" 
+                          rel="noreferrer" 
+                          className="btn-blue" 
+                          style={{ flex: 1, padding: '12px', fontSize: '0.88rem', justifyContent: 'center' }}
+                        >
+                          💬 Request Demo via WA
+                        </a>
+                        <button 
+                          className="btn-white-outline"
+                          style={{ padding: '12px 18px', fontSize: '0.88rem', fontWeight: 700 }}
+                          onClick={() => onSelectProduct(product.slug || product.id)}
+                        >
+                          Detail Portofolio →
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px', color: 'var(--navy-dark)' }}>E-Sekolah Cloud Platform</h3>
-                  <p className="solution-desc" style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
-                    Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, penilaian rapor, serta kenaikan kelas dan alumni.
-                  </p>
-
-                  <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
-                    <a 
-                      href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="btn-blue" 
-                      style={{ flex: 1, padding: '12px', fontSize: '0.88rem', justifyContent: 'center' }}
-                    >
-                      💬 Request Demo via WA
-                    </a>
-                    <button 
-                      className="btn-white-outline"
-                      style={{ padding: '12px 18px', fontSize: '0.88rem', fontWeight: 700 }}
-                      onClick={() => onSelectProduct('e-sekolah')}
-                    >
-                      Detail Portofolio →
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Product 2: DIS Smart System */}
-              <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
-                
-                {/* Image Banner Showcase Slider */}
-                <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', maxHeight: '220px', minHeight: '150px', overflow: 'hidden', background: '#0f172a' }}>
-                  <img 
-                    src={productImages['dis'][cardSlides['dis'] || 0].src} 
-                    alt="DIS Smart System UI Preview" 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
-                    onClick={() => openLightbox('dis', cardSlides['dis'] || 0, 'DIS Smart System')}
-                  />
-                  
-                  {/* Category Tag */}
-                  <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(7, 21, 59, 0.85)', backdropFilter: 'blur(8px)', color: '#c084fc', padding: '4px 12px', borderRadius: '99px', fontSize: '0.76rem', fontWeight: 700, border: '1px solid rgba(168,85,247,0.3)', pointerEvents: 'none' }}>
-                    🏛️ Layanan Publik & Dinas
-                  </div>
-
-                  {/* Zoom Badge Trigger */}
-                  <button 
-                    onClick={() => openLightbox('dis', cardSlides['dis'] || 0, 'DIS Smart System')}
-                    style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(168, 85, 247, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 10px', borderRadius: '8px', fontSize: '0.74rem', fontWeight: 700, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 5 }}
-                  >
-                    🔍 Zoom Foto ({ (cardSlides['dis'] || 0) + 1 }/3)
-                  </button>
-
-                  {/* Slider Controls */}
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); handlePrevSlide('dis'); }}
-                    style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
-                    aria-label="Foto Sebelumnya"
-                  >
-                    ‹
-                  </button>
-
-                  <button 
-                    onClick={(e) => { e.stopPropagation(); handleNextSlide('dis'); }}
-                    style={{ position: 'absolute', right: '8px', top: '50%', transform: 'translateY(-50%)', background: 'rgba(0,0,0,0.65)', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', width: '32px', height: '32px', borderRadius: '50%', fontSize: '1.2rem', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 5 }}
-                    aria-label="Foto Selanjutnya"
-                  >
-                    ›
-                  </button>
-
-                  {/* Dots Indicators */}
-                  <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px', zIndex: 5 }}>
-                    {productImages['dis'].map((_, idx) => (
-                      <span 
-                        key={idx}
-                        onClick={(e) => { e.stopPropagation(); setCardSlides(prev => ({ ...prev, 'dis': idx })); }}
-                        style={{
-                          width: (cardSlides['dis'] || 0) === idx ? '18px' : '6px',
-                          height: '6px',
-                          borderRadius: '99px',
-                          background: (cardSlides['dis'] || 0) === idx ? '#c084fc' : 'rgba(255,255,255,0.5)',
-                          cursor: 'pointer',
-                          transition: 'all 0.3s ease'
-                        }}
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                  <h3 className="solution-title" style={{ fontSize: '1.45rem', marginBottom: '8px', color: 'var(--navy-dark)' }}>DIS Smart System</h3>
-                  <p className="solution-desc" style={{ fontSize: '0.94rem', color: 'var(--text-muted)', lineHeight: 1.6, marginBottom: '24px' }}>
-                    Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan alur approval bertingkat dan analitik kinerja instansi.
-                  </p>
-
-                  <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
-                    <a 
-                      href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="btn-blue" 
-                      style={{ flex: 1, padding: '12px', fontSize: '0.88rem', justifyContent: 'center' }}
-                    >
-                      💬 Request Demo via WA
-                    </a>
-                    <button 
-                      className="btn-white-outline"
-                      style={{ padding: '12px 18px', fontSize: '0.88rem', fontWeight: 700 }}
-                      onClick={() => onSelectProduct('dis')}
-                    >
-                      Detail Portofolio →
-                    </button>
-                  </div>
-                </div>
-              </div>
-
+                );
+              })}
             </div>
           )}
 
