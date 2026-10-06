@@ -131,7 +131,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
                 
                 {/* Image Banner Showcase Slider */}
-                <div style={{ position: 'relative', width: '100%', height: '230px', overflow: 'hidden', background: '#07153b' }}>
+                <div style={{ position: 'relative', width: '100%', height: '175px', overflow: 'hidden', background: '#07153b' }}>
                   <img 
                     src={productImages['e-sekolah'][cardSlides['e-sekolah'] || 0].src} 
                     alt="E-Sekolah Cloud Platform UI Preview" 
@@ -219,7 +219,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               <div className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
                 
                 {/* Image Banner Showcase Slider */}
-                <div style={{ position: 'relative', width: '100%', height: '230px', overflow: 'hidden', background: '#0f172a' }}>
+                <div style={{ position: 'relative', width: '100%', height: '175px', overflow: 'hidden', background: '#0f172a' }}>
                   <img 
                     src={productImages['dis'][cardSlides['dis'] || 0].src} 
                     alt="DIS Smart System UI Preview" 
