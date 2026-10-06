@@ -18,10 +18,10 @@ let mockProducts = [
     api_endpoint: "https://api.devorme.site/v1/e-sekolah",
     status: "active",
     icon_bg: "linear-gradient(135deg, #3b82f6, #06b6d4)",
-    features: [
-      "Presensi QR & GPS Guru-Siswa",
-      "E-Rapor Akademik Otomatis",
-      "Database Kenaikan Kelas & Alumni"
+    images: [
+      { src: '/esekolah_preview.jpg', caption: 'Dashboard Utama Akademik & Presensi Siswa' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Manajemen E-Rapor & Rekap Nilai Akademik' },
+      { src: '/Banner4.png?v=4.0', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
     ]
   },
   {
@@ -36,10 +36,10 @@ let mockProducts = [
     api_endpoint: "https://api.devorme.site/v1/dis",
     status: "active",
     icon_bg: "linear-gradient(135deg, #a855f7, #ec4899)",
-    features: [
-      "Workflow Approval Dokumen Digital",
-      "Pelaporan Publik Transparan",
-      "Integrasi Server VPS Terpusat"
+    images: [
+      { src: '/dis_preview.jpg', caption: 'Dashboard Birokrasi & Pelaporan Publik' },
+      { src: '/Banner4.png?v=4.0', caption: 'Infrastruktur Server Terpusat DIS System' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Alur Workflows Approval Dokumen Dinas' }
     ]
   },
   {
@@ -54,10 +54,10 @@ let mockProducts = [
     api_endpoint: "https://api.devorme.site/v1/pos",
     status: "active",
     icon_bg: "linear-gradient(135deg, #10b981, #059669)",
-    features: [
-      "Kasir POS & QRIS Dinamis",
-      "Rekam Medis Digital Pasien",
-      "Peringatan Obat Expired Automated"
+    images: [
+      { src: '/Banner4.png?v=4.0', caption: 'Kasir POS Farmasi & QRIS Dinamis' },
+      { src: '/esekolah_preview.jpg', caption: 'Rekam Medis Pasien & Resep Dokter Digital' },
+      { src: '/dis_preview.jpg', caption: 'Manajemen Stok Obat & Expired Warning' }
     ]
   },
   {
@@ -72,10 +72,10 @@ let mockProducts = [
     api_endpoint: "https://api.devorme.site/v1/erp",
     status: "active",
     icon_bg: "linear-gradient(135deg, #f59e0b, #d97706)",
-    features: [
-      "Multi-Warehouse Inventory Tracking",
-      "Pencatatan Akuntansi & Invoice",
-      "Tracking Expedisi & Pengiriman"
+    images: [
+      { src: '/dis_preview.jpg', caption: 'Tracking Pengiriman & Multi-Gudang' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Laporan Keuangan & Akuntansi Realtime' },
+      { src: '/Banner4.png?v=4.0', caption: 'Integrasi Multi-Subdomain ERP Enterprise' }
     ]
   }
 ];
@@ -102,6 +102,16 @@ const getAllProducts = async (req, res, next) => {
       sql += ' ORDER BY id ASC';
 
       const rows = await db.execute(sql, params);
+
+      for (let p of rows) {
+        try {
+          const imgs = await db.execute('SELECT image_url as src, caption FROM product_images WHERE product_id = ? ORDER BY sort_order ASC', [p.id]);
+          p.images = imgs;
+        } catch (e) {
+          p.images = [];
+        }
+      }
+
       return res.status(200).json({
         success: true,
         source: 'mysql_database',

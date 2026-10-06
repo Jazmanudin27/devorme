@@ -22,34 +22,11 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
   });
   const [zoomScale, setZoomScale] = useState(1);
 
-  const fallbackImages = {
-    'e-sekolah': [
-      { src: '/esekolah_preview.jpg', caption: 'Dashboard Utama Akademik & Presensi Siswa' },
-      { src: '/esekolah_preview_2.jpg', caption: 'Manajemen E-Rapor & Rekap Nilai Akademik' },
-      { src: '/Banner4.png?v=4.0', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
-    ],
-    'dis': [
-      { src: '/dis_preview.jpg', caption: 'Dashboard Birokrasi & Pelaporan Publik' },
-      { src: '/Banner4.png?v=4.0', caption: 'Infrastruktur Server Terpusat DIS System' },
-      { src: '/esekolah_preview_2.jpg', caption: 'Alur Workflows Approval Dokumen Dinas' }
-    ],
-    'pos-apotek': [
-      { src: '/Banner4.png?v=4.0', caption: 'Kasir POS Farmasi & QRIS Dinamis' },
-      { src: '/esekolah_preview.jpg', caption: 'Rekam Medis Pasien & Resep Dokter Digital' },
-      { src: '/dis_preview.jpg', caption: 'Manajemen Stok Obat & Expired Warning' }
-    ],
-    'erp-distributor': [
-      { src: '/dis_preview.jpg', caption: 'Tracking Pengiriman & Multi-Gudang' },
-      { src: '/esekolah_preview_2.jpg', caption: 'Laporan Keuangan & Akuntansi Realtime' },
-      { src: '/Banner4.png?v=4.0', caption: 'Integrasi Multi-Subdomain ERP Enterprise' }
-    ]
-  };
-
   const getProductImages = (product) => {
     if (product.images && product.images.length > 0) {
       return product.images.map(img => typeof img === 'string' ? { src: img, caption: product.name } : { src: img.image_url || img.url || img.src, caption: img.caption || product.name });
     }
-    return fallbackImages[product.slug] || [
+    return [
       { src: '/Banner4.png?v=4.0', caption: product.name }
     ];
   };
