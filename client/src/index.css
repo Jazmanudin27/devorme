@@ -988,7 +988,7 @@ a {
 /* Solution Cards */
 .products-section-leap {
   padding: 80px 0;
-  background: linear-gradient(180deg, #0b152b 0%, #111f3d 100%);
+  background: rgb(56, 164, 247);
 }
 
 .solution-grid {
