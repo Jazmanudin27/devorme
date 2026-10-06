@@ -486,6 +486,30 @@ a {
   color: #ffffff;
 }
 
+.btn-slider-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.btn-slider-whatsapp:hover {
+  background: linear-gradient(135deg, #1ebe5d 0%, #0d7367 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5);
+  color: #ffffff;
+}
+
 .btn-slider-glass {
   background: #ffffff;
   color: var(--navy-dark);
