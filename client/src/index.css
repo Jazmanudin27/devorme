@@ -427,7 +427,7 @@ a {
   padding: 14px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 14px;
   width: 100%;

@@ -15,10 +15,6 @@ export default function HeroSlider({ onSelectProduct }) {
 
         {/* Quick Actions Bar */}
         <div className="banner-quick-actions-bar">
-          <div className="banner-badge-live">
-            <span className="live-pulse-dot"></span>
-            <span>Portofolio Ekosistem Software Devorme • Database Terpusat</span>
-          </div>
           <div className="banner-actions-btns">
             <a href="#solusi-produk" className="btn-slider-primary">
               Lihat Portofolio ▾
