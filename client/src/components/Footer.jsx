@@ -39,7 +39,7 @@ export default function Footer({ onNavigateToAdmin }) {
             <ul className="footer-links-list">
               <li><a href="#tentang-kami">Tentang Devorme</a></li>
               <li><a href="#kontak">Hubungi Kami</a></li>
-              <li><a href="#admin" onClick={(e) => { e.preventDefault(); if (onNavigateToAdmin) onNavigateToAdmin(); }}>Portal Admin</a></li>
+              <li><a href="/admin" onClick={(e) => { e.preventDefault(); if (onNavigateToAdmin) onNavigateToAdmin(); }}>Portal Admin</a></li>
               <li><a href="mailto:info@devorme.site">info@devorme.site</a></li>
             </ul>
           </div>

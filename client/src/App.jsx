@@ -11,14 +11,19 @@ export default function App() {
   const [selectedProductId, setSelectedProductId] = useState('e-sekolah');
 
   useEffect(() => {
-    const checkHash = () => {
-      if (window.location.hash === '#admin') {
+    const checkRoute = () => {
+      const path = window.location.pathname.replace(/\/$/, '');
+      if (path === '/admin' || window.location.hash === '#admin') {
         setCurrentView('admin');
       }
     };
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
-    return () => window.removeEventListener('hashchange', checkHash);
+    checkRoute();
+    window.addEventListener('popstate', checkRoute);
+    window.addEventListener('hashchange', checkRoute);
+    return () => {
+      window.removeEventListener('popstate', checkRoute);
+      window.removeEventListener('hashchange', checkRoute);
+    };
   }, []);
 
   const handleSelectProduct = (productId) => {
@@ -28,15 +33,15 @@ export default function App() {
   };
 
   const handleBackToHome = () => {
-    setCurrentView('home');
-    if (window.location.hash === '#admin') {
-      window.history.pushState("", document.title, window.location.pathname + window.location.search);
+    if (window.location.pathname.endsWith('/admin') || window.location.hash === '#admin') {
+      window.history.pushState({}, '', '/');
     }
+    setCurrentView('home');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleNavigateToAdmin = () => {
-    window.location.hash = 'admin';
+    window.history.pushState({}, '', '/admin');
     setCurrentView('admin');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
