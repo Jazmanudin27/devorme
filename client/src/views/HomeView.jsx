@@ -86,25 +86,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       />
 
       {/* ==================================================================
-          2. TRUST STRIP / PARTNERS & CLIENTS
-          ================================================================== */}
-      <section className="trust-strip">
-        <div className="container">
-          <div className="trust-label">
-            Dipercaya oleh Perusahaan dan Terkemuka..
-          </div>
-          <div className="trust-badges">
-            <span className="trust-badge-item">🏢 CV Makmur Permata</span>
-            <span className="trust-badge-item">🍲 Seblak Katel NDR</span>
-            <span className="trust-badge-item">🍚 Warung Nasi Haji Aah Putra</span>
-            <span className="trust-badge-item">🎓 SMK ARTANITA TASIKMALAYA</span>
-            <span className="trust-badge-item">🚚 CV MITRA JAYA ABADI DISTRIBUTOR</span>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================================================================
-          3. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF
+          2. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF
           ================================================================== */}
       <section id="solusi-produk" className="products-section-leap" style={{ background: 'linear-gradient(180deg, #0b152b 0%, #111f3d 100%)', padding: '84px 0' }}>
         <div className="container">
@@ -464,6 +446,24 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
             </div>
           </div>
         )}
+      </section>
+
+      {/* ==================================================================
+          2.5 TRUST STRIP / PARTNERS & CLIENTS (Di Bawah Galeri Portofolio)
+          ================================================================== */}
+      <section className="trust-strip">
+        <div className="container">
+          <div className="trust-label">
+            ⚡ Dipercaya oleh Perusahaan & Institusi Terkemuka
+          </div>
+          <div className="trust-badges">
+            <span className="trust-badge-item">🏢 CV Makmur Permata</span>
+            <span className="trust-badge-item">🍲 Seblak Katel NDR</span>
+            <span className="trust-badge-item">🍚 Warung Nasi Haji Aah Putra</span>
+            <span className="trust-badge-item">🎓 SMK ARTANITA TASIKMALAYA</span>
+            <span className="trust-badge-item">🚚 CV MITRA JAYA ABADI DISTRIBUTOR</span>
+          </div>
+        </div>
       </section>
 
       {/* ==================================================================

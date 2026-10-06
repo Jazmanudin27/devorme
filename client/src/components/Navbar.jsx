@@ -60,19 +60,12 @@ export default function Navbar({ currentView, setCurrentView }) {
 
           {/* Right Action Buttons */}
           <div className="nav-actions-group">
-            {currentView === 'admin' ? (
+            {currentView === 'admin' && (
               <button 
                 className="btn-nav-glass"
                 onClick={() => setCurrentView('home')}
               >
                 ← Ke Beranda
-              </button>
-            ) : (
-              <button 
-                className="btn-nav-glass"
-                onClick={() => setCurrentView('admin')}
-              >
-                🔐 Portal Admin
               </button>
             )}
 
