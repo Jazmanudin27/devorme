@@ -418,7 +418,8 @@ a {
   max-width: 100%;
   display: block;
   object-fit: cover;
-  margin: 0 auto;
+  margin-top: -50px;
+  margin-bottom: -50px;
 }
 
 /* Floating Actions Overlay directly on Banner (Right Bottom) */

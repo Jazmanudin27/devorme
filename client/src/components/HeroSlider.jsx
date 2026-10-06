@@ -7,7 +7,7 @@ export default function HeroSlider({ onSelectProduct }) {
       <div className="slider-outer-frame slider-frame-fullwidth">
         <div className="banner-image-container">
           <img 
-            src="/Banner3.png?v=3.0" 
+            src="/Banner3.png?v=3.1" 
             alt="Devorme - Platform Ekosistem Software Terpadu"
             className="banner-hero-full-img"
           />
