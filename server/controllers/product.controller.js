@@ -21,7 +21,7 @@ let mockProducts = [
     images: [
       { src: '/esekolah_preview.jpg', caption: 'Dashboard Utama Akademik & Presensi Siswa' },
       { src: '/esekolah_preview_2.jpg', caption: 'Manajemen E-Rapor & Rekap Nilai Akademik' },
-      { src: '/Banner4.png?v=4.0', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
+      { src: '/dis_preview.jpg', caption: 'Arsitektur Multi-Domain Server E-Sekolah' }
     ]
   },
   {
@@ -38,7 +38,7 @@ let mockProducts = [
     icon_bg: "linear-gradient(135deg, #a855f7, #ec4899)",
     images: [
       { src: '/dis_preview.jpg', caption: 'Dashboard Birokrasi & Pelaporan Publik' },
-      { src: '/Banner4.png?v=4.0', caption: 'Infrastruktur Server Terpusat DIS System' },
+      { src: '/esekolah_preview.jpg', caption: 'Infrastruktur Server Terpusat DIS System' },
       { src: '/esekolah_preview_2.jpg', caption: 'Alur Workflows Approval Dokumen Dinas' }
     ]
   },
@@ -55,7 +55,7 @@ let mockProducts = [
     status: "active",
     icon_bg: "linear-gradient(135deg, #10b981, #059669)",
     images: [
-      { src: '/Banner4.png?v=4.0', caption: 'Kasir POS Farmasi & QRIS Dinamis' },
+      { src: '/esekolah_preview_2.jpg', caption: 'Kasir POS Farmasi & QRIS Dinamis' },
       { src: '/esekolah_preview.jpg', caption: 'Rekam Medis Pasien & Resep Dokter Digital' },
       { src: '/dis_preview.jpg', caption: 'Manajemen Stok Obat & Expired Warning' }
     ]
@@ -75,9 +75,10 @@ let mockProducts = [
     images: [
       { src: '/dis_preview.jpg', caption: 'Tracking Pengiriman & Multi-Gudang' },
       { src: '/esekolah_preview_2.jpg', caption: 'Laporan Keuangan & Akuntansi Realtime' },
-      { src: '/Banner4.png?v=4.0', caption: 'Integrasi Multi-Subdomain ERP Enterprise' }
+      { src: '/esekolah_preview.jpg', caption: 'Integrasi Multi-Subdomain ERP Enterprise' }
     ]
   }
+
 ];
 
 // ============================================================================
@@ -198,9 +199,12 @@ const getProductById = async (req, res, next) => {
 // ============================================================================
 // 3. CREATE: Tambah Produk Baru (POST /api/v1/products)
 // ============================================================================
+// ============================================================================
+// 3. CREATE: Tambah Produk Baru (POST /api/v1/products)
+// ============================================================================
 const createProduct = async (req, res, next) => {
   try {
-    const { name, slug, domain, category, tagline, description, db_schema, api_endpoint, status, icon_bg } = req.body;
+    const { name, slug, domain, category, tagline, description, db_schema, api_endpoint, status, icon_bg, images } = req.body;
 
     // Validasi field wajib
     if (!name || !slug || !domain || !db_schema) {
@@ -237,12 +241,27 @@ const createProduct = async (req, res, next) => {
       ];
 
       const result = await db.execute(insertSql, params);
+      const newId = result.insertId;
+
+      // Simpan foto galeri slider ke database
+      if (Array.isArray(images) && images.length > 0) {
+        for (let i = 0; i < images.length; i++) {
+          const imgUrl = images[i].url || images[i].src || images[i].image_url;
+          const caption = images[i].caption || '';
+          if (imgUrl) {
+            await db.execute(
+              'INSERT INTO product_images (product_id, image_url, caption, sort_order) VALUES (?, ?, ?, ?)',
+              [newId, imgUrl, caption, i + 1]
+            );
+          }
+        }
+      }
 
       return res.status(201).json({
         success: true,
         message: `Produk '${name}' berhasil didaftarkan ke database MySQL server.`,
         data: {
-          id: result.insertId,
+          id: newId,
           slug,
           name,
           domain,
@@ -264,6 +283,7 @@ const createProduct = async (req, res, next) => {
       api_endpoint: api_endpoint || `https://api.devorme.com/v1/${slug}`,
       status: status || 'active',
       icon_bg: icon_bg || 'linear-gradient(135deg, #6366f1, #06b6d4)',
+      images: Array.isArray(images) ? images.map(img => ({ src: img.url || img.src || img.image_url, caption: img.caption || name })) : [],
       features: [],
       pricingPlans: []
     };
@@ -287,7 +307,7 @@ const createProduct = async (req, res, next) => {
 const updateProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { name, domain, category, tagline, description, db_schema, status } = req.body;
+    const { name, domain, category, tagline, description, db_schema, status, images } = req.body;
 
     if (db.isMySqlAvailable()) {
       const rows = await db.execute('SELECT * FROM products WHERE id = ? OR slug = ?', [id, id]);
@@ -315,6 +335,21 @@ const updateProduct = async (req, res, next) => {
         current.id
       ]);
 
+      // Update foto slider di database jika dikirim
+      if (Array.isArray(images)) {
+        await db.execute('DELETE FROM product_images WHERE product_id = ?', [current.id]);
+        for (let i = 0; i < images.length; i++) {
+          const imgUrl = images[i].url || images[i].src || images[i].image_url;
+          const caption = images[i].caption || '';
+          if (imgUrl) {
+            await db.execute(
+              'INSERT INTO product_images (product_id, image_url, caption, sort_order) VALUES (?, ?, ?, ?)',
+              [current.id, imgUrl, caption, i + 1]
+            );
+          }
+        }
+      }
+
       return res.status(200).json({
         success: true,
         message: `Produk '${current.name}' berhasil diperbarui di database.`,
@@ -331,7 +366,11 @@ const updateProduct = async (req, res, next) => {
       });
     }
 
-    mockProducts[index] = { ...mockProducts[index], ...req.body };
+    const updated = { ...mockProducts[index], ...req.body };
+    if (Array.isArray(images)) {
+      updated.images = images.map(img => ({ src: img.url || img.src || img.image_url, caption: img.caption || updated.name }));
+    }
+    mockProducts[index] = updated;
 
     return res.status(200).json({
       success: true,
@@ -343,6 +382,7 @@ const updateProduct = async (req, res, next) => {
     next(error);
   }
 };
+
 
 // ============================================================================
 // 5. DELETE: Hapus Produk (DELETE /api/v1/products/:id)

@@ -18,27 +18,66 @@ export default function AdminView({ onBackToHome }) {
     status: 'active'
   });
 
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('admin_token'));
+  const [loginForm, setLoginForm] = useState({ email: 'admin@devorme.com', password: '' });
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginError, setLoginError] = useState('');
+
   const [settingsForm, setSettingsForm] = useState({
-    default_banner_image: '/Banner4.png?v=4.0',
-    default_banner_caption: 'Dokumentasi & Platform Infrastruktur Devorme'
+    default_banner_image: '',
+    default_banner_caption: ''
   });
   const [savingSettings, setSavingSettings] = useState(false);
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoginLoading(true);
+    setLoginError('');
+    const res = await productService.loginAdmin(loginForm.email, loginForm.password);
+    if (res && res.success) {
+      setIsLoggedIn(true);
+      loadProducts();
+    } else {
+      setLoginError(res?.message || 'Login gagal');
+    }
+    setLoginLoading(false);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_user');
+    setIsLoggedIn(false);
+  };
+
+  const [inquiries, setInquiries] = useState([]);
+
   const loadProducts = async () => {
     setLoading(true);
-    const [data, settingsData] = await Promise.all([
+    const [data, settingsData, inquiriesData] = await Promise.all([
       productService.getAllProducts(),
-      productService.getSettings()
+      productService.getSettings(),
+      productService.getInquiries()
     ]);
     setProducts(data);
+    setInquiries(inquiriesData || []);
     if (settingsData) {
       setSettingsForm({
-        default_banner_image: settingsData.default_banner_image || '/Banner4.png?v=4.0',
-        default_banner_caption: settingsData.default_banner_caption || 'Dokumentasi & Platform Infrastruktur Devorme'
+        default_banner_image: settingsData.default_banner_image || '',
+        default_banner_caption: settingsData.default_banner_caption || ''
       });
     }
     setLoading(false);
   };
+
+  const handleUpdateInquiryStatus = async (id, newStatus) => {
+    const res = await productService.updateInquiryStatus(id, newStatus);
+    if (res && res.success) {
+      setInquiries(prev => prev.map(item => item.id === id ? { ...item, status: newStatus } : item));
+    } else {
+      alert('Gagal update status: ' + (res?.message || 'Error'));
+    }
+  };
+
 
   const handleSaveSettings = async (e) => {
     e.preventDefault();
@@ -53,8 +92,11 @@ export default function AdminView({ onBackToHome }) {
   };
 
   useEffect(() => {
-    loadProducts();
-  }, []);
+    if (isLoggedIn) {
+      loadProducts();
+    }
+  }, [isLoggedIn]);
+
 
 
   const handleOpenAdd = () => {
@@ -67,7 +109,8 @@ export default function AdminView({ onBackToHome }) {
       category: 'Enterprise SaaS',
       tagline: '',
       db_schema: '',
-      status: 'active'
+      status: 'active',
+      images: []
     });
     setShowModal(true);
   };
@@ -75,6 +118,11 @@ export default function AdminView({ onBackToHome }) {
   const handleOpenEdit = (p) => {
     setIsEditing(true);
     setEditId(p.id);
+    const mappedImages = (p.images || []).map(img => 
+      typeof img === 'string' 
+        ? { url: img, caption: p.name } 
+        : { url: img.image_url || img.url || img.src || '', caption: img.caption || p.name }
+    );
     setForm({
       name: p.name,
       slug: p.slug,
@@ -82,10 +130,26 @@ export default function AdminView({ onBackToHome }) {
       category: p.category,
       tagline: p.tagline,
       db_schema: p.db_schema || p.serverDatabase || '',
-      status: p.status || 'active'
+      status: p.status || 'active',
+      images: mappedImages.length > 0 ? mappedImages : [{ url: '', caption: '' }]
     });
     setShowModal(true);
   };
+
+  const handleFileUpload = async (e, idx) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const res = await productService.uploadImage(file);
+    if (res && res.success && res.url) {
+      const newImgs = [...(form.images || [])];
+      if (!newImgs[idx]) newImgs[idx] = { url: '', caption: '' };
+      newImgs[idx].url = res.url;
+      setForm({ ...form, images: newImgs });
+    } else {
+      alert('Gagal mengunggah gambar: ' + (res?.message || 'Error'));
+    }
+  };
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -127,6 +191,60 @@ export default function AdminView({ onBackToHome }) {
     }
   };
 
+  if (!isLoggedIn) {
+    return (
+      <div className="admin-layout" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{ background: '#ffffff', padding: '40px', borderRadius: '20px', border: '1px solid var(--border-color)', width: '100%', maxWidth: '420px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
+          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
+            <div style={{ width: '56px', height: '56px', background: '#eef2ff', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', margin: '0 auto 16px' }}>
+              🔐
+            </div>
+            <h2 style={{ fontSize: '1.6rem', color: '#0f172a', marginBottom: '6px' }}>Login Portal Admin</h2>
+            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Masukkan kredensial pengelola server Devorme</p>
+          </div>
+
+          {loginError && (
+            <div style={{ background: '#fee2e2', color: '#b91c1c', padding: '10px 14px', borderRadius: '8px', fontSize: '0.85rem', marginBottom: '16px', textAlign: 'center' }}>
+              ⚠️ {loginError}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div>
+              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>Email Admin</label>
+              <input 
+                type="email"
+                value={loginForm.email}
+                onChange={e => setLoginForm({ ...loginForm, email: e.target.value })}
+                placeholder="admin@devorme.com"
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)', outline: 'none', fontSize: '0.95rem' }}
+                required
+              />
+            </div>
+            <div>
+              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>Password</label>
+              <input 
+                type="password"
+                value={loginForm.password}
+                onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
+                placeholder="••••••••"
+                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)', outline: 'none', fontSize: '0.95rem' }}
+                required
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary" disabled={loginLoading} style={{ padding: '12px', fontSize: '1rem', marginTop: '8px' }}>
+              {loginLoading ? 'Memproses Authentikasi...' : 'Masuk Dashboard Admin'}
+            </button>
+            <button type="button" className="btn btn-secondary" onClick={onBackToHome} style={{ padding: '10px', fontSize: '0.9rem' }}>
+              ← Kembali ke Beranda
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="admin-layout">
       <div className="container">
@@ -142,14 +260,18 @@ export default function AdminView({ onBackToHome }) {
             </p>
           </div>
 
-          <div style={{ display: 'flex', gap: '12px' }}>
+          <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <button className="btn btn-secondary" onClick={onBackToHome}>
-              ← Kembali ke Website Utama
+              ← Beranda
             </button>
             <button className="btn btn-primary" onClick={handleOpenAdd}>
-              + Tambah Produk Baru
+              + Tambah Produk
+            </button>
+            <button className="btn" style={{ background: '#fee2e2', color: '#b91c1c' }} onClick={handleLogout}>
+              Keluar
             </button>
           </div>
+
         </div>
 
         {/* Stats Row */}
@@ -291,7 +413,91 @@ export default function AdminView({ onBackToHome }) {
             </div>
           )}
         </div>
+
+        {/* Inquiries & Demo Requests Table Card */}
+        <div className="admin-table-card" style={{ marginTop: '28px' }}>
+          <div style={{ padding: '20px 24px', borderBottom: '1px solid var(--border-subtle)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div>
+              <h3 style={{ fontSize: '1.2rem' }}>📩 Permintaan Demo & Konsultasi Klien (Lead Capture)</h3>
+              <p style={{ fontSize: '0.84rem', color: 'var(--text-muted)' }}>Pesan dari form kontak website yang tersimpan di basis data <code>inquiries</code>.</p>
+            </div>
+            <button className="btn btn-secondary btn-sm" onClick={loadProducts}>
+              🔄 Refresh Leads
+            </button>
+          </div>
+
+          {inquiries.length === 0 ? (
+            <div style={{ padding: '36px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
+              Belum ada pesan konsultasi baru yang masuk.
+            </div>
+          ) : (
+            <div style={{ overflowX: 'auto' }}>
+              <table className="admin-table">
+                <thead>
+                  <tr>
+                    <th>Waktu</th>
+                    <th>Nama & Instansi</th>
+                    <th>Kontak</th>
+                    <th>Produk Minat</th>
+                    <th>Pesan / Kebutuhan</th>
+                    <th>Status</th>
+                    <th style={{ textAlign: 'right' }}>Update Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {inquiries.map((inq) => (
+                    <tr key={inq.id}>
+                      <td style={{ fontSize: '0.8rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}>
+                        {new Date(inq.created_at).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}
+                      </td>
+                      <td>
+                        <strong style={{ color: '#0f172a', display: 'block' }}>{inq.full_name}</strong>
+                        <span style={{ fontSize: '0.82rem', color: '#4f46e5' }}>{inq.institution || 'Instansi Umum'}</span>
+                      </td>
+                      <td>
+                        <div style={{ fontSize: '0.83rem' }}>{inq.email}</div>
+                        {inq.phone && <div style={{ fontSize: '0.8rem', color: '#16a34a' }}>📱 {inq.phone}</div>}
+                      </td>
+                      <td>
+                        <span style={{ fontSize: '0.82rem', background: '#e0e7ff', color: '#3730a3', padding: '3px 8px', borderRadius: '6px' }}>
+                          {inq.product_interest}
+                        </span>
+                      </td>
+                      <td style={{ maxWidth: '240px', fontSize: '0.85rem', color: '#334155', lineHeight: 1.5 }}>
+                        {inq.message}
+                      </td>
+                      <td>
+                        <span style={{ 
+                          fontSize: '0.78rem', 
+                          padding: '3px 10px', 
+                          borderRadius: '99px', 
+                          fontWeight: 700,
+                          background: inq.status === 'new' ? '#fef3c7' : inq.status === 'contacted' ? '#dbeafe' : '#dcfce7',
+                          color: inq.status === 'new' ? '#92400e' : inq.status === 'contacted' ? '#1e40af' : '#15803d'
+                        }}>
+                          {inq.status === 'new' ? 'Baru' : inq.status === 'contacted' ? 'Dihubungi' : 'Selesai'}
+                        </span>
+                      </td>
+                      <td style={{ textAlign: 'right' }}>
+                        <select 
+                          value={inq.status}
+                          onChange={(e) => handleUpdateInquiryStatus(inq.id, e.target.value)}
+                          style={{ padding: '4px 8px', borderRadius: '6px', fontSize: '0.8rem', border: '1px solid #cbd5e1', outline: 'none' }}
+                        >
+                          <option value="new">Baru</option>
+                          <option value="contacted">Dihubungi</option>
+                          <option value="closed">Selesai</option>
+                        </select>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
       </div>
+
 
       {/* Modal Form Create / Edit */}
       {showModal && (
@@ -389,23 +595,44 @@ export default function AdminView({ onBackToHome }) {
                   </button>
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '180px', overflowY: 'auto' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', maxHeight: '220px', overflowY: 'auto' }}>
                   {(form.images || [{ url: '', caption: '' }]).map((img, idx) => (
-                    <div key={idx} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr auto', gap: '8px', alignItems: 'center' }}>
+                    <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '6px', background: '#ffffff', padding: '10px', borderRadius: '8px', border: '1px solid #cbd5e1' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto', gap: '6px', alignItems: 'center' }}>
+                        <input 
+                          type="text"
+                          placeholder="URL Foto (misal: /esekolah_preview.jpg)"
+                          value={img.url}
+                          onChange={e => {
+                            const newImgs = [...form.images];
+                            newImgs[idx].url = e.target.value;
+                            setForm({ ...form, images: newImgs });
+                          }}
+                          style={{ padding: '6px 10px', fontSize: '0.82rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
+                        />
+                        <label style={{ background: '#e0e7ff', color: '#3730a3', padding: '6px 10px', borderRadius: '6px', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer' }}>
+                          📁 Upload File
+                          <input 
+                            type="file" 
+                            accept="image/*" 
+                            style={{ display: 'none' }}
+                            onChange={e => handleFileUpload(e, idx)}
+                          />
+                        </label>
+                        <button 
+                          type="button" 
+                          onClick={() => {
+                            const newImgs = form.images.filter((_, i) => i !== idx);
+                            setForm({ ...form, images: newImgs });
+                          }}
+                          style={{ background: '#fee2e2', color: '#b91c1c', border: 'none', borderRadius: '6px', padding: '6px 10px', fontSize: '0.8rem', cursor: 'pointer' }}
+                        >
+                          ✕
+                        </button>
+                      </div>
                       <input 
                         type="text"
-                        placeholder="URL / Path Foto (/Banner4.png)"
-                        value={img.url}
-                        onChange={e => {
-                          const newImgs = [...form.images];
-                          newImgs[idx].url = e.target.value;
-                          setForm({ ...form, images: newImgs });
-                        }}
-                        style={{ padding: '6px 10px', fontSize: '0.82rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
-                      />
-                      <input 
-                        type="text"
-                        placeholder="Caption / Keterangan Slide"
+                        placeholder="Caption / Keterangan foto slide ini"
                         value={img.caption}
                         onChange={e => {
                           const newImgs = [...form.images];
@@ -414,19 +641,10 @@ export default function AdminView({ onBackToHome }) {
                         }}
                         style={{ padding: '6px 10px', fontSize: '0.82rem', borderRadius: '6px', border: '1px solid #cbd5e1' }}
                       />
-                      <button 
-                        type="button" 
-                        onClick={() => {
-                          const newImgs = form.images.filter((_, i) => i !== idx);
-                          setForm({ ...form, images: newImgs });
-                        }}
-                        style={{ background: '#fee2e2', color: '#b91c1c', border: 'none', borderRadius: '6px', padding: '6px 10px', fontSize: '0.8rem', cursor: 'pointer' }}
-                      >
-                        ✕
-                      </button>
                     </div>
                   ))}
                 </div>
+
               </div>
 
               <div style={{ display: 'flex', gap: '10px', marginTop: '14px' }}>

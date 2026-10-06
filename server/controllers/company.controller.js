@@ -69,9 +69,10 @@ const getProducts = async (req, res, next) => {
 
 // In-Memory store untuk site_settings
 let mockSettings = {
-  default_banner_image: '/Banner4.png?v=4.0',
+  default_banner_image: '/Banner.png',
   default_banner_caption: 'Dokumentasi & Platform Infrastruktur Devorme'
 };
+
 
 // Ambil site settings dari DB
 const getSettings = async (req, res, next) => {

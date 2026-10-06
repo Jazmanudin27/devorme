@@ -135,4 +135,21 @@ CREATE TABLE IF NOT EXISTS `site_settings` (
   `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- ----------------------------------------------------------------------------
+-- 9. TABEL KONSULTASI & MINTA DEMO (Inquiries & Lead capture)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `inquiries` (
+  `id` INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `full_name` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `phone` VARCHAR(30) NULL,
+  `institution` VARCHAR(150) NULL,
+  `product_interest` VARCHAR(100) NULL,
+  `message` TEXT NOT NULL,
+  `status` ENUM('new', 'contacted', 'closed') NOT NULL DEFAULT 'new',
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+
 

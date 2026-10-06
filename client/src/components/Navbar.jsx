@@ -49,25 +49,29 @@ export default function Navbar({ currentView, setCurrentView }) {
           <nav className="nav-links-list">
             <button 
               className={`nav-link-btn nav-link-colored ${currentView === 'home' ? 'active' : ''}`}
-              onClick={() => setCurrentView('home')}
+              onClick={() => { setCurrentView('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             >
               Beranda
             </button>
             <a href="#solusi-produk" className="nav-link-btn nav-link-colored">
-              Solusi Produk ▾
+              Portofolio
             </a>
-            <a href="#manfaat-tujuan" className="nav-link-btn nav-link-colored">
-              Manfaat & Tujuan
+            <a href="#layanan" className="nav-link-btn nav-link-colored">
+              Layanan
             </a>
-            <a href="#tentang-kami" className="nav-link-btn nav-link-colored">
-              Tentang Kami
+            <a href="#harga" className="nav-link-btn nav-link-colored">
+              Harga
+            </a>
+            <a href="#faq" className="nav-link-btn nav-link-colored">
+              FAQ
             </a>
             <button 
               className={`nav-link-btn nav-link-colored ${currentView === 'architecture' ? 'active' : ''}`}
               onClick={() => setCurrentView('architecture')}
             >
-              Arsitektur Server
+              Arsitektur
             </button>
+
           </nav>
 
           {/* Right Action Buttons & Mobile Hamburger Toggle */}
@@ -121,21 +125,35 @@ export default function Navbar({ currentView, setCurrentView }) {
                 className="mobile-drawer-link"
                 onClick={() => setMobileOpen(false)}
               >
-                🖼️ Galeri Portofolio & Produk
+                🖼️ Galeri Portofolio
               </a>
               <a 
-                href="#manfaat-tujuan" 
+                href="#layanan" 
                 className="mobile-drawer-link"
                 onClick={() => setMobileOpen(false)}
               >
-                💡 Manfaat & Tujuan
+                ⚙️ Layanan Software
               </a>
               <a 
-                href="#tentang-kami" 
+                href="#harga" 
                 className="mobile-drawer-link"
                 onClick={() => setMobileOpen(false)}
               >
-                🚀 Keunggulan Sistem
+                💎 Paket Harga & Lisensi
+              </a>
+              <a 
+                href="#faq" 
+                className="mobile-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                ❓ FAQ
+              </a>
+              <a 
+                href="#kontak" 
+                className="mobile-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                📩 Minta Demo / Konsultasi
               </a>
               <button 
                 className={`mobile-drawer-link ${currentView === 'architecture' ? 'active' : ''}`}
@@ -143,6 +161,7 @@ export default function Navbar({ currentView, setCurrentView }) {
               >
                 🖥️ Arsitektur Server VPS
               </button>
+
               <a 
                 href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software"
                 target="_blank"

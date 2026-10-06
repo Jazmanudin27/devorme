@@ -1,16 +1,17 @@
 import React from 'react';
 
-export default function HeroSlider({ onSelectProduct }) {
+export default function HeroSlider({ heroBanner }) {
   return (
     <section className="hero-slider-section hero-slider-fullwidth">
       {/* Edge-to-Edge Full Width Single Banner with Floating Overlay Buttons */}
       <div className="slider-outer-frame slider-frame-fullwidth">
         <div className="banner-image-container">
           <img 
-            src="/Banner4.png?v=4.0" 
+            src={heroBanner || '/Banner.png'} 
             alt="Devorme - Platform Ekosistem Software Terpadu"
             className="banner-hero-full-img"
           />
+
 
           {/* Floating Actions Overlay directly on Banner (Right Bottom) */}
           <div className="banner-floating-actions-overlay">

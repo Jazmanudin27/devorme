@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import HeroSlider from '../components/HeroSlider';
 import DomainSimulator from '../components/DomainSimulator';
+import ServicesSection from '../components/ServicesSection';
+import PricingSection from '../components/PricingSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import FaqSection from '../components/FaqSection';
+import InquiryForm from '../components/InquiryForm';
 import { productService } from '../api/productService';
+
 
 export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin }) {
   const [products, setProducts] = useState([]);
@@ -28,9 +34,9 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
     if (product.images && product.images.length > 0) {
       return product.images.map(img => typeof img === 'string' ? { src: img, caption: product.name } : { src: img.image_url || img.url || img.src, caption: img.caption || product.name });
     }
-    return [
-      { src: defaultBanner.src || '/Banner4.png?v=4.0', caption: defaultBanner.caption || product.name }
-    ];
+    return defaultBanner.src 
+      ? [{ src: defaultBanner.src, caption: defaultBanner.caption || product.name }] 
+      : [];
   };
 
   const handlePrevSlide = (prodId, total) => {
@@ -81,16 +87,17 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
     loadData();
   }, []);
 
-
   return (
     <div>
       {/* ==================================================================
           1. FULL HERO SLIDER (Banner.png & Interactive Ekosistem Showcase)
           ================================================================== */}
       <HeroSlider 
+        heroBanner={defaultBanner.src}
         onSelectProduct={onSelectProduct} 
         onNavigateToArchitecture={onNavigateToArchitecture} 
       />
+
 
       {/* ==================================================================
           2. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF (Dinamis Database)
@@ -559,36 +566,21 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
         </div>
       </section>
 
-      {/* ==================================================================
-          6. KONTAK & KONSULTASI
-          ================================================================== */}
-      <section id="kontak" style={{ padding: '80px 0', background: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
-        <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
-          <div className="hero-pill-blue">
-            <span>Mulai Konsultasi</span>
-          </div>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '14px' }}>
-            Siap Mengembangkan Ekosistem Software Anda?
-          </h2>
-          <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', marginBottom: '32px', lineHeight: 1.6 }}>
-            Hubungi tim pengembang Devorme untuk mendiskusikan implementasi E-Sekolah, DIS, atau kebutuhan software custom perusahaan Anda.
-          </p>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <a 
-              href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
-              target="_blank" 
-              rel="noreferrer" 
-              className="btn-blue" 
-              style={{ padding: '14px 32px', fontSize: '1rem' }}
-            >
-              💬 Hubungi via WhatsApp
-            </a>
-            <button className="btn-navy" onClick={onNavigateToAdmin} style={{ padding: '14px 28px', fontSize: '1rem' }}>
-              🔐 Buka Portal Admin
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* LAYANAN SOFTWARE HOUSE */}
+      <ServicesSection />
+
+      {/* PAKET HARGA & LISENSI */}
+      <PricingSection onSelectProduct={onSelectProduct} />
+
+      {/* TESTIMONI KLIEN */}
+      <TestimonialsSection />
+
+      {/* FAQ PERTANYAAN */}
+      <FaqSection />
+
+      {/* FORM MINTA DEMO & KONSULTASI */}
+      <InquiryForm />
+
 
       {/* ==================================================================
           7. FLOATING WHATSAPP US BUTTON
