@@ -60,24 +60,24 @@ export default function Navbar({ currentView, setCurrentView }) {
 
           {/* Right Action Buttons */}
           <div className="nav-actions-group">
-            <a 
-              href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20Company%20Profile%20PDF" 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn-nav-glass"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-            >
-              📄 Profile PDF
-            </a>
+            {currentView === 'admin' ? (
+              <button 
+                className="btn-nav-glass"
+                onClick={() => setCurrentView('home')}
+              >
+                ← Ke Beranda
+              </button>
+            ) : (
+              <button 
+                className="btn-nav-glass"
+                onClick={() => setCurrentView('admin')}
+              >
+                🔐 Portal Admin
+              </button>
+            )}
 
-            <a 
-              href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20diskusi%20proyek%20software" 
-              target="_blank" 
-              rel="noreferrer"
-              className="btn-nav-accent"
-              style={{ background: 'linear-gradient(135deg, #10b981, #059669)', color: '#ffffff', display: 'inline-flex', alignItems: 'center', gap: '6px', fontWeight: 700 }}
-            >
-              💬 Discuss Your Project
+            <a href="#kontak" className="btn-nav-accent">
+              Kontak Kami
             </a>
           </div>
         </div>
