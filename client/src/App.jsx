@@ -41,6 +41,14 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  if (currentView === 'admin') {
+    return (
+      <AdminView 
+        onBackToHome={handleBackToHome}
+      />
+    );
+  }
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
       <Navbar currentView={currentView} setCurrentView={setCurrentView} onNavigateToAdmin={handleNavigateToAdmin} />
@@ -54,12 +62,6 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             onNavigateToAdmin={handleNavigateToAdmin}
-          />
-        )}
-
-        {currentView === 'admin' && (
-          <AdminView 
-            onBackToHome={handleBackToHome}
           />
         )}
 

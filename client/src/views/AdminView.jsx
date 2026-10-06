@@ -193,53 +193,166 @@ export default function AdminView({ onBackToHome }) {
 
   if (!isLoggedIn) {
     return (
-      <div className="admin-layout" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ background: '#ffffff', padding: '40px', borderRadius: '20px', border: '1px solid var(--border-color)', width: '100%', maxWidth: '420px', boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}>
-          <div style={{ textAlign: 'center', marginBottom: '24px' }}>
-            <div style={{ width: '56px', height: '56px', background: '#eef2ff', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.8rem', margin: '0 auto 16px' }}>
-              🔐
+      <div style={{ minHeight: '100vh', background: 'radial-gradient(circle at 50% 20%, #0f172a 0%, #07090e 100%)', color: '#f8fafc', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
+        {/* Glow Background Orbs */}
+        <div style={{ position: 'absolute', top: '-10%', left: '20%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: '-10%', right: '20%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)', filter: 'blur(80px)', pointerEvents: 'none' }} />
+
+        {/* Dedicated Admin Header */}
+        <header style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.08)', padding: '16px 32px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backdropFilter: 'blur(12px)', background: 'rgba(7, 9, 14, 0.8)', zIndex: 10 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', cursor: 'pointer' }} onClick={onBackToHome}>
+            <img src="/Logo.png" alt="Devorme Admin" style={{ width: '40px', height: '40px', borderRadius: '10px' }} />
+            <div>
+              <div style={{ fontWeight: 800, fontSize: '1.1rem', letterSpacing: '0.5px' }}>
+                DEVORME <span style={{ color: '#38bdf8' }}>ADMIN CONSOLE</span>
+              </div>
+              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Central Management Portal</div>
             </div>
-            <h2 style={{ fontSize: '1.6rem', color: '#0f172a', marginBottom: '6px' }}>Login Portal Admin</h2>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>Masukkan kredensial pengelola server Devorme</p>
           </div>
 
-          {loginError && (
-            <div style={{ background: '#fee2e2', color: '#b91c1c', padding: '10px 14px', borderRadius: '8px', fontSize: '0.85rem', marginBottom: '16px', textAlign: 'center' }}>
-              ⚠️ {loginError}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 14px', borderRadius: '99px', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.2)', color: '#4ade80', fontSize: '0.8rem', fontWeight: 600 }}>
+              <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }}></span>
+              Server VPS: 31.97.109.165
             </div>
-          )}
-
-          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div>
-              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>Email Admin</label>
-              <input 
-                type="email"
-                value={loginForm.email}
-                onChange={e => setLoginForm({ ...loginForm, email: e.target.value })}
-                placeholder="admin@devorme.com"
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)', outline: 'none', fontSize: '0.95rem' }}
-                required
-              />
-            </div>
-            <div>
-              <label style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>Password</label>
-              <input 
-                type="password"
-                value={loginForm.password}
-                onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
-                placeholder="••••••••"
-                style={{ width: '100%', padding: '12px 14px', borderRadius: '10px', border: '1px solid var(--border-subtle)', outline: 'none', fontSize: '0.95rem' }}
-                required
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary" disabled={loginLoading} style={{ padding: '12px', fontSize: '1rem', marginTop: '8px' }}>
-              {loginLoading ? 'Memproses Authentikasi...' : 'Masuk Dashboard Admin'}
+            <button 
+              onClick={onBackToHome}
+              style={{ padding: '8px 16px', borderRadius: '10px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid rgba(255, 255, 255, 0.1)', color: '#94a3b8', fontSize: '0.85rem', fontWeight: 600, cursor: 'pointer', transition: 'all 0.2s' }}
+            >
+              🌐 ke Website Utama
             </button>
-            <button type="button" className="btn btn-secondary" onClick={onBackToHome} style={{ padding: '10px', fontSize: '0.9rem' }}>
-              ← Kembali ke Beranda
-            </button>
-          </form>
+          </div>
+        </header>
+
+        {/* Dedicated Admin Login Card */}
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px', zIndex: 10 }}>
+          <div style={{ 
+            background: 'rgba(15, 23, 42, 0.85)', 
+            backdropFilter: 'blur(20px)', 
+            padding: '44px 40px', 
+            borderRadius: '24px', 
+            border: '1px solid rgba(56, 189, 248, 0.25)', 
+            width: '100%', 
+            maxWidth: '440px', 
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.1)' 
+          }}>
+            <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+              <div style={{ 
+                width: '64px', 
+                height: '64px', 
+                background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.2))', 
+                border: '1px solid rgba(56, 189, 248, 0.3)', 
+                borderRadius: '20px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                fontSize: '2rem', 
+                margin: '0 auto 18px',
+                boxShadow: '0 10px 25px rgba(56, 189, 248, 0.15)'
+              }}>
+                🔑
+              </div>
+              <h2 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px', letterSpacing: '-0.5px' }}>
+                Portal Otentikasi Admin
+              </h2>
+              <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.5 }}>
+                Akses terbatas untuk Pengelola Server & Database Ekosistem Devorme
+              </p>
+            </div>
+
+            {loginError && (
+              <div style={{ 
+                background: 'rgba(239, 68, 68, 0.15)', 
+                border: '1px solid rgba(239, 68, 68, 0.3)', 
+                color: '#fca5a5', 
+                padding: '12px 16px', 
+                borderRadius: '12px', 
+                fontSize: '0.88rem', 
+                marginBottom: '20px', 
+                textAlign: 'center',
+                fontWeight: 500
+              }}>
+                ⚠️ {loginError}
+              </div>
+            )}
+
+            <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+              <div>
+                <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#cbd5e1', display: 'block', marginBottom: '8px' }}>
+                  Email Admin
+                </label>
+                <input 
+                  type="email"
+                  value={loginForm.email}
+                  onChange={e => setLoginForm({ ...loginForm, email: e.target.value })}
+                  placeholder="admin@devorme.com"
+                  style={{ 
+                    width: '100%', 
+                    padding: '14px 16px', 
+                    borderRadius: '12px', 
+                    background: 'rgba(30, 41, 59, 0.6)', 
+                    border: '1px solid rgba(255, 255, 255, 0.12)', 
+                    color: '#ffffff', 
+                    outline: 'none', 
+                    fontSize: '0.95rem',
+                    transition: 'all 0.2s'
+                  }}
+                  required
+                />
+              </div>
+
+              <div>
+                <label style={{ fontSize: '0.85rem', fontWeight: 600, color: '#cbd5e1', display: 'block', marginBottom: '8px' }}>
+                  Kata Sandi
+                </label>
+                <input 
+                  type="password"
+                  value={loginForm.password}
+                  onChange={e => setLoginForm({ ...loginForm, password: e.target.value })}
+                  placeholder="••••••••"
+                  style={{ 
+                    width: '100%', 
+                    padding: '14px 16px', 
+                    borderRadius: '12px', 
+                    background: 'rgba(30, 41, 59, 0.6)', 
+                    border: '1px solid rgba(255, 255, 255, 0.12)', 
+                    color: '#ffffff', 
+                    outline: 'none', 
+                    fontSize: '0.95rem',
+                    transition: 'all 0.2s'
+                  }}
+                  required
+                />
+              </div>
+
+              <button 
+                type="submit" 
+                disabled={loginLoading} 
+                style={{ 
+                  width: '100%',
+                  padding: '14px', 
+                  borderRadius: '12px',
+                  background: 'linear-gradient(135deg, #0284c7 0%, #2563eb 100%)', 
+                  border: 'none',
+                  color: '#ffffff',
+                  fontWeight: 700,
+                  fontSize: '1rem', 
+                  cursor: loginLoading ? 'not-allowed' : 'pointer',
+                  boxShadow: '0 8px 20px rgba(2, 132, 199, 0.35)',
+                  marginTop: '6px',
+                  transition: 'all 0.2s'
+                }}
+              >
+                {loginLoading ? 'Authentikasi Server...' : 'Masuk Dashboard Admin'}
+              </button>
+            </form>
+
+            <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', textAlign: 'center' }}>
+              <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                Kredensial Default Superadmin: <code style={{ color: '#38bdf8', background: 'rgba(56, 189, 248, 0.1)', padding: '2px 6px', borderRadius: '4px' }}>admin@devorme.com</code>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
