@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Navbar({ currentView, setCurrentView }) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleNavClick = (action) => {
+    setMobileOpen(false);
+    if (typeof action === 'function') {
+      action();
+    }
+  };
+
   return (
     <>
       {/* Top Announcement Strip (Deep Dark Navy) */}
@@ -22,7 +31,7 @@ export default function Navbar({ currentView, setCurrentView }) {
       <header className="main-nav-bar main-nav-colored">
         <div className="container nav-container">
           {/* Brand Logo with Logo.png */}
-          <div className="brand-wrapper" onClick={() => setCurrentView('home')}>
+          <div className="brand-wrapper" onClick={() => handleNavClick(() => setCurrentView('home'))}>
             <img 
               src="/Logo.png" 
               alt="Devorme Ecosystem Logo" 
@@ -36,7 +45,7 @@ export default function Navbar({ currentView, setCurrentView }) {
             </div>
           </div>
 
-          {/* Nav Links */}
+          {/* Desktop Nav Links */}
           <nav className="nav-links-list">
             <button 
               className={`nav-link-btn nav-link-colored ${currentView === 'home' ? 'active' : ''}`}
@@ -46,6 +55,9 @@ export default function Navbar({ currentView, setCurrentView }) {
             </button>
             <a href="#solusi-produk" className="nav-link-btn nav-link-colored">
               Solusi Produk ▾
+            </a>
+            <a href="#manfaat-tujuan" className="nav-link-btn nav-link-colored">
+              Manfaat & Tujuan
             </a>
             <a href="#tentang-kami" className="nav-link-btn nav-link-colored">
               Tentang Kami
@@ -58,7 +70,7 @@ export default function Navbar({ currentView, setCurrentView }) {
             </button>
           </nav>
 
-          {/* Right Action Buttons */}
+          {/* Right Action Buttons & Mobile Hamburger Toggle */}
           <div className="nav-actions-group">
             {currentView === 'admin' && (
               <button 
@@ -69,12 +81,82 @@ export default function Navbar({ currentView, setCurrentView }) {
               </button>
             )}
 
-            <a href="#kontak" className="btn-nav-accent">
+            <a href="#kontak" className="btn-nav-accent desktop-only-btn">
               Kontak Kami
             </a>
+
+            {/* Mobile Hamburger Toggle Button */}
+            <button 
+              className="mobile-hamburger-btn"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle Navigation Menu"
+            >
+              {mobileOpen ? '✕' : '☰'}
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Mobile Navigation Drawer */}
+      {mobileOpen && (
+        <div className="mobile-nav-backdrop" onClick={() => setMobileOpen(false)}>
+          <div className="mobile-nav-drawer" onClick={e => e.stopPropagation()}>
+            <div className="mobile-drawer-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <img src="/Logo.png" alt="Devorme Logo" style={{ width: '32px', height: '32px' }} />
+                <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.2rem' }}>DEVORME</span>
+              </div>
+              <button className="mobile-drawer-close" onClick={() => setMobileOpen(false)}>✕</button>
+            </div>
+
+            <div className="mobile-drawer-links">
+              <button 
+                className={`mobile-drawer-link ${currentView === 'home' ? 'active' : ''}`}
+                onClick={() => handleNavClick(() => setCurrentView('home'))}
+              >
+                🏠 Beranda
+              </button>
+              <a 
+                href="#solusi-produk" 
+                className="mobile-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                🖼️ Galeri Portofolio & Produk
+              </a>
+              <a 
+                href="#manfaat-tujuan" 
+                className="mobile-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                💡 Manfaat & Tujuan
+              </a>
+              <a 
+                href="#tentang-kami" 
+                className="mobile-drawer-link"
+                onClick={() => setMobileOpen(false)}
+              >
+                🚀 Keunggulan Sistem
+              </a>
+              <button 
+                className={`mobile-drawer-link ${currentView === 'architecture' ? 'active' : ''}`}
+                onClick={() => handleNavClick(() => setCurrentView('architecture'))}
+              >
+                🖥️ Arsitektur Server VPS
+              </button>
+              <a 
+                href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-blue"
+                style={{ marginTop: '16px', padding: '14px', width: '100%', justifyContent: 'center', borderRadius: '12px' }}
+                onClick={() => setMobileOpen(false)}
+              >
+                💬 Konsultasi via WA
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
