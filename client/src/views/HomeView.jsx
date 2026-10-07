@@ -128,7 +128,12 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                 const activeImg = images[slideIdx] || images[0];
 
                 return (
-                  <div key={product.id || product.slug} className="solution-card" style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column' }}>
+                  <div 
+                    key={product.id || product.slug} 
+                    className="solution-card" 
+                    style={{ background: '#ffffff', borderRadius: '20px', border: '1px solid #e2e8f0', overflow: 'hidden', boxShadow: '0 10px 25px -5px rgba(0, 102, 255, 0.08)', display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+                    onClick={() => onSelectProduct(product.slug || product.id)}
+                  >
                     
                     {/* Image Banner Showcase Slider */}
                     <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', maxHeight: '220px', minHeight: '150px', overflow: 'hidden', background: '#07153b' }}>
@@ -136,7 +141,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                         src={activeImg.src} 
                         alt={`${product.name} Preview`} 
                         style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
-                        onClick={() => openLightbox(images, slideIdx, product.name)}
+                        onClick={(e) => { e.stopPropagation(); openLightbox(images, slideIdx, product.name); }}
                       />
                       
                       {/* Category Tag */}
@@ -146,7 +151,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
                       {/* Zoom Badge Trigger */}
                       <button 
-                        onClick={() => openLightbox(images, slideIdx, product.name)}
+                        onClick={(e) => { e.stopPropagation(); openLightbox(images, slideIdx, product.name); }}
                         style={{ position: 'absolute', top: '12px', right: '12px', background: 'rgba(0, 102, 255, 0.85)', backdropFilter: 'blur(8px)', color: '#ffffff', padding: '4px 10px', borderRadius: '8px', fontSize: '0.74rem', fontWeight: 700, border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px', zIndex: 5 }}
                       >
                         🔍 Zoom Foto ({ slideIdx + 1 }/{ images.length })
@@ -200,23 +205,17 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                         {product.tagline || product.description}
                       </p>
 
-                      <div style={{ display: 'flex', gap: '12px', marginTop: 'auto', flexWrap: 'wrap' }}>
+                      <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
                         <a 
                           href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
                           target="_blank" 
                           rel="noreferrer" 
                           className="btn-wa-animated" 
-                          style={{ flex: 1, minWidth: '150px' }}
+                          style={{ width: '100%', padding: '12px' }}
+                          onClick={(e) => e.stopPropagation()}
                         >
                           <span>💬 Request Demo via WA</span>
                         </a>
-                        <button 
-                          className="btn-detail-animated"
-                          onClick={() => onSelectProduct(product.slug || product.id)}
-                        >
-                          <span>Detail Portofolio</span>
-                          <span className="btn-arrow">→</span>
-                        </button>
                       </div>
                     </div>
                   </div>
