@@ -199,7 +199,7 @@ export default function AdminView({ onBackToHome }) {
   useEffect(() => {
     const updateClock = () => {
       const now = new Date();
-      const dateStr = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'Long', year: 'numeric' });
+      const dateStr = now.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
       const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
       setClock(`${dateStr} • ${timeStr}`);
     };
