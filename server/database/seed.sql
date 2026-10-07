@@ -115,7 +115,7 @@ VALUES
 
 -- 6. Insert Pengaturan Site & Default Banner Image
 INSERT INTO `site_settings` (`setting_key`, `setting_value`) VALUES
-  ('default_banner_image', '/Banner.png'),
+  ('default_banner_image', '/Banner4.png'),
   ('default_banner_caption', 'Dokumentasi & Platform Infrastruktur Devorme')
 ON DUPLICATE KEY UPDATE `setting_value` = VALUES(`setting_value`);
 
