@@ -123,7 +123,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           ) : (
             <>
               <div className="solution-grid" style={{ gap: '32px' }}>
-                {products.slice(0, 4).map((product) => {
+                {products.slice(0, 3).map((product) => {
                   const images = getProductImages(product);
                   const slideIdx = cardSlides[product.id || product.slug] || 0;
                   const activeImg = images[slideIdx] || images[0];
