@@ -5,6 +5,7 @@ import HomeView from './views/HomeView';
 import AdminView from './views/AdminView';
 import ProductDetailView from './views/ProductDetailView';
 import ArchitectureView from './views/ArchitectureView';
+import PortfolioView from './views/PortfolioView';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('home');
@@ -15,6 +16,8 @@ export default function App() {
       const path = window.location.pathname.replace(/\/$/, '');
       if (path === '/admin' || window.location.hash === '#admin') {
         setCurrentView('admin');
+      } else if (path === '/portofolio' || window.location.hash === '#portofolio') {
+        setCurrentView('portfolio');
       }
     };
     checkRoute();
@@ -33,10 +36,16 @@ export default function App() {
   };
 
   const handleBackToHome = () => {
-    if (window.location.pathname.endsWith('/admin') || window.location.hash === '#admin') {
+    if (window.location.pathname !== '/') {
       window.history.pushState({}, '', '/');
     }
     setCurrentView('home');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateToPortfolio = () => {
+    window.history.pushState({}, '', '/portofolio');
+    setCurrentView('portfolio');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -56,7 +65,13 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
-      <Navbar currentView={currentView} setCurrentView={setCurrentView} onNavigateToAdmin={handleNavigateToAdmin} />
+      <Navbar 
+        currentView={currentView} 
+        setCurrentView={setCurrentView} 
+        onNavigateToAdmin={handleNavigateToAdmin}
+        onNavigateToPortfolio={handleNavigateToPortfolio}
+        onBackToHome={handleBackToHome}
+      />
 
       <div style={{ flex: 1 }}>
         {currentView === 'home' && (
@@ -67,6 +82,14 @@ export default function App() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
             onNavigateToAdmin={handleNavigateToAdmin}
+            onNavigateToPortfolio={handleNavigateToPortfolio}
+          />
+        )}
+
+        {currentView === 'portfolio' && (
+          <PortfolioView 
+            onSelectProduct={handleSelectProduct}
+            onBackToHome={handleBackToHome}
           />
         )}
 

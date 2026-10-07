@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Navbar({ currentView, setCurrentView }) {
+export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin, onNavigateToPortfolio, onBackToHome }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleNavClick = (action) => {
@@ -31,7 +31,7 @@ export default function Navbar({ currentView, setCurrentView }) {
       <header className="main-nav-bar main-nav-colored">
         <div className="container nav-container">
           {/* Brand Logo with Logo.png */}
-          <div className="brand-wrapper" onClick={() => handleNavClick(() => setCurrentView('home'))}>
+          <div className="brand-wrapper" onClick={() => handleNavClick(onBackToHome)}>
             <img 
               src="/Logo.png" 
               alt="Devorme Ecosystem Logo" 
@@ -49,13 +49,16 @@ export default function Navbar({ currentView, setCurrentView }) {
           <nav className="nav-links-list">
             <button 
               className={`nav-link-btn nav-link-colored ${currentView === 'home' ? 'active' : ''}`}
-              onClick={() => { setCurrentView('home'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              onClick={() => handleNavClick(onBackToHome)}
             >
               Beranda
             </button>
-            <a href="#solusi-produk" className="nav-link-btn nav-link-colored">
+            <button 
+              className={`nav-link-btn nav-link-colored ${currentView === 'portfolio' ? 'active' : ''}`}
+              onClick={() => handleNavClick(onNavigateToPortfolio)}
+            >
               Portofolio
-            </a>
+            </button>
             <a href="#layanan" className="nav-link-btn nav-link-colored">
               Layanan
             </a>
@@ -120,13 +123,12 @@ export default function Navbar({ currentView, setCurrentView }) {
               >
                 🏠 Beranda
               </button>
-              <a 
-                href="#solusi-produk" 
-                className="mobile-drawer-link"
-                onClick={() => setMobileOpen(false)}
+              <button 
+                className={`mobile-drawer-link ${currentView === 'portfolio' ? 'active' : ''}`}
+                onClick={() => handleNavClick(onNavigateToPortfolio)}
               >
                 🖼️ Galeri Portofolio
-              </a>
+              </button>
               <a 
                 href="#layanan" 
                 className="mobile-drawer-link"
