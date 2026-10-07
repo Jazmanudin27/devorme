@@ -9,7 +9,7 @@ import InquiryForm from '../components/InquiryForm';
 import { productService } from '../api/productService';
 
 
-export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin }) {
+export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin, onNavigateToPortfolio }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
