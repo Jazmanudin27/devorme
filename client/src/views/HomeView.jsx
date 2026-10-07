@@ -200,22 +200,22 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                         {product.tagline || product.description}
                       </p>
 
-                      <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
+                      <div style={{ display: 'flex', gap: '12px', marginTop: 'auto', flexWrap: 'wrap' }}>
                         <a 
                           href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
                           target="_blank" 
                           rel="noreferrer" 
-                          className="btn-blue" 
-                          style={{ flex: 1, padding: '12px', fontSize: '0.88rem', justifyContent: 'center' }}
+                          className="btn-wa-animated" 
+                          style={{ flex: 1, minWidth: '150px' }}
                         >
-                          💬 Request Demo via WA
+                          <span>💬 Request Demo via WA</span>
                         </a>
                         <button 
-                          className="btn-white-outline"
-                          style={{ padding: '12px 18px', fontSize: '0.88rem', fontWeight: 700 }}
+                          className="btn-detail-animated"
                           onClick={() => onSelectProduct(product.slug || product.id)}
                         >
-                          Detail Portofolio →
+                          <span>Detail Portofolio</span>
+                          <span className="btn-arrow">→</span>
                         </button>
                       </div>
                     </div>
