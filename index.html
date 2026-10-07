@@ -3,38 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Devorme | Perusahaan Ekosistem Software Modern & Solusi Multi-Platform</title>
+  <title>Devorme | Ekosistem Software Enterprise Multi-Domain & Multi-Tenant</title>
   <meta name="description" content="Devorme mengembangkan ekosistem produk software mandiri dan terintegrasi dengan arsitektur server terpusat, skalabilitas tinggi, dan keamanan enterprise.">
-  <meta name="keywords" content="software house, produk software, multi-domain, enterprise software, SaaS, Devorme">
+  <meta name="keywords" content="software house, produk software, multi-domain, enterprise software, SaaS, Devorme, e-sekolah, DIS, flowdesk, paynexus, pulseai">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Background Ambient Glows -->
+  <!-- Background Particle Animation Canvas -->
+  <canvas id="bgParticlesCanvas"></canvas>
+
+  <!-- Ambient Glowing Orbs -->
   <div class="glow-orb orb-1" aria-hidden="true"></div>
   <div class="glow-orb orb-2" aria-hidden="true"></div>
   <div class="glow-orb orb-3" aria-hidden="true"></div>
 
-  <!-- Header / Navigation -->
+  <!-- Top Announcement / Contact Bar -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="announcement-pill"><span class="pulse-dot"></span> DEVORME ECOSYSTEM</span>
+        <span class="announcement-text">Butuh bantuan atau konsultasi arsitektur software enterprise?</span>
+      </div>
+      <div class="announcement-contacts">
+        <a href="tel:02120569264" class="contact-link">📞 (021)-2056-9264</a>
+        <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20mengenai%20ekosistem%20software" target="_blank" class="contact-link highlight">💬 0812-2233-2376</a>
+        <a href="mailto:info@devorme.site" class="contact-link">✉️ info@devorme.site</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Site Navigation Header -->
   <header class="site-header" id="mainHeader">
     <div class="container nav-container">
-      <a href="#hero" class="brand-logo" id="brandLogo" style="display: flex; align-items: center; gap: 12px;">
-        <img src="Logo.png" alt="Devorme Logo" style="width: 42px; height: 42px; border-radius: 10px; object-fit: cover; box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);">
+      <a href="#hero" class="brand-logo" id="brandLogo">
+        <img src="Logo.png" alt="Devorme Logo">
         <span class="logo-text">Devorme<span class="logo-dot">.</span></span>
       </a>
 
       <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Beranda</a>
+        <a href="#bannerShowcase" class="nav-link">Showcase</a>
         <a href="#features" class="nav-link">Fitur Utama</a>
-        <a href="#products" class="nav-link">Produk & Domain</a>
+        <a href="#products" class="nav-link">Portofolio Produk</a>
         <a href="#architecture" class="nav-link">Arsitektur Server</a>
         <a href="#about" class="nav-link">Tentang Kami</a>
+        <a href="#faq" class="nav-link">FAQ</a>
         <a href="#contact" class="nav-link">Kontak</a>
       </nav>
 
@@ -50,22 +70,83 @@
   </header>
 
   <main>
-    <!-- Full Banner Slider Section -->
-    <section class="banner-slider-section" style="padding: 0 0 10px; background: #38a4f7;">
+    <!-- Featured Glass Banner Showcase Section -->
+    <section class="banner-showcase-section reveal-on-scroll" id="bannerShowcase">
       <div class="container">
-        <div style="border-radius: 20px; overflow: hidden; border: none; box-shadow: none; position: relative; background: #38a4f7;">
-          <img src="Banner4.png?v=4.1" alt="Devorme Banner - Wujudkan Ide Anda dengan Mudah" style="width: 100%; height: auto; display: block; margin-top: -95px; margin-bottom: -95px; background: #38a4f7; border: none;">
+        <div class="banner-glass-wrapper">
+          <div class="banner-header-bar">
+            <div class="banner-mac-dots">
+              <span class="dot-btn red"></span>
+              <span class="dot-btn yellow"></span>
+              <span class="dot-btn green"></span>
+            </div>
+            <div class="banner-title-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+              <span>https://devorme.site • Enterprise Software Ecosystem</span>
+            </div>
+            <div class="banner-live-indicator">
+              <span class="pulse-dot"></span> Live Prototype
+            </div>
+          </div>
+
+          <div class="banner-image-container">
+            <img src="Banner4.png?v=5.0" alt="Devorme Banner - Wujudkan Ide Anda dengan Mudah" class="banner-img-main">
+            <div class="banner-gradient-overlay"></div>
+
+            <!-- Floating Interactive Glass Badges -->
+            <div class="banner-floating-badge badge-pos-1">
+              <span>🌐</span> Multi-Subdomain System
+            </div>
+            <div class="banner-floating-badge badge-pos-2">
+              <span>🛡️</span> Enterprise SSL & Auto-Backup
+            </div>
+            <div class="banner-floating-badge badge-pos-3">
+              <span>📱</span> Mobile Android Ready (APK & PWA)
+            </div>
+            <div class="banner-floating-badge badge-pos-4">
+              <span>⚡</span> Uptime SLA 99.98%
+            </div>
+          </div>
+
+          <div class="banner-footer-actions">
+            <div style="display: flex; align-items: center; gap: 12px; text-align: left;">
+              <span style="font-size: 1.4rem;">🚀</span>
+              <div>
+                <strong style="color: #ffffff; font-size: 1rem; display: block;">Solusi Software Terintegrasi Multi-Domain</strong>
+                <span style="color: var(--text-muted); font-size: 0.85rem;">Bangun platform bisnis modern dengan domain mandiri & server database terpusat.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="#products" class="btn btn-primary" id="btnBannerCtaProducts">
+                <span>Jelajahi Semua Produk</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20mengkonsultasikan%20proyek%20software" target="_blank" class="btn btn-success" id="btnBannerCtaWa">
+                <span>💬 Konsultasi Live WA</span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Trust Strip / Clients Section -->
-    <section class="trust-strip" style="padding: 28px 0; background: linear-gradient(135deg, #060913 0%, #0d1628 50%, #060913 100%); border-top: 1px solid rgba(0, 102, 255, 0.2); border-bottom: 1px solid rgba(0, 102, 255, 0.2); text-align: center;">
-      <div class="container">
-        <div class="trust-label" style="font-size: 0.82rem; color: #94a3b8; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;">
-          ⚡ Dipercaya oleh Perusahaan & Institusi Terkemuka
-        </div>
-        <div class="trust-badges" style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap;">
+    <!-- Client & Partner Continuous Marquee -->
+    <section class="trust-strip-marquee">
+      <div class="marquee-header-label">
+        ⚡ Dipercaya oleh Perusahaan & Institusi Terkemuka
+      </div>
+      <div class="marquee-track-container">
+        <div class="marquee-content" id="marqueeContent">
+          <span class="trust-badge-item">🏢 CV Makmur Permata</span>
+          <span class="trust-badge-item">🍲 Seblak Katel NDR</span>
+          <span class="trust-badge-item">🍚 Warung Nasi Haji Aah Putra</span>
+          <span class="trust-badge-item">🎓 SMK ARTANITA TASIKMALAYA</span>
+          <span class="trust-badge-item">🚚 CV MITRA JAYA ABADI DISTRIBUTOR</span>
+          <!-- Duplicate set for seamless loop -->
           <span class="trust-badge-item">🏢 CV Makmur Permata</span>
           <span class="trust-badge-item">🍲 Seblak Katel NDR</span>
           <span class="trust-badge-item">🍚 Warung Nasi Haji Aah Putra</span>
@@ -78,7 +159,7 @@
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
       <div class="container hero-container">
-        <div class="hero-content">
+        <div class="hero-content reveal-on-scroll">
           <div class="badge-pill">
             <span class="badge-dot"></span>
             <span class="badge-text">Ekosistem Software Multi-Domain & Multi-Tenant</span>
@@ -111,8 +192,8 @@
           <!-- Highlight Metric Stats -->
           <div class="hero-stats">
             <div class="stat-card">
-              <div class="stat-number">99.98%</div>
-              <div class="stat-label">Server Uptime</div>
+              <div class="stat-number" data-target="99.98">99.98%</div>
+              <div class="stat-label">Server Uptime SLA</div>
             </div>
             <div class="stat-divider"></div>
             <div class="stat-card">
@@ -127,7 +208,8 @@
           </div>
         </div>
 
-        <div class="hero-visual">
+        <!-- Interactive Architecture Diagram Canvas -->
+        <div class="hero-visual reveal-on-scroll">
           <div class="visual-glass-card">
             <div class="visual-header">
               <span class="dot-btn red"></span>
@@ -138,7 +220,7 @@
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                <span id="demoAddressBar">https://devorme.com</span>
+                <span id="demoAddressBar">https://devorme.site</span>
               </div>
             </div>
             <div class="visual-body">
@@ -153,14 +235,14 @@
                     </svg>
                   </div>
                   <div class="node-title">Central Server & Database</div>
-                  <div class="node-sub">PostgreSQL • SSO • Central API</div>
+                  <div class="node-sub">PostgreSQL • MySQL • Devorme SSO</div>
                 </div>
 
-                <!-- Animated connecting lines -->
+                <!-- Animated connecting pulse lines -->
                 <div class="network-lines">
-                  <div class="pulse-line line-left"></div>
-                  <div class="pulse-line line-center"></div>
-                  <div class="pulse-line line-right"></div>
+                  <div class="pulse-line"></div>
+                  <div class="pulse-line"></div>
+                  <div class="pulse-line"></div>
                 </div>
 
                 <div class="satellite-products">
@@ -174,12 +256,12 @@
                   </div>
                   <div class="satellite-card" onclick="previewProduct('pulse')">
                     <span class="sat-domain">pulseai.io</span>
-                    <span class="sat-type">AI Data Analytics</span>
+                    <span class="sat-type">AI Analytics</span>
                   </div>
                 </div>
               </div>
               <div class="visual-hint">
-                <span>⚡ Klik salah satu produk di atas untuk simulasi kunjungan domain khusus</span>
+                <span>⚡ Klik salah satu produk di atas untuk simulasi domain khusus</span>
               </div>
             </div>
           </div>
@@ -187,11 +269,11 @@
       </div>
     </section>
 
-    <!-- Colorful Key Features Highlight Section -->
+    <!-- Key Features Highlight Section -->
     <section class="features-colorful-section" id="features">
       <div class="container">
-        <div class="section-header text-center">
-          <div class="badge-pill inline colorful-pill">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="badge-pill inline">
             <span class="badge-text">⚡ Keunggulan Utama Ekosistem</span>
           </div>
           <h2 class="section-title">Solusi Berwarna, Berperforma & <span class="gradient-text-rainbow">Siap Pakai</span></h2>
@@ -202,85 +284,77 @@
 
         <div class="colorful-features-grid">
           <!-- Feature 1: Multi-Domain Ecosystem -->
-          <div class="colorful-feature-card feature-card-domain">
-            <div class="feature-card-glow"></div>
+          <div class="colorful-feature-card feature-card-domain reveal-on-scroll">
             <div class="feature-top-bar">
               <div class="feature-icon-wrapper bg-domain">
-                <span class="feature-emoji">🚀</span>
+                <span>🌐</span>
               </div>
               <span class="feature-tag tag-domain">Multi-Subdomain</span>
             </div>
             <div class="feature-content">
               <h3 class="feature-card-title">Multi-Domain Ecosystem</h3>
-              <p class="feature-card-desc">Subdomain mandiri untuk setiap produk institusi</p>
+              <p class="feature-card-desc">Subdomain mandiri untuk setiap produk institusi dengan isolasi branding penuh.</p>
             </div>
             <div class="feature-card-footer">
-              <div class="feature-chip chip-domain">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                <span>Branding Mandiri</span>
+              <div class="feature-chip">
+                <span>⚡ Branding Mandiri</span>
               </div>
             </div>
           </div>
 
           <!-- Feature 2: Uptime Server 99.98% -->
-          <div class="colorful-feature-card feature-card-uptime">
-            <div class="feature-card-glow"></div>
+          <div class="colorful-feature-card feature-card-uptime reveal-on-scroll">
             <div class="feature-top-bar">
               <div class="feature-icon-wrapper bg-uptime">
-                <span class="feature-emoji">⚡</span>
+                <span>⚡</span>
               </div>
               <span class="feature-tag tag-uptime">SLA 99.98%</span>
             </div>
             <div class="feature-content">
               <h3 class="feature-card-title">Uptime Server 99.98%</h3>
-              <p class="feature-card-desc">Host VPS cepat & database MySQL terpusat</p>
+              <p class="feature-card-desc">Host VPS ultra-cepat dengan arsitektur database MySQL & PostgreSQL terpusat.</p>
             </div>
             <div class="feature-card-footer">
-              <div class="feature-chip chip-uptime">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                <span>VPS & Centralized MySQL</span>
+              <div class="feature-chip">
+                <span>🖥️ VPS & Central MySQL</span>
               </div>
             </div>
           </div>
 
           <!-- Feature 3: Mobile Android Ready -->
-          <div class="colorful-feature-card feature-card-mobile">
-            <div class="feature-card-glow"></div>
+          <div class="colorful-feature-card feature-card-mobile reveal-on-scroll">
             <div class="feature-top-bar">
               <div class="feature-icon-wrapper bg-mobile">
-                <span class="feature-emoji">📱</span>
+                <span>📱</span>
               </div>
               <span class="feature-tag tag-mobile">APK & PWA</span>
             </div>
             <div class="feature-content">
               <h3 class="feature-card-title">Mobile Android Ready</h3>
-              <p class="feature-card-desc">Dukungan instalasi APK & Progressive Web App</p>
+              <p class="feature-card-desc">Dukungan penuh instalasi APK Android Native & Progressive Web App (PWA).</p>
             </div>
             <div class="feature-card-footer">
-              <div class="feature-chip chip-mobile">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                <span>APK & Installable PWA</span>
+              <div class="feature-chip">
+                <span>📲 APK & Installable PWA</span>
               </div>
             </div>
           </div>
 
           <!-- Feature 4: Keamanan Enterprise -->
-          <div class="colorful-feature-card feature-card-security">
-            <div class="feature-card-glow"></div>
+          <div class="colorful-feature-card feature-card-security reveal-on-scroll">
             <div class="feature-top-bar">
               <div class="feature-icon-wrapper bg-security">
-                <span class="feature-emoji">🛡️</span>
+                <span>🛡️</span>
               </div>
               <span class="feature-tag tag-security">SSL & Backup</span>
             </div>
             <div class="feature-content">
               <h3 class="feature-card-title">Keamanan Enterprise</h3>
-              <p class="feature-card-desc">Sertifikasi SSL aktif dan backup terstruktur</p>
+              <p class="feature-card-desc">Sertifikasi SSL aktif 256-bit dan backup terstruktur otomatis setiap hari.</p>
             </div>
             <div class="feature-card-footer">
-              <div class="feature-chip chip-security">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Active SSL & Auto-Backup</span>
+              <div class="feature-chip">
+                <span>🔒 Active SSL & Auto-Backup</span>
               </div>
             </div>
           </div>
@@ -288,10 +362,10 @@
       </div>
     </section>
 
-    <!-- Product Showcase Section (CORE REQUEST) -->
+    <!-- Product Showcase Section -->
     <section class="products-section" id="products">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal-on-scroll">
           <div class="badge-pill inline">
             <span class="badge-text">Portofolio Software</span>
           </div>
@@ -301,20 +375,21 @@
           </p>
         </div>
 
-        <!-- Filter category tags -->
+        <!-- Filter Category Tabs -->
         <div class="product-filters" id="productFilters">
           <button class="filter-btn active" data-filter="all">Semua Produk</button>
           <button class="filter-btn" data-filter="enterprise">Enterprise & ERP</button>
-          <button class="filter-btn" data-filter="fintech">Fintech & Billing</button>
-          <button class="filter-btn" data-filter="ai">AI & Smart Data</button>
+          <button class="filter-btn" data-filter="fintech">Fintech & POS</button>
+          <button class="filter-btn" data-filter="ai">AI & Analytics</button>
+          <button class="filter-btn" data-filter="sekolah">Sekolah & Yayasan</button>
+          <button class="filter-btn" data-filter="dinas">Layanan Publik & Dinas</button>
         </div>
 
         <!-- Products Grid -->
         <div class="products-grid" id="productsGrid">
 
-          <!-- Product 1: FlowDesk -->
-          <article class="product-card" data-category="enterprise" id="cardFlowdesk">
-            <div class="product-card-glow glow-blue"></div>
+          <!-- Product 1: FlowDesk ERP -->
+          <article class="product-card reveal-on-scroll" data-category="enterprise" id="cardFlowdesk">
             <div class="product-card-header">
               <div class="product-icon-box bg-blue">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -323,14 +398,7 @@
               </div>
               <div class="product-badges">
                 <span class="badge-tag">Enterprise SaaS</span>
-                <span class="domain-pill">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  flowdesk.id
-                </span>
+                <span class="domain-pill">🌐 flowdesk.id</span>
               </div>
             </div>
 
@@ -339,37 +407,23 @@
               <p class="product-tagline">Sistem manajemen operasional, inventory, dan kolaborasi workflow otomatis untuk korporasi dan manufaktur.</p>
               
               <ul class="product-features">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Multi-warehouse & Supply Chain Tracking</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Manajemen Hak Akses & Multi-Departemen</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Sinkronisasi database realtime ke server induk</span>
-                </li>
+                <li><span style="color: var(--accent-cyan);">✔</span> Multi-warehouse & Supply Chain Tracking</li>
+                <li><span style="color: var(--accent-cyan);">✔</span> Manajemen Hak Akses Multi-Departemen</li>
+                <li><span style="color: var(--accent-cyan);">✔</span> Sinkronisasi Realtime Database Central</li>
               </ul>
             </div>
 
             <div class="product-card-footer">
-              <button class="btn btn-product-action" onclick="openDomainModal('flowdesk')" id="btnOpenFlowdesk">
+              <button class="btn-product-action" onclick="openDomainModal('flowdesk')" id="btnOpenFlowdesk">
                 <span>Kunjungi Website flowdesk.id</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </button>
             </div>
           </article>
 
-          <!-- Product 2: PayNexus -->
-          <article class="product-card featured" data-category="fintech" id="cardPaynexus">
+          <!-- Product 2: PayNexus Gateway -->
+          <article class="product-card featured reveal-on-scroll" data-category="fintech" id="cardPaynexus">
             <div class="card-featured-badge">Unggulan</div>
-            <div class="product-card-glow glow-purple"></div>
             <div class="product-card-header">
               <div class="product-icon-box bg-purple">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -379,14 +433,7 @@
               </div>
               <div class="product-badges">
                 <span class="badge-tag">Fintech / POS</span>
-                <span class="domain-pill">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  paynexus.com
-                </span>
+                <span class="domain-pill">🌐 paynexus.com</span>
               </div>
             </div>
 
@@ -395,36 +442,22 @@
               <p class="product-tagline">Platform pembayaran digital, faktur otomatis, dan rekonsiliasi kasir multi-cabang terintegrasi QRIS & Virtual Account.</p>
               
               <ul class="product-features">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Gateway Pembayaran 20+ Bank & E-Wallet</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>PCI-DSS Level 1 & Enkripsi Data Tingkat Bank</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Webhooks terhubung ke server utama Devorme</span>
-                </li>
+                <li><span style="color: var(--accent-purple);">✔</span> Gateway Pembayaran 20+ Bank & E-Wallet</li>
+                <li><span style="color: var(--accent-purple);">✔</span> Enkripsi Data Tingkat Bank & Active SSL</li>
+                <li><span style="color: var(--accent-purple);">✔</span> Webhook Notifikasi Real-time</li>
               </ul>
             </div>
 
             <div class="product-card-footer">
-              <button class="btn btn-product-action" onclick="openDomainModal('paynexus')" id="btnOpenPaynexus">
+              <button class="btn-product-action" onclick="openDomainModal('paynexus')" id="btnOpenPaynexus">
                 <span>Kunjungi Website paynexus.com</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </button>
             </div>
           </article>
 
-          <!-- Product 3: PulseAI -->
-          <article class="product-card" data-category="ai" id="cardPulseai">
-            <div class="product-card-glow glow-emerald"></div>
+          <!-- Product 3: PulseAI Analytics -->
+          <article class="product-card reveal-on-scroll" data-category="ai" id="cardPulseai">
             <div class="product-card-header">
               <div class="product-icon-box bg-emerald">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -435,14 +468,7 @@
               </div>
               <div class="product-badges">
                 <span class="badge-tag">AI Analytics</span>
-                <span class="domain-pill">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  pulseai.io
-                </span>
+                <span class="domain-pill">🌐 pulseai.io</span>
               </div>
             </div>
 
@@ -451,36 +477,22 @@
               <p class="product-tagline">Engine analitik cerdas yang mengolah data operasional & penjualan menjadi insight prediksi bisnis secara instan.</p>
               
               <ul class="product-features">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Predictive Sales & Revenue Forecast</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Deteksi Anomali Fraud Otomatis</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Query langsung ke central analytics DB</span>
-                </li>
+                <li><span style="color: var(--accent-emerald);">✔</span> Predictive Sales & Revenue Forecast</li>
+                <li><span style="color: var(--accent-emerald);">✔</span> Deteksi Anomali Fraud Otomatis</li>
+                <li><span style="color: var(--accent-emerald);">✔</span> Query Langsung Central Analytics DB</li>
               </ul>
             </div>
 
             <div class="product-card-footer">
-              <button class="btn btn-product-action" onclick="openDomainModal('pulseai')" id="btnOpenPulseai">
+              <button class="btn-product-action" onclick="openDomainModal('pulseai')" id="btnOpenPulseai">
                 <span>Kunjungi Website pulseai.io</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
               </button>
             </div>
           </article>
 
-          <!-- Product 4: E-Sekolah Cloud -->
-          <article class="product-card" data-category="sekolah" id="cardEsekolah">
-            <div class="product-card-glow glow-blue"></div>
+          <!-- Product 4: E-Sekolah Cloud Platform -->
+          <article class="product-card reveal-on-scroll" data-category="sekolah" id="cardEsekolah">
             <div class="product-card-header">
               <div class="product-icon-box bg-blue">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -489,55 +501,34 @@
                 </svg>
               </div>
               <div class="product-badges">
-                <span class="badge-tag" style="background: rgba(0, 102, 255, 0.15); color: #0066ff;">🎓 Sekolah & Yayasan</span>
-                <span class="domain-pill">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  e-sekolah.devorme.site
-                </span>
+                <span class="badge-tag" style="background: rgba(0, 102, 255, 0.15); color: #38bdf8;">🎓 Sekolah & Yayasan</span>
+                <span class="domain-pill">🌐 e-sekolah.devorme.site</span>
               </div>
             </div>
 
             <div class="product-card-body">
               <h3 class="product-name">E-Sekolah Cloud Platform</h3>
-              <p class="product-tagline">Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, penilaian rapor, serta kenaikan kelas dan alumni.</p>
+              <p class="product-tagline">Sistem informasi manajemen sekolah terpadu yang mengotomasi rekap presensi guru & siswa, jadwal pelajaran, e-rapor, dan alumni.</p>
               
               <ul class="product-features">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Presensi Guru & Siswa Real-time (QR & GPS)</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Kenaikan Kelas & Manajemen Alumni Otomatis</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Database Terpusat & Sinkronisasi Realtime</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0066ff" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Aplikasi Mobile Android Native (.apk ready)</span>
-                </li>
+                <li><span style="color: var(--accent-cyan);">✔</span> Presensi Guru & Siswa Real-time (QR & GPS)</li>
+                <li><span style="color: var(--accent-cyan);">✔</span> Kenaikan Kelas & E-Rapor Otomatis</li>
+                <li><span style="color: var(--accent-cyan);">✔</span> Aplikasi Mobile Android Native (.apk ready)</li>
               </ul>
             </div>
 
             <div class="product-card-footer" style="display: flex; gap: 10px;">
-              <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
-                <span>💬 Demo via WA</span>
+              <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20E-Sekolah%20Cloud" target="_blank" class="btn btn-success" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
+                <span>💬 Demo WA</span>
               </a>
-              <button class="btn btn-product-action" onclick="openDomainModal('esekolah')" id="btnOpenEsekolah" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
-                <span>Detail Portofolio</span>
+              <button class="btn-product-action" onclick="openDomainModal('esekolah')" id="btnOpenEsekolah" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
+                <span>Detail Specs</span>
               </button>
             </div>
           </article>
 
           <!-- Product 5: DIS Smart System -->
-          <article class="product-card" data-category="dinas" id="cardDis">
-            <div class="product-card-glow glow-purple"></div>
+          <article class="product-card reveal-on-scroll" data-category="dinas" id="cardDis">
             <div class="product-card-header">
               <div class="product-icon-box bg-purple">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -545,48 +536,29 @@
                 </svg>
               </div>
               <div class="product-badges">
-                <span class="badge-tag" style="background: rgba(168, 85, 247, 0.15); color: #a855f7;">🏛️ Layanan Publik & Dinas</span>
-                <span class="domain-pill">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                  </svg>
-                  dis.devorme.site
-                </span>
+                <span class="badge-tag" style="background: rgba(168, 85, 247, 0.15); color: #c084fc;">🏛️ Layanan Publik & Dinas</span>
+                <span class="domain-pill">🌐 dis.devorme.site</span>
               </div>
             </div>
 
             <div class="product-card-body">
               <h3 class="product-name">DIS Smart System</h3>
-              <p class="product-tagline">Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan alur approval bertingkat dan analitik kinerja instansi.</p>
+              <p class="product-tagline">Platform Digital Information System yang menghubungkan birokrasi dan pelaporan publik dengan approval bertingkat dan analitik kinerja instansi.</p>
               
               <ul class="product-features">
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Digitalisasi Dokumen & Approval Alur Dinas</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Dashboard Pelaporan Publik & Statistik Real-time</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Enkripsi Enterprise & Database Terpusat</span>
-                </li>
-                <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                  <span>Enkripsi Data & Hak Akses Berjenjang Tingkat Tinggi</span>
-                </li>
+                <li><span style="color: var(--accent-purple);">✔</span> Digitalisasi Dokumen & Approval Alur Dinas</li>
+                <li><span style="color: var(--accent-purple);">✔</span> Dashboard Pelaporan Publik & Statistik Real-time</li>
+                <li><span style="color: var(--accent-purple);">✔</span> Enkripsi Data & Hak Akses Berjenjang</li>
               </ul>
             </div>
 
             <div class="product-card-footer" style="display: flex; gap: 10px;">
-              <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
-                <span>💬 Demo via WA</span>
+              <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20DIS%20Smart%20System" target="_blank" class="btn btn-success" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
+                <span>💬 Demo WA</span>
               </a>
-              <button class="btn btn-product-action" onclick="openDomainModal('dis')" id="btnOpenDis" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
-                <span>Detail Portofolio</span>
+              <button class="btn-product-action" onclick="openDomainModal('dis')" id="btnOpenDis" style="flex: 1; justify-content: center; font-size: 0.85rem; padding: 10px;">
+                <span>Detail Specs</span>
+              </button>
             </div>
           </article>
 
@@ -597,7 +569,7 @@
     <!-- Architecture & Server Explanation Section -->
     <section class="architecture-section" id="architecture">
       <div class="container">
-        <div class="section-header text-center">
+        <div class="section-header text-center reveal-on-scroll">
           <div class="badge-pill inline">
             <span class="badge-text">Teknologi & Infrastruktur</span>
           </div>
@@ -608,53 +580,36 @@
         </div>
 
         <div class="arch-cards-grid">
-          <div class="arch-card">
+          <div class="arch-card reveal-on-scroll">
             <div class="arch-number">01</div>
-            <div class="arch-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="2" y1="12" x2="22" y2="12"></line>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-              </svg>
-            </div>
+            <div class="arch-icon">🌐</div>
             <h3 class="arch-title">DNS & Multi-Domain Routing</h3>
             <p class="arch-desc">
-              Domain utama (<code>devorme.com</code>) dan domain produk (<code>flowdesk.id</code>, <code>paynexus.com</code>) memiliki DNS record yang diarahkan ke IP server yang sama melalui Nginx Reverse Proxy.
+              Domain utama (<code>devorme.site</code>) dan domain produk (<code>flowdesk.id</code>, <code>paynexus.com</code>, <code>e-sekolah.devorme.site</code>) memiliki DNS record yang diarahkan ke IP VPS server yang sama via Nginx Reverse Proxy.
             </p>
           </div>
 
-          <div class="arch-card">
+          <div class="arch-card reveal-on-scroll">
             <div class="arch-number">02</div>
-            <div class="arch-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-              </svg>
-            </div>
+            <div class="arch-icon">🔑</div>
             <h3 class="arch-title">Single Sign-On (SSO) Terpusat</h3>
             <p class="arch-desc">
               Pengguna hanya perlu membuat akun sekali. Token autentikasi aman (JWT / OAuth2) dapat digunakan untuk login di berbagai domain produk tanpa perlu mendaftar ulang.
             </p>
           </div>
 
-          <div class="arch-card">
+          <div class="arch-card reveal-on-scroll">
             <div class="arch-number">03</div>
-            <div class="arch-icon">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-              </svg>
-            </div>
+            <div class="arch-icon">🗄️</div>
             <h3 class="arch-title">Database Server Terpadu</h3>
             <p class="arch-desc">
-              Basis data PostgreSQL / MySQL di server diorganisir dengan skema multi-tenant atau database tersendiri per produk, menjamin keamanan data terisolasi namun hemat biaya infrastruktur.
+              Basis data PostgreSQL / MySQL di server diorganisir dengan skema multi-tenant atau database tersendiri per produk, menjamin keamanan data terisolasi.
             </p>
           </div>
         </div>
 
         <!-- Interactive Domain Simulator -->
-        <div class="simulator-wrapper">
+        <div class="simulator-wrapper reveal-on-scroll">
           <div class="simulator-header">
             <div class="simulator-title">
               <span class="pulse-indicator"></span>
@@ -667,10 +622,12 @@
             <div class="sim-selector">
               <label for="domainSelect">Pilih Produk untuk Diuji:</label>
               <select id="domainSelect" onchange="simulateDomainSwitch(this.value)">
-                <option value="main">Website Utama (devorme.com)</option>
+                <option value="main">Website Utama (devorme.site)</option>
                 <option value="flowdesk">Produk 1: FlowDesk ERP (flowdesk.id)</option>
                 <option value="paynexus">Produk 2: PayNexus Gateway (paynexus.com)</option>
                 <option value="pulseai">Produk 3: PulseAI Analytics (pulseai.io)</option>
+                <option value="esekolah">Produk 4: E-Sekolah Cloud (e-sekolah.devorme.site)</option>
+                <option value="dis">Produk 5: DIS Smart System (dis.devorme.site)</option>
               </select>
             </div>
 
@@ -679,12 +636,12 @@
                 <div class="mockup-dots"><span></span><span></span><span></span></div>
                 <div class="mockup-url" id="mockupUrl">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                  <span id="mockupUrlText">https://devorme.com</span>
+                  <span id="mockupUrlText">https://devorme.site</span>
                 </div>
                 <div class="mockup-status">Server: Connected (200 OK)</div>
               </div>
               <div class="mockup-viewport" id="mockupViewport">
-                <!-- Injected via JavaScript -->
+                <!-- Injected dynamically via JS -->
               </div>
             </div>
           </div>
@@ -693,10 +650,10 @@
       </div>
     </section>
 
-    <!-- About / Credibility Section -->
+    <!-- About Section -->
     <section class="about-section" id="about">
       <div class="container about-container">
-        <div class="about-text">
+        <div class="about-text reveal-on-scroll">
           <div class="badge-pill inline">
             <span class="badge-text">Tentang Devorme</span>
           </div>
@@ -716,20 +673,20 @@
               <div class="point-check">✓</div>
               <div>
                 <strong>Full Ownership Database</strong>
-                <p>Database tersimpan di server Anda sendiri, memberikan kendali penuh tanpa keterikatan vendor luar.</p>
+                <p>Database tersimpan di server VPS Anda sendiri, memberikan kendali penuh tanpa keterikatan vendor luar.</p>
               </div>
             </div>
             <div class="point-item">
               <div class="point-check">✓</div>
               <div>
                 <strong>Performa Super Cepat</strong>
-                <p>Optimasi caching di tingkat web server untuk waktu muat halaman di bawah 0.8 detik.</p>
+                <p>Optimasi caching di tingkat web server Nginx untuk waktu muat halaman di bawah 0.8 detik.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="about-card-stat">
+        <div class="about-card-stat reveal-on-scroll">
           <div class="glass-feature-box">
             <div class="box-icon">🚀</div>
             <h3>Siap Meluncurkan Produk Anda?</h3>
@@ -740,10 +697,67 @@
       </div>
     </section>
 
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header text-center reveal-on-scroll">
+          <div class="badge-pill inline">
+            <span class="badge-text">Pertanyaan Umum</span>
+          </div>
+          <h2 class="section-title">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+          <p class="section-subtitle">
+            Jawaban lengkap seputar ekosistem software multi-domain dan infrastruktur Devorme.
+          </p>
+        </div>
+
+        <div class="faq-grid reveal-on-scroll">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apa keuntungan menggunakan ekosistem multi-domain Devorme?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Setiap produk memiliki nama domain khusus sendiri untuk branding profesional, namun Anda hanya membayar dan mengelola 1 server & database terpusat. Menghemat biaya operasional hingga 60% dibanding menyewa server terpisah.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Apakah produk Devorme mendukung aplikasi mobile Android (.apk)?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Ya! Seluruh platform software kami (termasuk E-Sekolah Cloud dan DIS Smart System) dapat dikemas menjadi aplikasi Native Android (.apk) serta Progressive Web App (PWA) yang dapat diinstall di HP pengguna.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Bagaimana dengan keamanan data jika menggunakan satu server database?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Kami menerapkan isolasi skema database (multi-tenant isolation) dengan enkripsi 256-bit dan autentikasi Devorme Single Sign-On (SSO). Setiap instansi memiliki hak akses yang dipisah secara ketat.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Bagaimana cara melakukan konsultasi atau pemesanan sistem?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Anda dapat menghubungi kami langsung via WhatsApp di 0812-2233-2376 atau mengisi formulir konsultasi di bagian bawah halaman ini. Tim arsitek kami akan merancang penawaran terbaik sesuai kebutuhan Anda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact & Consultation Section -->
     <section class="contact-section" id="contact">
       <div class="container">
-        <div class="contact-box">
+        <div class="contact-box reveal-on-scroll">
           <div class="contact-info">
             <h2 class="contact-title">Diskusikan Proyek Software Anda</h2>
             <p class="contact-desc">
@@ -752,28 +766,26 @@
             
             <div class="contact-methods">
               <div class="contact-method-item">
-                <div class="method-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
+                <div class="method-icon">✉️</div>
                 <div>
                   <span class="method-label">Email Tim Teknis</span>
-                  <span class="method-val">tech@devorme.com</span>
+                  <span class="method-val">info@devorme.site</span>
                 </div>
               </div>
 
               <div class="contact-method-item">
-                <div class="method-icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                    <circle cx="12" cy="10" r="3"></circle>
-                  </svg>
+                <div class="method-icon">💬</div>
+                <div>
+                  <span class="method-label">WhatsApp Direct Support</span>
+                  <span class="method-val">0812-2233-2376</span>
                 </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="method-icon">📍</div>
                 <div>
                   <span class="method-label">Kantor & Lab Dev</span>
-                  <span class="method-val">Jakarta & Surabaya, Indonesia</span>
+                  <span class="method-val">Jakarta & Tasikmalaya, Indonesia</span>
                 </div>
               </div>
             </div>
@@ -786,14 +798,16 @@
             </div>
 
             <div class="form-group">
-              <label for="userEmail">Email Bisnis</label>
-              <input type="email" id="userEmail" name="email" placeholder="nama@perusahaan.com" required>
+              <label for="userEmail">Email / Kontak WA</label>
+              <input type="text" id="userEmail" name="email" placeholder="nama@perusahaan.com atau 0812xxx" required>
             </div>
 
             <div class="form-group">
               <label for="productInterest">Kebutuhan Produk / Arsitektur</label>
               <select id="productInterest" name="interest">
                 <option value="multi-domain">Pembuatan Website Multi-Domain & Server Terpusat</option>
+                <option value="esekolah">Produk E-Sekolah Cloud Platform</option>
+                <option value="dis">Produk DIS Smart System</option>
                 <option value="flowdesk">Produk FlowDesk ERP</option>
                 <option value="paynexus">Produk PayNexus Gateway</option>
                 <option value="pulseai">Produk PulseAI Analytics</option>
@@ -826,22 +840,24 @@
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-col brand-col">
-        <a href="#hero" class="brand-logo footer-logo" style="display: flex; align-items: center; gap: 10px;">
-          <img src="Logo.png" alt="Devorme Logo" style="width: 36px; height: 36px; border-radius: 8px; object-fit: cover; box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);">
+        <a href="#hero" class="brand-logo footer-logo">
+          <img src="Logo.png" alt="Devorme Logo">
           <span class="logo-text">Devorme<span class="logo-dot">.</span></span>
         </a>
         <p class="footer-text">
-          Solusi terdepan dalam perancangan ekosistem multi-domain dengan database server terpusat.
+          Solusi terdepan dalam perancangan ekosistem software multi-domain dengan database server terpusat.
         </p>
         <div class="footer-copy">&copy; 2026 Devorme Technologies Inc. All rights reserved.</div>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Produk Kami</h4>
+        <h4 class="footer-heading">Portofolio Produk</h4>
         <ul class="footer-links">
           <li><a href="javascript:void(0)" onclick="openDomainModal('flowdesk')">FlowDesk ERP (flowdesk.id)</a></li>
           <li><a href="javascript:void(0)" onclick="openDomainModal('paynexus')">PayNexus Gateway (paynexus.com)</a></li>
           <li><a href="javascript:void(0)" onclick="openDomainModal('pulseai')">PulseAI Analytics (pulseai.io)</a></li>
+          <li><a href="javascript:void(0)" onclick="openDomainModal('esekolah')">E-Sekolah Cloud (e-sekolah.devorme.site)</a></li>
+          <li><a href="javascript:void(0)" onclick="openDomainModal('dis')">DIS Smart System (dis.devorme.site)</a></li>
         </ul>
       </div>
 
@@ -849,26 +865,37 @@
         <h4 class="footer-heading">Navigasi</h4>
         <ul class="footer-links">
           <li><a href="#hero">Beranda</a></li>
+          <li><a href="#bannerShowcase">Showcase</a></li>
           <li><a href="#products">Produk</a></li>
           <li><a href="#architecture">Arsitektur Server</a></li>
           <li><a href="#about">Tentang Kami</a></li>
           <li><a href="#contact">Kontak</a></li>
-          <li><a href="/admin" id="linkAdminPortal">Portal Admin</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
-        <h4 class="footer-heading">Infrastruktur</h4>
+        <h4 class="footer-heading">Status Infrastruktur</h4>
         <div class="server-status-pill">
           <span class="status-indicator"></span>
-          <span>Server Database: Online</span>
+          <span>Server VPS: Online 99.98%</span>
         </div>
-        <p class="server-ip-hint">IP Server: 103.144.xxx.xxx (Dedicated VPS)</p>
+        <p class="server-ip-hint">Central Node IP: 103.144.120.45</p>
       </div>
     </div>
   </footer>
 
-  <!-- Dedicated Product Domain Modal / Preview Simulator -->
+  <!-- Floating WhatsApp FAB Button -->
+  <a href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20mengenai%20website%20dan%20software" target="_blank" class="whatsapp-fab" aria-label="Konsultasi WhatsApp">
+    <span class="whatsapp-tooltip">💬 Konsultasi Live via WhatsApp</span>
+    <div class="whatsapp-fab-btn">
+      <div class="whatsapp-ripple"></div>
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.099 4.019 4.142-1.086z"/>
+      </svg>
+    </div>
+  </a>
+
+  <!-- Dedicated Product Domain Modal Window -->
   <div class="modal-backdrop" id="domainModal" aria-hidden="true">
     <div class="modal-window">
       <div class="modal-header">
@@ -882,7 +909,7 @@
       </div>
 
       <div class="modal-body" id="modalBodyContent">
-        <!-- Content will be injected dynamically by app.js -->
+        <!-- Content injected dynamically via app.js -->
       </div>
     </div>
   </div>
