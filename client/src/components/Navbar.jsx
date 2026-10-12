@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin, onNavigateToPortfolio, onBackToHome }) {
+export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin, onNavigateToPortfolio, onNavigateToServices, onBackToHome }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleNavClick = (action) => {
@@ -33,13 +33,13 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
           {/* Brand Logo with Logo.png */}
           <div className="brand-wrapper" onClick={() => handleNavClick(onBackToHome)}>
             <img 
-              src="/Logo.png" 
-              alt="Devorme Ecosystem Logo" 
+              src="/Ruang Tech.png" 
+              alt="Ruang Tech Ecosystem Logo" 
               className="brand-logo-img" 
             />
             <div className="brand-text-block">
               <div className="brand-text brand-text-white">
-                DEVOR<span className="brand-highlight-cyan">ME</span>
+                RUANG <span className="brand-highlight-cyan">TECH</span>
               </div>
               <span className="brand-subtitle brand-subtitle-light">ENTERPRISE SOFTWARE ECOSYSTEM</span>
             </div>
@@ -59,9 +59,12 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
             >
               Portofolio
             </button>
-            <a href="#layanan" className="nav-link-btn nav-link-colored">
-              Layanan
-            </a>
+            <button 
+              className={`nav-link-btn nav-link-colored ${currentView === 'services' ? 'active' : ''}`}
+              onClick={() => handleNavClick(onNavigateToServices)}
+            >
+              Pelayanan
+            </button>
             <a href="#harga" className="nav-link-btn nav-link-colored">
               Harga
             </a>
@@ -110,8 +113,8 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
           <div className="mobile-nav-drawer" onClick={e => e.stopPropagation()}>
             <div className="mobile-drawer-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <img src="/Logo.png" alt="Devorme Logo" style={{ width: '32px', height: '32px' }} />
-                <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.2rem' }}>DEVORME</span>
+                <img src="/Ruang Tech.png" alt="Ruang Tech Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.2rem' }}>RUANG TECH</span>
               </div>
               <button className="mobile-drawer-close" onClick={() => setMobileOpen(false)}>✕</button>
             </div>
@@ -129,13 +132,12 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
               >
                 🖼️ Galeri Portofolio
               </button>
-              <a 
-                href="#layanan" 
-                className="mobile-drawer-link"
-                onClick={() => setMobileOpen(false)}
+              <button 
+                className={`mobile-drawer-link ${currentView === 'services' ? 'active' : ''}`}
+                onClick={() => handleNavClick(onNavigateToServices)}
               >
-                ⚙️ Layanan Software
-              </a>
+                🛠️ Menu Pelayanan
+              </button>
               <a 
                 href="#harga" 
                 className="mobile-drawer-link"
@@ -165,7 +167,7 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
               </button>
 
               <a 
-                href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software"
+                href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20tertarik%20konsultasi%20software"
                 target="_blank"
                 rel="noreferrer"
                 className="btn-blue"

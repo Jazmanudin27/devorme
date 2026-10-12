@@ -6,6 +6,7 @@ import AdminView from './views/AdminView';
 import ProductDetailView from './views/ProductDetailView';
 import ArchitectureView from './views/ArchitectureView';
 import PortfolioView from './views/PortfolioView';
+import ServicesView from './views/ServicesView';
 
 export default function App() {
   const [currentView, setCurrentView] = useState('home');
@@ -18,6 +19,8 @@ export default function App() {
         setCurrentView('admin');
       } else if (path === '/portofolio' || window.location.hash === '#portofolio') {
         setCurrentView('portfolio');
+      } else if (path === '/pelayanan' || window.location.hash === '#pelayanan') {
+        setCurrentView('services');
       }
     };
     checkRoute();
@@ -49,6 +52,12 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateToServices = () => {
+    window.history.pushState({}, '', '/pelayanan');
+    setCurrentView('services');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleNavigateToAdmin = () => {
     window.history.pushState({}, '', '/admin');
     setCurrentView('admin');
@@ -70,6 +79,7 @@ export default function App() {
         setCurrentView={setCurrentView} 
         onNavigateToAdmin={handleNavigateToAdmin}
         onNavigateToPortfolio={handleNavigateToPortfolio}
+        onNavigateToServices={handleNavigateToServices}
         onBackToHome={handleBackToHome}
       />
 
@@ -83,12 +93,19 @@ export default function App() {
             }}
             onNavigateToAdmin={handleNavigateToAdmin}
             onNavigateToPortfolio={handleNavigateToPortfolio}
+            onNavigateToServices={handleNavigateToServices}
           />
         )}
 
         {currentView === 'portfolio' && (
           <PortfolioView 
             onSelectProduct={handleSelectProduct}
+            onBackToHome={handleBackToHome}
+          />
+        )}
+
+        {currentView === 'services' && (
+          <ServicesView 
             onBackToHome={handleBackToHome}
           />
         )}

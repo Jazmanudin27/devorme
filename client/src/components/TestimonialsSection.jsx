@@ -7,7 +7,7 @@ export default function TestimonialsSection() {
       role: "Kepala Sekolah Instansi Pendidikan",
       org: "SMK Negeri 4 Surabaya",
       avatar: "👨‍🏫",
-      text: "Implementasi E-Sekolah dari Devorme mempermudah rekap presensi 1.200 siswa dan pencetakan e-rapor secara otomatis. Servernya terbukti stabil tanpa kendala saat pembagian rapor."
+      text: "Implementasi E-Sekolah dari Ruang Tech mempermudah rekap presensi 1.200 siswa dan pencetakan e-rapor secara otomatis. Servernya terbukti stabil tanpa kendala saat pembagian rapor."
     },
     {
       name: "Ir. Bambang Hariyanto",
@@ -21,7 +21,7 @@ export default function TestimonialsSection() {
       role: "Pemilik Jejaring Farmasi",
       org: "Apotek Medika Sejahtera",
       avatar: "👩‍⚕️",
-      text: "Fitur warning obat expired dan kasir POS QRIS dinamis Devorme sangat membantu audit stok kami. Transaksi kasir lancar walau saat antrean padat."
+      text: "Fitur warning obat expired dan kasir POS QRIS dinamis Ruang Tech sangat membantu audit stok kami. Transaksi kasir lancar walau saat antrean padat."
     }
   ];
 
@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
             <span>🌟 Kepercayaan Klien</span>
           </div>
           <h2 style={{ fontSize: '2.5rem', marginBottom: '14px', color: '#0f172a' }}>
-            Apa Kata Pengguna Ekosistem Devorme?
+            Apa Kata Pengguna Ekosistem Ruang Tech?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
             Testimoni jujur dari instansi dan perusahaan yang telah mengadopsi platform kami.

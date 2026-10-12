@@ -27,7 +27,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
       <div className="container" style={{ padding: '80px 24px', textAlign: 'center' }}>
         <h2>Produk tidak ditemukan</h2>
         <button className="btn btn-primary" onClick={onBackToCompany} style={{ marginTop: '20px' }}>
-          Kembali ke Website Utama Devorme
+          Kembali ke Website Utama Ruang Tech
         </button>
       </div>
     );
@@ -37,7 +37,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
     <div>
       {/* Top Banner */}
       <div style={{ background: '#eff6ff', borderBottom: '1px solid #bfdbfe', padding: '10px 20px', textAlign: 'center', fontSize: '0.88rem', color: '#0369a1', fontWeight: 600 }}>
-        📁 Portofolio Produk Devorme: <strong>{product.name}</strong> — Akses Uji Coba & Demo Melalui WhatsApp
+        📁 Portofolio Produk Ruang Tech: <strong>{product.name}</strong> — Akses Uji Coba & Demo Melalui WhatsApp
       </div>
 
       <div className="container" style={{ padding: '50px 24px' }}>
@@ -52,7 +52,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
         <div style={{ background: '#ffffff', border: '1px solid var(--border-subtle)', borderRadius: '20px', padding: '40px', boxShadow: 'var(--shadow-card)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px', marginBottom: '50px' }}>
           <div>
             <div style={{ display: 'inline-block', padding: '4px 14px', borderRadius: '99px', background: '#eef2ff', color: 'var(--accent-indigo)', fontSize: '0.82rem', fontWeight: 700, marginBottom: '12px' }}>
-              PORTOFOLIO RESMI DEVORME
+              PORTOFOLIO RESMI RUANG TECH
             </div>
             <h1 style={{ fontSize: '3rem', marginBottom: '10px', color: '#0f172a' }}>{product.name}</h1>
             <p style={{ color: 'var(--text-muted)', fontSize: '1.2rem', maxWidth: '650px', lineHeight: 1.6 }}>{product.tagline}</p>
@@ -96,7 +96,7 @@ export default function ProductDetailView({ productId, onBackToCompany }) {
             Akses demo dan kredensial uji coba untuk produk <strong>{product.name}</strong> diberikan secara eksklusif. Silakan hubungi kami via WhatsApp untuk mendapatkan akses demo langsung.
           </p>
           <a 
-            href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20meminta%20akses%20demo%20untuk%20${encodeURIComponent(product.name)}`} 
+            href={`https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20meminta%20akses%20demo%20untuk%20${encodeURIComponent(product.name)}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             className="btn-blue"

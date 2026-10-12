@@ -15,7 +15,7 @@ export default function ServicesSection() {
     {
       icon: "☁️",
       title: "Arsitektur Server & Multi-Domain",
-      description: "Setup server VPS, konfigurasi Nginx Reverse Proxy, Wildcard SSL, dan pemetaan subdomain otomatis (cth: instansi.devorme.site)."
+      description: "Setup server VPS, konfigurasi Nginx Reverse Proxy, Wildcard SSL, dan pemetaan subdomain otomatis (cth: instansi.ruangtech.site)."
     },
     {
       icon: "🗄️",
@@ -49,7 +49,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '40px' }}>
           {services.map((s, idx) => (
             <div key={idx} style={{ background: 'var(--bg-warm)', border: '1px solid var(--border-color)', borderRadius: '16px', padding: '32px', transition: 'all 0.3s ease' }} className="bento-card-hover">
               <div style={{ fontSize: '2.2rem', marginBottom: '16px' }}>{s.icon}</div>
@@ -58,6 +58,25 @@ export default function ServicesSection() {
             </div>
           ))}
         </div>
+
+        {onNavigateToServices && (
+          <div style={{ textAlign: 'center' }}>
+            <button
+              onClick={onNavigateToServices}
+              className="btn-wa-animated"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '8px',
+                padding: '14px 32px',
+                fontSize: '1rem',
+                borderRadius: '12px'
+              }}
+            >
+              <span>🛠️ Buka Katalog Menu Pelayanan Lengkap →</span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

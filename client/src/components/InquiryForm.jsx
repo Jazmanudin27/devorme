@@ -51,7 +51,7 @@ export default function InquiryForm() {
             Siap Mengembangkan Ekosistem Software Anda?
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Isi formulir di bawah ini untuk menjadwalkan sesi konsultasi teknis atau demo langsung platform Devorme.
+            Isi formulir di bawah ini untuk menjadwalkan sesi konsultasi teknis atau demo langsung platform Ruang Tech.
           </p>
         </div>
 
@@ -90,7 +90,7 @@ export default function InquiryForm() {
             </div>
 
             <a 
-              href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
+              href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20software" 
               target="_blank" 
               rel="noreferrer" 
               className="btn-blue" 
@@ -107,7 +107,7 @@ export default function InquiryForm() {
                 <div style={{ fontSize: '3rem', marginBottom: '16px' }}>🎉</div>
                 <h3 style={{ fontSize: '1.5rem', color: '#0f172a', marginBottom: '8px' }}>Permintaan Terkirim!</h3>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '24px' }}>
-                  Terima kasih! Pesan Anda telah tersimpan di database server kami. Tim Devorme akan segera menghubungi Anda.
+                  Terima kasih! Pesan Anda telah tersimpan di database server kami. Tim Ruang Tech akan segera menghubungi Anda.
                 </p>
                 <button className="btn btn-secondary" onClick={() => setSubmitted(false)}>
                   Kirim Pesan Lain

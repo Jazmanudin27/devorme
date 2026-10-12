@@ -91,7 +91,7 @@ export default function PortfolioView({ onSelectProduct, onBackToHome }) {
         {/* Page Header */}
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 40px' }}>
           <div className="hero-pill-blue" style={{ background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', borderColor: 'rgba(56, 189, 248, 0.3)' }}>
-            <span>🖼️ Katalog Resmi Solusi Software Devorme</span>
+            <span>🖼️ Katalog Resmi Solusi Software Ruang Tech</span>
           </div>
           <h1 style={{ fontSize: '2.8rem', marginBottom: '16px', color: '#ffffff', letterSpacing: '-0.02em' }}>
             Galeri Lengkap Portofolio Software
@@ -248,7 +248,7 @@ export default function PortfolioView({ onSelectProduct, onBackToHome }) {
 
                     <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
                       <a 
-                        href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
+                        href={`https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
                         target="_blank" 
                         rel="noreferrer" 
                         className="btn-wa-animated" 
@@ -294,13 +294,13 @@ export default function PortfolioView({ onSelectProduct, onBackToHome }) {
         <div style={{ marginTop: '64px', background: 'linear-gradient(135deg, rgba(0, 102, 255, 0.15) 0%, rgba(0, 196, 255, 0.1) 100%)', border: '1px solid rgba(0, 102, 255, 0.3)', borderRadius: '24px', padding: '48px 32px', textAlign: 'center' }}>
           <h2 style={{ fontSize: '2rem', color: '#ffffff', marginBottom: '12px' }}>Butuh Solusi Custom Sesuai Kebutuhan Spesifik?</h2>
           <p style={{ color: '#cbd5e1', maxWidth: '620px', margin: '0 auto 28px', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Tim arsitek software Devorme siap merancang ekosistem digital khusus dengan integrasi server terpusat dan branding domain independen.
+            Tim arsitek software Ruang Tech siap merancang ekosistem digital khusus dengan integrasi server terpusat dan branding domain independen.
           </p>
           <a 
-            href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20pembuatan%20software%20custom"
+            href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20pembuatan%20software%20custom"
             target="_blank" 
-            rel="noreferrer"
-            className="btn-wa-animated"
+            rel="noreferrer" 
+            className="btn-wa-animated" 
             style={{ padding: '14px 32px', fontSize: '1rem' }}
           >
             💬 Konsultasi Arsitektur Custom via WA

@@ -255,7 +255,7 @@ export default function AdminView({ onBackToHome }) {
                 Portal Otentikasi Admin
               </h2>
               <p style={{ color: '#94a3b8', fontSize: '0.9rem', lineHeight: 1.5 }}>
-                Akses terbatas untuk Pengelola Server & Database Ekosistem Devorme
+                Akses terbatas untuk Pengelola Server & Database Ekosistem Ruang Tech
               </p>
             </div>
 
@@ -372,20 +372,20 @@ export default function AdminView({ onBackToHome }) {
         {/* Brand Header */}
         <div style={{ padding: '14px 16px', display: 'flex', alignItems: 'center', gap: '10px', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
           <div style={{ width: '30px', height: '30px', background: '#0284c7', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', fontWeight: 900, fontSize: '1rem', boxShadow: '0 4px 10px rgba(2, 132, 199, 0.4)' }}>
-            D
+            R
           </div>
           <div>
             <div style={{ color: '#ffffff', fontWeight: 800, fontSize: '0.9rem', letterSpacing: '0.5px' }}>PORTAL</div>
-            <div style={{ fontSize: '0.62rem', color: '#64748b', fontWeight: 600 }}>DEVORME SYSTEM</div>
+            <div style={{ fontSize: '0.62rem', color: '#64748b', fontWeight: 600 }}>RUANG TECH SYSTEM</div>
           </div>
         </div>
 
         {/* Institution Badge Card */}
         <div style={{ padding: '10px 12px' }}>
           <div style={{ background: 'rgba(255, 255, 255, 0.04)', borderRadius: '10px', border: '1px solid rgba(255, 255, 255, 0.06)', padding: '8px 10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <img src="/Logo.png" alt="Devorme Logo" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} />
+            <img src="/Ruang Tech.png" alt="Ruang Tech Logo" style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'contain' }} />
             <div>
-              <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.78rem', lineHeight: 1.2 }}>DEVORME TECH</div>
+              <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.78rem', lineHeight: 1.2 }}>RUANG TECH</div>
               <div style={{ display: 'inline-block', background: '#0284c7', color: '#ffffff', fontSize: '0.6rem', fontWeight: 800, padding: '1px 5px', borderRadius: '3px', marginTop: '2px', textTransform: 'uppercase' }}>
                 ADMIN
               </div>
@@ -509,8 +509,8 @@ export default function AdminView({ onBackToHome }) {
 
             {/* Profile Dropdown Badge matching reference UI */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '6px', background: '#ffffff', border: '1px solid #d1d5db', padding: '2px 10px 2px 4px', borderRadius: '99px', cursor: 'pointer' }}>
-              <img src="/Logo.png" alt="Admin Avatar" style={{ width: '24px', height: '24px', borderRadius: '50%' }} />
-              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#1e293b' }}>DEVORME SUPERADMIN</span>
+              <img src="/Ruang Tech.png" alt="Admin Avatar" style={{ width: '24px', height: '24px', borderRadius: '50%', objectFit: 'contain' }} />
+              <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#1e293b' }}>RUANG TECH SUPERADMIN</span>
               <span style={{ fontSize: '0.65rem', color: '#64748b' }}>▼</span>
             </div>
           </div>

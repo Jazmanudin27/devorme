@@ -8,7 +8,7 @@ export default function HeroSlider({ heroBanner }) {
         <div className="banner-image-container">
           <img 
             src={heroBanner || '/Banner.png'} 
-            alt="Devorme - Platform Ekosistem Software Terpadu"
+            alt="Ruang Tech - Platform Ekosistem Software Terpadu"
             className="banner-hero-full-img"
           />
 
@@ -19,7 +19,7 @@ export default function HeroSlider({ heroBanner }) {
               <span>Portofolio</span>
             </a>
             <a 
-              href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20konsultasi%20software"
+              href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20tertarik%20konsultasi%20software"
               target="_blank"
               rel="noreferrer"
               className="btn-hero-overlay btn-hero-whatsapp"

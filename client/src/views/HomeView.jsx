@@ -9,7 +9,7 @@ import InquiryForm from '../components/InquiryForm';
 import { productService } from '../api/productService';
 
 
-export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin, onNavigateToPortfolio }) {
+export default function HomeView({ onSelectProduct, onNavigateToArchitecture, onNavigateToAdmin, onNavigateToPortfolio, onNavigateToServices }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -109,7 +109,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               <span>🖼️ Galeri Portofolio & Sistem Teruji</span>
             </div>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '14px', color: '#ffffff' }}>
-              Galeri Portofolio Solusi Software Devorme
+              Galeri Portofolio Solusi Software Ruang Tech
             </h2>
             <p style={{ color: 'rgba(255, 255, 255, 0.95)', fontSize: '1.05rem', lineHeight: 1.6 }}>
               Kumpulan produk dan ekosistem digital mandiri yang telah kami kembangkan. Lihat pratinjau galeri sistem di bawah atau minta akses demo aplikasi secara langsung via WhatsApp.
@@ -208,7 +208,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
                         <div style={{ display: 'flex', gap: '12px', marginTop: 'auto' }}>
                           <a 
-                            href={`https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
+                            href={`https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20tertarik%20melihat%20demo%20${encodeURIComponent(product.name)}`}
                             target="_blank" 
                             rel="noreferrer" 
                             className="btn-wa-animated" 
@@ -425,7 +425,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       </section>
 
       {/* ==================================================================
-          3.5 MANFAAT & TUJUAN DEVORME (Section Baru Gaya IoT Card Grid)
+          3.5 MANFAAT & TUJUAN RUANG TECH (Section Baru Gaya IoT Card Grid)
           ================================================================== */}
       <section id="manfaat-tujuan" style={{ padding: '84px 0', background: 'linear-gradient(180deg, #071726 0%, #0c2338 100%)', borderTop: '1px solid rgba(16, 185, 129, 0.2)', borderBottom: '1px solid rgba(16, 185, 129, 0.2)' }}>
         <div className="container">
@@ -434,7 +434,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
               <span>💡 Manfaat & Tujuan</span>
             </div>
             <h2 style={{ fontSize: '2.5rem', marginBottom: '16px', color: '#ffffff', fontWeight: 800, letterSpacing: '-0.5px' }}>
-              Manfaat & Tujuan Ekosistem Devorme
+              Manfaat & Tujuan Ekosistem Ruang Tech
             </h2>
             <p style={{ color: '#94a3b8', fontSize: '1.08rem', lineHeight: 1.6, maxWidth: '720px', margin: '0 auto' }}>
               Dirancang dengan arsitektur modular yang adaptif untuk mempercepat efisiensi operasional dan fleksibilitas digital institusi Anda.
@@ -588,7 +588,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       </section>
 
       {/* LAYANAN SOFTWARE HOUSE */}
-      <ServicesSection />
+      <ServicesSection onNavigateToServices={onNavigateToServices} />
 
       {/* PAKET HARGA & LISENSI */}
       <PricingSection onSelectProduct={onSelectProduct} />
@@ -607,11 +607,11 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           7. FLOATING WHATSAPP US BUTTON
           ================================================================== */}
       <a 
-        href="https://wa.me/6281222332376?text=Halo%20Devorme,%20saya%20ingin%20konsultasi%20software" 
+        href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20software" 
         target="_blank" 
         rel="noreferrer" 
         className="floating-whatsapp-btn"
-        aria-label="Chat WhatsApp Devorme"
+        aria-label="Chat WhatsApp Ruang Tech"
       >
         <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.392-12.416c-5.518 0-10 4.482-10 10 0 1.764.461 3.42 1.267 4.869l-1.344 4.912 5.044-1.323c1.401.765 2.999 1.197 4.697 1.197 5.518 0 10-4.482 10-10s-4.482-10-10-10zm0 18.232c-1.545 0-2.989-.43-4.226-1.176l-.303-.182-2.99.784.798-2.916-.2-.319c-.818-1.299-1.26-2.812-1.26-4.423 0-4.542 3.693-8.235 8.235-8.235 4.543 0 8.235 3.693 8.235 8.235 0 4.542-3.692 8.235-8.235 8.235z"/>

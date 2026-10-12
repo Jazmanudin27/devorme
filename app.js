@@ -289,12 +289,12 @@ function simulateDomainSwitch(selectedKey) {
         <div style="font-size: 0.85rem; color: var(--accent-cyan); text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">
           Website Utama Perusahaan
         </div>
-        <h4 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 10px;">Devorme Technologies Inc.</h4>
+        <h4 style="font-size: 1.4rem; color: #ffffff; margin-bottom: 10px;">Ruang Tech Technologies Inc.</h4>
         <p style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px;">
           Menyajikan profil perusahaan, daftar seluruh software, dan tautan resmi ke masing-masing produk berdomain mandiri.
         </p>
         <span style="font-size: 0.8rem; background: rgba(99, 102, 241, 0.15); border: 1px solid rgba(99, 102, 241, 0.3); color: #818cf8; padding: 4px 12px; border-radius: 99px;">
-          Sumber Data: Database Server Devorme (Central)
+          Sumber Data: Database Server Ruang Tech (Central)
         </span>
       </div>
     `;
