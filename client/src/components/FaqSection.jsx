@@ -37,7 +37,7 @@ export default function FaqSection() {
             FAQ & Informasi Layanan
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: 1.6 }}>
-            Semua yang perlu Anda ketahui tentang implementasi software Devorme.
+            Semua yang perlu Anda ketahui tentang implementasi software Ruang Tech.
           </p>
         </div>
 

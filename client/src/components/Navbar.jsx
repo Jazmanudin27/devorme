@@ -3,10 +3,33 @@ import React, { useState } from 'react';
 export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin, onNavigateToPortfolio, onNavigateToServices, onBackToHome }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const handleNavClick = (action) => {
+  const scrollToSection = (sectionId) => {
     setMobileOpen(false);
-    if (typeof action === 'function') {
-      action();
+    if (currentView !== 'home') {
+      if (typeof onBackToHome === 'function') {
+        onBackToHome();
+      } else if (typeof setCurrentView === 'function') {
+        setCurrentView('home');
+      }
+      setTimeout(() => {
+        if (sectionId === 'top') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }, 120);
+    } else {
+      if (sectionId === 'top') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     }
   };
 
@@ -31,7 +54,7 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
       <header className="main-nav-bar main-nav-colored">
         <div className="container nav-container">
           {/* Brand Logo with Logo.png */}
-          <div className="brand-wrapper" onClick={() => handleNavClick(onBackToHome)}>
+          <div className="brand-wrapper" onClick={() => scrollToSection('top')}>
             <img 
               src="/ruang-tech.png" 
               alt="Ruang Tech Ecosystem Logo" 
@@ -49,35 +72,40 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
           <nav className="nav-links-list">
             <button 
               className={`nav-link-btn nav-link-colored ${currentView === 'home' ? 'active' : ''}`}
-              onClick={() => handleNavClick(onBackToHome)}
+              onClick={() => scrollToSection('top')}
             >
               Beranda
             </button>
             <button 
-              className={`nav-link-btn nav-link-colored ${currentView === 'portfolio' ? 'active' : ''}`}
-              onClick={() => handleNavClick(onNavigateToPortfolio)}
+              className="nav-link-btn nav-link-colored"
+              onClick={() => scrollToSection('portofolio')}
             >
               Portofolio
             </button>
             <button 
-              className={`nav-link-btn nav-link-colored ${currentView === 'services' ? 'active' : ''}`}
-              onClick={() => handleNavClick(onNavigateToServices)}
+              className="nav-link-btn nav-link-colored"
+              onClick={() => scrollToSection('pelayanan')}
             >
               Pelayanan
             </button>
-            <a href="#harga" className="nav-link-btn nav-link-colored">
-              Harga
-            </a>
-            <a href="#faq" className="nav-link-btn nav-link-colored">
-              FAQ
-            </a>
             <button 
-              className={`nav-link-btn nav-link-colored ${currentView === 'architecture' ? 'active' : ''}`}
-              onClick={() => setCurrentView('architecture')}
+              className="nav-link-btn nav-link-colored"
+              onClick={() => scrollToSection('harga')}
+            >
+              Harga
+            </button>
+            <button 
+              className="nav-link-btn nav-link-colored"
+              onClick={() => scrollToSection('faq')}
+            >
+              FAQ
+            </button>
+            <button 
+              className="nav-link-btn nav-link-colored"
+              onClick={() => scrollToSection('arsitektur')}
             >
               Arsitektur
             </button>
-
           </nav>
 
           {/* Right Action Buttons & Mobile Hamburger Toggle */}
@@ -91,9 +119,12 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
               </button>
             )}
 
-            <a href="#kontak" className="btn-nav-accent desktop-only-btn">
+            <button 
+              className="btn-nav-accent desktop-only-btn"
+              onClick={() => scrollToSection('kontak')}
+            >
               Kontak Kami
-            </a>
+            </button>
 
             {/* Mobile Hamburger Toggle Button */}
             <button 
@@ -122,48 +153,45 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
             <div className="mobile-drawer-links">
               <button 
                 className={`mobile-drawer-link ${currentView === 'home' ? 'active' : ''}`}
-                onClick={() => handleNavClick(() => setCurrentView('home'))}
+                onClick={() => scrollToSection('top')}
               >
                 🏠 Beranda
               </button>
               <button 
-                className={`mobile-drawer-link ${currentView === 'portfolio' ? 'active' : ''}`}
-                onClick={() => handleNavClick(onNavigateToPortfolio)}
+                className="mobile-drawer-link"
+                onClick={() => scrollToSection('portofolio')}
               >
-                🖼️ Galeri Portofolio
+                🖼️ Portofolio
               </button>
               <button 
-                className={`mobile-drawer-link ${currentView === 'services' ? 'active' : ''}`}
-                onClick={() => handleNavClick(onNavigateToServices)}
+                className="mobile-drawer-link"
+                onClick={() => scrollToSection('pelayanan')}
               >
-                🛠️ Menu Pelayanan
+                🛠️ Pelayanan
               </button>
-              <a 
-                href="#harga" 
+              <button 
                 className="mobile-drawer-link"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => scrollToSection('harga')}
               >
-                💎 Paket Harga & Lisensi
-              </a>
-              <a 
-                href="#faq" 
+                💎 Paket Harga
+              </button>
+              <button 
                 className="mobile-drawer-link"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => scrollToSection('faq')}
               >
                 ❓ FAQ
-              </a>
-              <a 
-                href="#kontak" 
-                className="mobile-drawer-link"
-                onClick={() => setMobileOpen(false)}
-              >
-                📩 Minta Demo / Konsultasi
-              </a>
+              </button>
               <button 
-                className={`mobile-drawer-link ${currentView === 'architecture' ? 'active' : ''}`}
-                onClick={() => handleNavClick(() => setCurrentView('architecture'))}
+                className="mobile-drawer-link"
+                onClick={() => scrollToSection('arsitektur')}
               >
-                🖥️ Arsitektur Server VPS
+                🖥️ Arsitektur Server
+              </button>
+              <button 
+                className="mobile-drawer-link"
+                onClick={() => scrollToSection('kontak')}
+              >
+                📩 Kontak & Konsultasi
               </button>
 
               <a 

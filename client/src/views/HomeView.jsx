@@ -103,7 +103,8 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       {/* ==================================================================
           2. SOLUSI PRODUK & GALERI PORTOFOLIO INTERAKTIF (Dinamis Database)
           ================================================================== */}
-      <section id="solusi-produk" className="products-section-leap" style={{ background: 'rgb(56, 164, 247)', padding: '84px 0' }}>
+      <section id="portofolio" className="products-section-leap" style={{ background: 'rgb(56, 164, 247)', padding: '84px 0' }}>
+        <span id="solusi-produk" style={{ display: 'none' }}></span>
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
             <div className="hero-pill-blue" style={{ background: 'rgba(255, 255, 255, 0.2)', color: '#ffffff', borderColor: 'rgba(255, 255, 255, 0.4)' }}>
@@ -582,9 +583,27 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
       {/* ==================================================================
           5. SUBDOMAIN SIMULATOR INTERAKTIF
           ================================================================== */}
-      <section style={{ padding: '0 0 80px', background: 'var(--bg-warm)' }}>
+      <section id="arsitektur" style={{ padding: '0 0 80px', background: 'var(--bg-warm)' }}>
         <div className="container">
           <DomainSimulator onSelectProduct={onSelectProduct} />
+          {onNavigateToArchitecture && (
+            <div style={{ textAlign: 'center', marginTop: '32px' }}>
+              <button
+                onClick={onNavigateToArchitecture}
+                className="btn-wa-animated"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '12px 28px',
+                  fontSize: '0.96rem',
+                  borderRadius: '12px'
+                }}
+              >
+                <span>🖥️ Pelajari Topologi & Spesifikasi Server VPS Lengkap →</span>
+              </button>
+            </div>
+          )}
         </div>
       </section>
 

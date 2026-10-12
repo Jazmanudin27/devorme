@@ -35,7 +35,8 @@ export default function ServicesSection({ onNavigateToServices }) {
   ];
 
   return (
-    <section id="layanan" style={{ padding: '84px 0', background: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
+    <section id="pelayanan" style={{ padding: '84px 0', background: '#ffffff', borderTop: '1px solid var(--border-color)' }}>
+      <span id="layanan" style={{ display: 'none' }}></span>
       <div className="container">
         <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 48px' }}>
           <div className="hero-pill-blue">

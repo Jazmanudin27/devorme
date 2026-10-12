@@ -17,18 +17,16 @@ export default function App() {
       const path = window.location.pathname.replace(/\/$/, '');
       if (path === '/admin' || window.location.hash === '#admin') {
         setCurrentView('admin');
-      } else if (path === '/portofolio' || window.location.hash === '#portofolio') {
+      } else if (path === '/portofolio') {
         setCurrentView('portfolio');
-      } else if (path === '/pelayanan' || window.location.hash === '#pelayanan') {
+      } else if (path === '/pelayanan') {
         setCurrentView('services');
       }
     };
     checkRoute();
     window.addEventListener('popstate', checkRoute);
-    window.addEventListener('hashchange', checkRoute);
     return () => {
       window.removeEventListener('popstate', checkRoute);
-      window.removeEventListener('hashchange', checkRoute);
     };
   }, []);
 
