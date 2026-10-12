@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ServicesSection() {
+export default function ServicesSection({ onNavigateToServices }) {
   const services = [
     {
       icon: "💻",
