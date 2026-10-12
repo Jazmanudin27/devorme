@@ -32,11 +32,12 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
 
   const getProductImages = (product) => {
     if (product.images && product.images.length > 0) {
-      return product.images.map(img => typeof img === 'string' ? { src: img, caption: product.name } : { src: img.image_url || img.url || img.src, caption: img.caption || product.name });
+      return product.images.map(img => typeof img === 'string' ? { src: img, caption: product.name } : { src: img.image_url || img.url || img.src || '/Banner.png', caption: img.caption || product.name });
     }
-    return defaultBanner.src 
-      ? [{ src: defaultBanner.src, caption: defaultBanner.caption || product.name }] 
-      : [];
+    if (defaultBanner.src) {
+      return [{ src: defaultBanner.src, caption: defaultBanner.caption || product.name }];
+    }
+    return [{ src: product.preview_image || product.banner_image || '/Banner.png', caption: product.name }];
   };
 
   const handlePrevSlide = (prodId, total) => {
@@ -126,7 +127,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                 {products.slice(0, 3).map((product) => {
                   const images = getProductImages(product);
                   const slideIdx = cardSlides[product.id || product.slug] || 0;
-                  const activeImg = images[slideIdx] || images[0];
+                  const activeImg = images[slideIdx] || images[0] || { src: '/Banner.png', caption: product.name };
 
                   return (
                     <div 
@@ -139,7 +140,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
                       {/* Image Banner Showcase Slider */}
                       <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', maxHeight: '220px', minHeight: '150px', overflow: 'hidden', background: '#07153b' }}>
                         <img 
-                          src={activeImg.src} 
+                          src={activeImg?.src || '/Banner.png'} 
                           alt={`${product.name} Preview`} 
                           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
                           onClick={(e) => { e.stopPropagation(); openLightbox(images, slideIdx, product.name); }}

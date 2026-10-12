@@ -33,7 +33,7 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
           {/* Brand Logo with Logo.png */}
           <div className="brand-wrapper" onClick={() => handleNavClick(onBackToHome)}>
             <img 
-              src="/Ruang Tech.png" 
+              src="/ruang-tech.png" 
               alt="Ruang Tech Ecosystem Logo" 
               className="brand-logo-img" 
             />
@@ -113,7 +113,7 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
           <div className="mobile-nav-drawer" onClick={e => e.stopPropagation()}>
             <div className="mobile-drawer-header">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <img src="/Ruang Tech.png" alt="Ruang Tech Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
+                <img src="/ruang-tech.png" alt="Ruang Tech Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
                 <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.2rem' }}>RUANG TECH</span>
               </div>
               <button className="mobile-drawer-close" onClick={() => setMobileOpen(false)}>✕</button>

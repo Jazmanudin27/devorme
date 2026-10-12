@@ -177,7 +177,7 @@ export default function PortfolioView({ onSelectProduct, onBackToHome }) {
             {filteredProducts.map((product) => {
               const images = getProductImages(product);
               const slideIdx = cardSlides[product.id || product.slug] || 0;
-              const activeImg = images[slideIdx] || images[0];
+              const activeImg = images[slideIdx] || images[0] || { src: '/Banner.png' };
 
               return (
                 <div 
@@ -198,7 +198,7 @@ export default function PortfolioView({ onSelectProduct, onBackToHome }) {
                   {/* Image Showcase Slider */}
                   <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', maxHeight: '220px', minHeight: '150px', overflow: 'hidden', background: '#07153b' }}>
                     <img 
-                      src={activeImg.src} 
+                      src={activeImg?.src || '/Banner.png'} 
                       alt={`${product.name} Preview`} 
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', cursor: 'zoom-in', transition: 'transform 0.4s ease' }}
                       onClick={(e) => { e.stopPropagation(); openLightbox(images, slideIdx, product.name); }}

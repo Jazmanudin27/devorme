@@ -8,7 +8,7 @@ export default function Footer({ onNavigateToAdmin }) {
           <div>
             <div className="footer-brand-title" style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
               <img 
-                src="/Ruang Tech.png" 
+                src="/ruang-tech.png" 
                 alt="Ruang Tech Logo" 
                 style={{ width: '48px', height: '48px', borderRadius: '12px', objectFit: 'cover', boxShadow: '0 4px 16px rgba(0, 102, 255, 0.25)' }} 
               />
