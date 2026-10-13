@@ -190,10 +190,13 @@
 
 
   <!-- =========================================================================
-       2. HERO SECTION (Clean Light Background + Floating Dashboard Mockup)
+       2. HERO SECTION (RuangTech Banner.png Background + Floating Mockup)
        ========================================================================= -->
-  <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden bg-gradient-to-b from-[#f8fafc] via-white to-[#f1f5f9] bg-grid-pattern" id="hero">
+  <section class="relative pt-16 pb-24 lg:pt-24 lg:pb-32 overflow-hidden bg-cover bg-center bg-no-repeat" style="background-image: url('RuangTech-Banner.png');" id="hero">
     
+    <!-- Translucent Overlay to ensure content readability while showing the Banner -->
+    <div class="absolute inset-0 bg-white/75 backdrop-blur-[1px] bg-gradient-to-b from-white/80 via-white/70 to-white/95 pointer-events-none -z-10"></div>
+
     <!-- Ambient Blur Orbs -->
     <div class="absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-blue-400/15 via-cyan-400/15 to-indigo-500/15 rounded-full blur-3xl pointer-events-none -z-10"></div>
     <div class="absolute -top-32 right-0 w-96 h-96 bg-electric-cyan/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
