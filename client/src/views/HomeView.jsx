@@ -94,7 +94,7 @@ export default function HomeView({ onSelectProduct, onNavigateToArchitecture, on
           1. FULL HERO SLIDER (Banner.png & Interactive Ekosistem Showcase)
           ================================================================== */}
       <HeroSlider 
-        heroBanner={defaultBanner.src}
+        heroBanner={defaultBanner.src || '/Ruang Tech.png'}
         onSelectProduct={onSelectProduct} 
         onNavigateToArchitecture={onNavigateToArchitecture} 
       />

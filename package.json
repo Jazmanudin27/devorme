@@ -4,7 +4,8 @@
   "description": "Devorme Multi-Domain Software Ecosystem Prototype",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "build": "npm --prefix client run build"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
