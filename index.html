@@ -21,53 +21,39 @@
   <div class="glow-orb orb-2" aria-hidden="true"></div>
   <div class="glow-orb orb-3" aria-hidden="true"></div>
 
-  <!-- Top Contact Bar -->
-  <div class="top-bar">
-    <div class="container top-bar-container">
-      <div class="top-bar-left">
-        <span class="top-bar-badge">⚡ Enterprise Ecosystem</span>
-        <span class="top-bar-text">Butuh bantuan atau konsultasi arsitektur software?</span>
-      </div>
-      <div class="top-bar-right">
-        <a href="tel:02120569264" class="top-bar-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (021)-2056-9264
-        </a>
-        <a href="https://wa.me/6281222332376" target="_blank" class="top-bar-link highlight">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-          0812-2233-2376
-        </a>
-        <a href="mailto:info@devorme.site" class="top-bar-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          info@devorme.site
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Header / Navigation -->
+  <!-- Main Header Navigation (Ruang Seragam Clean Layout) -->
   <header class="site-header" id="mainHeader">
     <div class="container nav-container">
       <a href="#hero" class="brand-logo" id="brandLogo">
-        <img src="ruang-tech.png" alt="Ruang Tech Logo" class="brand-logo-img">
-        <span class="logo-text">Ruang Tech<span class="logo-dot">.</span></span>
+        <div class="brand-monogram">
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="14" stroke="#0284c7" stroke-width="2"/>
+            <path d="M12 9h5.5c2.5 0 4.5 1.5 4.5 4s-2 4-4.5 4H12V9zm0 8l5 6" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <span class="logo-text-serif">Ruang Seragam</span>
       </a>
 
       <nav class="nav-menu" id="navMenu">
         <a href="#hero" class="nav-link active">Beranda</a>
-        <a href="#features" class="nav-link">Pelayanan</a>
-        <a href="#products" class="nav-link">Produk & Domain</a>
-        <a href="#architecture" class="nav-link">Arsitektur Server</a>
+        <a href="#products" class="nav-link">Katalog ▾</a>
+        <a href="#products" class="nav-link">Size Produk</a>
+        <a href="#products" class="nav-link">Marketplace</a>
+        <a href="#features" class="nav-link">Artikel</a>
+        <a href="#architecture" class="nav-link">Portofolio</a>
         <a href="#about" class="nav-link">Tentang Kami</a>
-        <a href="#contact" class="nav-link">Kontak</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20software" target="_blank" class="btn btn-wa-nav" id="btnWaHeader">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.392-12.416c-5.518 0-10 4.482-10 10 0 1.764.461 3.42 1.267 4.869l-1.344 4.912 5.044-1.323c1.401.765 2.999 1.197 4.697 1.197 5.518 0 10-4.482 10-10s-4.482-10-10-10zm0 18.232c-1.545 0-2.989-.43-4.226-1.176l-.303-.182-2.99.784.798-2.916-.2-.319c-.818-1.299-1.26-2.812-1.26-4.423 0-4.542 3.693-8.235 8.235-8.235 4.543 0 8.235 3.693 8.235 8.235 0 4.542-3.692 8.235-8.235 8.235z"/>
+      <div class="nav-actions-rs">
+        <a href="#products" class="nav-circle-btn btn-orange-action" title="Katalog / Belanja">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"/>
           </svg>
-          <span>WA</span>
+        </a>
+        <a href="https://tiktok.com" target="_blank" class="nav-circle-btn btn-black-action" title="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.85.12V9.4a6.33 6.33 0 0 0-.85-.06A6.34 6.34 0 0 0 3 15.68a6.34 6.34 0 0 0 10.82 4.48 6.28 6.28 0 0 0 1.86-4.49V8.75a8.16 8.16 0 0 0 4.91 1.65V7a4.87 4.87 0 0 1-1-.31z"/>
+          </svg>
         </a>
         <button class="menu-toggle" id="mobileMenuToggle" aria-label="Buka menu navigasi">
           <span></span>
@@ -79,32 +65,141 @@
   </header>
 
   <main>
-    <!-- Trust Strip / Clients Section -->
-    <section class="trust-strip">
-      <div class="container">
-        <div class="trust-label">
-          ⚡ Dipercaya oleh Perusahaan & Institusi Terkemuka
+    <!-- Hero Section (Exact 3-Card Grid + Trust Badges Strip from Ruang Seragam) -->
+    <section class="hero-rs-section" id="hero">
+      <div class="container hero-rs-container">
+        <!-- 3 Prominent Featured Service Cards -->
+        <div class="hero-cards-grid-rs">
+          <!-- Card 1: Seragam Ready Stock -->
+          <a href="#products" class="hero-card-rs" onclick="openDomainModal('flowdesk')">
+            <div class="card-rs-bg" style="background-image: url('batik_red.jpg');"></div>
+            <div class="card-rs-overlay"></div>
+            <div class="card-rs-content">
+              <div class="card-rs-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"/>
+                </svg>
+              </div>
+              <h2 class="card-rs-title">SERAGAM<br>READY STOCK</h2>
+            </div>
+          </a>
+
+          <!-- Card 2: Pre-Order Seragam Sekolah -->
+          <a href="#products" class="hero-card-rs" onclick="openDomainModal('esekolah')">
+            <div class="card-rs-bg" style="background-image: url('batik_grey.jpg');"></div>
+            <div class="card-rs-overlay"></div>
+            <div class="card-rs-content">
+              <div class="card-rs-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                </svg>
+              </div>
+              <h2 class="card-rs-title">PRE-ORDER<br>SERAGAM SEKOLAH</h2>
+            </div>
+          </a>
+
+          <!-- Card 3: Pre-Order Seragam Kerja -->
+          <a href="#products" class="hero-card-rs" onclick="openDomainModal('paynexus')">
+            <div class="card-rs-bg" style="background-image: url('esekolah_preview_2.jpg'); background-color: #0b1e48;"></div>
+            <div class="card-rs-overlay"></div>
+            <div class="card-rs-content">
+              <div class="card-rs-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+                </svg>
+              </div>
+              <h2 class="card-rs-title">PRE-ORDER<br>SERAGAM KERJA</h2>
+            </div>
+          </a>
         </div>
-        <div class="trust-badges">
-          <span class="trust-badge-item">🏢 CV Makmur Permata</span>
-          <span class="trust-badge-item">🍲 Seblak Katel NDR</span>
-          <span class="trust-badge-item">🍚 Warung Nasi Haji Aah Putra</span>
-          <span class="trust-badge-item">🎓 SMK ARTANITA TASIKMALAYA</span>
-          <span class="trust-badge-item">🚚 CV MITRA JAYA ABADI DISTRIBUTOR</span>
+
+        <!-- Trust Badges Strip matching Ruang Seragam -->
+        <div class="hero-trust-strip-rs">
+          <div class="trust-title-rs">DIPERCAYA OLEH BERBAGAI SEKOLAH & INSTANSI</div>
+          <div class="trust-logos-row-rs">
+            <!-- Shield 1: Light Blue Round Crest -->
+            <div class="shield-badge-item" title="Universitas / Instansi Mitra">
+              <svg class="shield-badge-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="45" cy="45" r="41" stroke="#38bdf8" stroke-width="3" fill="#ffffff" fill-opacity="0.85"/>
+                <circle cx="45" cy="45" r="34" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <path d="M45 22L52 38L69 40L56 52L60 69L45 60L30 69L34 52L21 40L38 38L45 22Z" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/>
+                <circle cx="45" cy="45" r="8" fill="#0284c7"/>
+              </svg>
+            </div>
+
+            <!-- Shield 2: SMK Negeri 1 Rangkasbitung / Artanita (Blue shield, gold border, red flame & book) -->
+            <div class="shield-badge-item" title="SMK NEGERI 1 JONGGOL / ARTANITA">
+              <svg class="shield-badge-svg" viewBox="0 0 90 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 18C28 16 38 10 45 6C52 10 62 16 78 18C82 45 74 78 45 98C16 78 8 45 12 18Z" fill="#1d4ed8" stroke="#fbbf24" stroke-width="4.5"/>
+                <path d="M18 24C32 22 40 16 45 13C50 16 58 22 72 24C75 46 68 72 45 88C22 72 15 46 18 24Z" fill="#2563eb" stroke="#ef4444" stroke-width="2"/>
+                <path d="M45 32C45 32 40 42 40 48C40 52 42 55 45 55C48 55 50 52 50 48C50 42 45 32 45 32Z" fill="#ef4444"/>
+                <path d="M30 60C36 57 42 58 45 62C48 58 54 57 60 60V70C54 67 48 68 45 72C42 68 36 67 30 70V60Z" fill="#ffffff" stroke="#fbbf24" stroke-width="1.5"/>
+                <rect x="22" y="74" width="46" height="10" rx="3" fill="#1e293b" stroke="#fbbf24" stroke-width="1"/>
+                <text x="45" y="81.5" font-size="5.5" font-weight="bold" fill="#fef08a" text-anchor="middle" font-family="sans-serif">SMK NEGERI</text>
+              </svg>
+            </div>
+
+            <!-- Shield 3: SMP Negeri 5 Kadupandak Cianjur (Navy crest, laurel wreath, book, yellow ribbon) -->
+            <div class="shield-badge-item" title="SMP NEGERI 5 KADUPANDAK CIANJUR">
+              <svg class="shield-badge-svg" viewBox="0 0 90 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 16C28 14 38 9 45 5C52 9 62 14 76 16C80 44 72 76 45 96C18 76 10 44 14 16Z" fill="#0f172a" stroke="#facc15" stroke-width="4"/>
+                <circle cx="45" cy="42" r="22" fill="#1e293b" stroke="#e2e8f0" stroke-width="1.5"/>
+                <path d="M45 28L47 34H53L48 38L50 44L45 40L40 44L42 38L37 34H43L45 28Z" fill="#facc15"/>
+                <path d="M32 48C38 45 42 46 45 49C48 46 52 45 58 48V56C52 53 48 54 45 57C42 54 38 53 32 56V48Z" fill="#ffffff" stroke="#facc15" stroke-width="1"/>
+                <!-- Ribbon CIANJUR -->
+                <path d="M20 72H70L66 84H24L20 72Z" fill="#facc15" stroke="#ca8a04" stroke-width="1"/>
+                <text x="45" y="80" font-size="7" font-weight="900" fill="#0f172a" text-anchor="middle" font-family="sans-serif">CIANJUR</text>
+              </svg>
+            </div>
+
+            <!-- Shield 4: SMAN 1 WATES (Blue shield, yellow torch wings, WATES banner) -->
+            <div class="shield-badge-item" title="SMAN 1 WATES">
+              <svg class="shield-badge-svg" viewBox="0 0 90 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15C30 15 40 8 45 5C50 8 60 15 78 15C81 48 72 78 45 97C18 78 9 48 12 15Z" fill="#0284c7" stroke="#38bdf8" stroke-width="4"/>
+                <!-- SMAN 1 Top arc -->
+                <rect x="24" y="20" width="42" height="11" rx="3" fill="#0369a1" stroke="#fde047" stroke-width="1.5"/>
+                <text x="45" y="28" font-size="7" font-weight="900" fill="#fef08a" text-anchor="middle" font-family="sans-serif">SMAN 1</text>
+                <!-- Flame Torch Center -->
+                <path d="M45 35C41 42 40 46 45 54C50 46 49 42 45 35Z" fill="#ef4444"/>
+                <path d="M45 40C43 44 43 47 45 51C47 47 47 44 45 40Z" fill="#facc15"/>
+                <path d="M33 46C38 43 42 48 40 56C36 54 33 50 33 46Z" fill="#facc15"/>
+                <path d="M57 46C52 43 48 48 50 56C54 54 57 50 57 46Z" fill="#facc15"/>
+                <!-- WATES Banner -->
+                <path d="M22 68H68L64 80H26L22 68Z" fill="#0284c7" stroke="#fde047" stroke-width="2"/>
+                <text x="45" y="77" font-size="7.5" font-weight="900" fill="#ffffff" text-anchor="middle" font-family="sans-serif">WATES</text>
+              </svg>
+            </div>
+
+            <!-- Shield 5: Universitas Pahlawan Emblem (Red and Blue crest) -->
+            <div class="shield-badge-item" title="UNIVERSITAS PAHLAWAN">
+              <svg class="shield-badge-svg" viewBox="0 0 90 95" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="45" cy="45" r="38" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+                <path d="M30 26C38 26 42 32 42 40C42 48 38 54 30 54H25V26H30Z" fill="#ef4444"/>
+                <path d="M60 26C52 26 48 32 48 40C48 48 52 54 60 54H65V26H60Z" fill="#1d4ed8"/>
+                <path d="M20 56C25 54 35 60 45 60C55 60 65 54 70 56C65 72 55 78 45 78C35 78 25 72 20 56Z" fill="#1e3a8a"/>
+                <text x="45" y="71" font-size="5" font-weight="bold" fill="#ffffff" text-anchor="middle" font-family="sans-serif">UNIVERSITAS</text>
+              </svg>
+            </div>
+
+            <!-- Shield 6: Universitas Jayabaya (Navy & Gold round seal) -->
+            <div class="shield-badge-item" title="UNIVERSITAS JAYABAYA">
+              <svg class="shield-badge-svg" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="45" cy="45" r="41" fill="#0f172a" stroke="#ca8a04" stroke-width="3.5"/>
+                <circle cx="45" cy="45" r="33" fill="#1e293b" stroke="#eab308" stroke-width="1.5"/>
+                <path d="M45 22L50 34H63L52 42L56 55L45 47L34 55L38 42L27 34H40L45 22Z" fill="#eab308"/>
+                <path d="M26 62C32 67 38 69 45 69C52 69 58 67 64 62" stroke="#eab308" stroke-width="2" stroke-linecap="round"/>
+                <text x="45" y="80" font-size="5" font-weight="900" fill="#facc15" text-anchor="middle" font-family="sans-serif">JAYABAYA</text>
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- Full-Width Hero Slider Section (Ruang Tech.png Full Width, Tanpa Tombol) -->
-    <section class="hero-slider-section hero-slider-fullwidth" id="hero">
-      <div class="slider-outer-frame slider-frame-fullwidth">
-        <div class="banner-image-container">
-          <img 
-            src="Ruang%20Tech.png" 
-            alt="Ruang Tech - Platform Ekosistem Software Terpadu" 
-            class="banner-hero-full-img"
-          >
-        </div>
+      <!-- Bottom Angled Wave Transition -->
+      <div class="hero-wave-transition">
+        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+          <path d="M0,0 C480,50 960,10 1440,35 L1440,60 L0,60 Z" fill="#ffffff"></path>
+        </svg>
       </div>
     </section>
 
@@ -803,12 +898,11 @@
     </div>
   </div>
 
-  <!-- Floating WhatsApp Quick Button -->
-  <a href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20mengenai%20pembuatan%20software/website." target="_blank" class="float-wa-btn" aria-label="Konsultasi WhatsApp">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.705 1.754zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.143 4.174 4.186-1.097z"/>
+  <!-- Floating WhatsApp Action Button matching Ruang Seragam -->
+  <a href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20software" target="_blank" class="rs-wa-float-fab" aria-label="WhatsApp Direct">
+    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824zm-3.392-12.416c-5.518 0-10 4.482-10 10 0 1.764.461 3.42 1.267 4.869l-1.344 4.912 5.044-1.323c1.401.765 2.999 1.197 4.697 1.197 5.518 0 10-4.482 10-10s-4.482-10-10-10zm0 18.232c-1.545 0-2.989-.43-4.226-1.176l-.303-.182-2.99.784.798-2.916-.2-.319c-.818-1.299-1.26-2.812-1.26-4.423 0-4.542 3.693-8.235 8.235-8.235 4.543 0 8.235 3.693 8.235 8.235 0 4.542-3.692 8.235-8.235 8.235z"/>
     </svg>
-    <span>Konsultasi WA</span>
   </a>
 
   <script src="app.js"></script>
