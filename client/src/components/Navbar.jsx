@@ -119,12 +119,15 @@ export default function Navbar({ currentView, setCurrentView, onNavigateToAdmin,
               </button>
             )}
 
-            <button 
+            <a 
+              href="https://wa.me/6281222332376?text=Halo%20Ruang%20Tech,%20saya%20ingin%20konsultasi%20software"
+              target="_blank"
+              rel="noreferrer"
               className="btn-nav-accent desktop-only-btn"
-              onClick={() => scrollToSection('kontak')}
+              style={{ background: '#16a34a', textDecoration: 'none' }}
             >
-              Kontak Kami
-            </button>
+              💬 WA
+            </a>
 
             {/* Mobile Hamburger Toggle Button */}
             <button 

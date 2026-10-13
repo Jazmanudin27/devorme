@@ -160,8 +160,8 @@ a {
 .top-bar {
   background: #ffffff;
   border-bottom: 1px solid var(--border-subtle);
-  padding: 9px 0;
-  font-size: 0.82rem;
+  padding: 6px 0;
+  font-size: 0.76rem;
   color: var(--text-muted);
   position: relative;
   z-index: 101;
@@ -171,44 +171,49 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
 }
 
 .top-bar-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  white-space: nowrap;
 }
 
 .top-bar-badge {
   background: #eff6ff;
   color: var(--accent-blue);
   border: 1px solid #bfdbfe;
-  padding: 3px 12px;
+  padding: 2px 10px;
   border-radius: var(--radius-full);
   font-weight: 700;
-  font-size: 0.74rem;
+  font-size: 0.7rem;
   letter-spacing: 0.2px;
 }
 
 .top-bar-text {
   color: var(--text-muted);
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .top-bar-right {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
+  white-space: nowrap;
 }
 
 .top-bar-link {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   color: var(--text-secondary);
   font-weight: 600;
+  font-size: 0.76rem;
+  white-space: nowrap;
   transition: var(--transition-smooth);
 }
 
@@ -230,7 +235,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-subtle);
@@ -241,50 +246,59 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 56px;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .brand-logo-img {
-  width: 38px;
-  height: 38px;
-  border-radius: 9px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
   object-fit: contain;
-  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 102, 255, 0.18);
 }
 
 .logo-text {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-main);
-  letter-spacing: -0.5px;
+  letter-spacing: -0.4px;
+  white-space: nowrap;
 }
 
 .logo-dot {
   color: var(--accent-blue);
 }
 
-/* Nav Menu: Reduced font size as requested */
+/* Nav Menu: Reduced font size, strict nowrap, elegant spacing */
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
+  flex-shrink: 1;
+  white-space: nowrap;
 }
 
 .nav-link {
   color: #475569;
-  font-size: 0.85rem;           /* Compact & sleek */
+  font-size: 0.78rem;           /* ~12.5px - sleek, compact, fits on 1 line */
   font-weight: 600;
-  letter-spacing: 0.2px;
-  padding: 7px 13px;
+  letter-spacing: 0.15px;
+  padding: 5px 10px;
   border-radius: var(--radius-sm);
+  white-space: nowrap;
+  display: inline-block;
   transition: var(--transition-smooth);
 }
 
@@ -302,7 +316,34 @@ a {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Sleek Compact WA Button in Navbar */
+.btn-wa-nav {
+  background: linear-gradient(135deg, #25d366 0%, #16a34a 100%);
+  color: #ffffff !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  border: none;
+}
+
+.btn-wa-nav:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+  color: #ffffff;
 }
 
 /* Menu Toggle for Mobile */
@@ -312,14 +353,14 @@ a {
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
   cursor: pointer;
-  padding: 8px;
+  padding: 7px;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
 }
 
 .menu-toggle span {
   display: block;
-  width: 20px;
+  width: 18px;
   height: 2px;
   background: var(--text-main);
   transition: 0.3s;
@@ -1832,21 +1873,21 @@ a {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 880px) {
   .top-bar-right {
     display: none;
   }
   .nav-menu {
     display: none;
     position: absolute;
-    top: 64px;
+    top: 56px;
     left: 0;
     right: 0;
     background: #ffffff;
     border-bottom: 1px solid var(--border-subtle);
     flex-direction: column;
-    padding: 20px;
-    gap: 8px;
+    padding: 16px 20px;
+    gap: 6px;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   }
   .nav-menu.open {
